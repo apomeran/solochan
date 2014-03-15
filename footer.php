@@ -1,5 +1,5 @@
 	</div>
-		<div id="footer">
+		<div id="footer" class="givemefont" style="font-size:1.15em;margin-top:20px">
 			<div class="row">
 				<div class="span12">
 					<div class="navbar">

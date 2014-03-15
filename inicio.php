@@ -46,16 +46,17 @@ while($fila = $res->fetch_assoc())
 // 	}
 // }
 ?>
-<div class="row inicio">
-	<div class="span9">
-		<div class="hero-unit" id="hero-der">
-			<h2>Busco Ayuda</h2>
-			<p>Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
-			<h4>&iexcl;Es GRATIS!</h4>
-			<button class="btn btn-warning btn-large btn-publicar">Postear una changuita</button>
+<div class="row inicio givemefont">
+	<div class="span9 ">
+		<div class="hero-unit givemeback" id="hero-der">
+			<h2 class="givemefont">Busco Ayuda</h2>
+			<p style="font-size:1.5em">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
+			<h4 class="givemefont" style="font-size:3.5em">&iexcl;Es GRATIS!</h4>
+			<button class="btn btn-info btn-large btn-publicar givemefont">Postear una changuita</button>
 		</div>
-		<div class="hero-unit">
-			<h2>Quiero trabajar</h2>
+		<div class="hero-unit givemeback">
+			<h2 class="givemefont">Quiero trabajar</h2>
+			<br>
 			<form name="buscar" id="ini-buscar">
 			<input type="hidden" name="categoria" value="0">
 			<input type="hidden" name="subcategoria" value="0">
@@ -63,7 +64,7 @@ while($fila = $res->fetch_assoc())
 			<input type="hidden" name="barrio" value="0">
 		    <div class="btn-group">
 				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-categoria">
-					<p><span class="txt">Eleg&iacute; una Categor&iacute;a</span></p>
+					<p><span class="txt ">Eleg&iacute; una Categor&iacute;a</span></p>
 				</a>
 				<div class="dropdown-menu">
 					<div id="drop-categoria">
@@ -119,9 +120,9 @@ foreach($localidad as $k => $v) {
 			</div>
 			<label for="ini-palabras">Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
 			<input type="text" name="palabras" id="ini-palabras" value="" placeholder="Opcional" class="auto-palabras" />
-			<button class="btn btn-large" id="btn-buscar">Quiero hacer una changuita</button>
+			<button class="btn btn-large givemefont" id="btn-buscar">Quiero hacer una changuita</button>
 			</form>
-			<button class="btn btn-link" id="btn-ver-todas">Ver todas las changuitas</button>
+			<button class="btn btn-link givemefont" id="btn-ver-todas">Ver todas las changuitas</button>
 		</div>
 	</div>
 </div>

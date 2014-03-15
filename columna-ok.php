@@ -68,7 +68,7 @@ else if($fila["sexo"] == 2)
 	$bienvenido = "Bienvenido";
 ?>
 <div id="fb-root"></div>
-<div id="columna-ok">
+<div id="columna-ok" class="givemefont" style="font-size: 1.1em; margin-left:15px;">
 	<ul>
 		<li>&iexcl;<?php echo $bienvenido ?>, <strong><?php echo $fila["nombre"] ?></strong>!</li>
 <?php

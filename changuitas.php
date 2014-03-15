@@ -43,9 +43,9 @@ $barrios = array();
 while($fila = $res->fetch_assoc())
 	$barrios[$fila["id"]] = $fila["barrio"];
 ?>
-<div class="row">
-	<div class="span9">
-		<h3>Buscador de changuitas</h3>
+<div class="row givemefont">
+	<div class="span9 givemefont">
+		<h3 class="givemefont">Buscador de changuitas</h3>
 		<div id="changuitas-filtros">
 			<form name="buscar" id="changuitas-buscar">
 			<div class="row">
@@ -152,8 +152,8 @@ foreach($barrios as $k => $v) {
 				</div>
 				<div class="span3 center">
 					<label>&nbsp;</label>
-					<button class="btn btn-success" id="btn-buscar-changuitas">Buscar</button>
-					<button class="btn btn-link" id="btn-changuitas-todas">Ver todas las changuitas</button>
+					<button class="btn btn-info givemefont" id="btn-buscar-changuitas">Buscar</button>
+					<button class="btn btn-link givemefont" id="btn-changuitas-todas">Ver todas las changuitas</button>
 				</div>
 			</div>
 			</form>

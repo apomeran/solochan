@@ -99,8 +99,8 @@ $subcategoria = array();
 while($fila = $res->fetch_assoc())
 	$subcategoria[$fila["categoria"]][$fila["id"]] = $fila["subcategoria"];
 ?>
-<h3>Datos del usuario</h3>
-<form class="form-horizontal" id="datos-usuarios">
+<h3 class="givemefont">Datos del usuario</h3>
+<form class="form-horizontal givemefont" id="datos-usuarios">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
 	<p class="legend2">Complet&aacute; esta informaci&oacute;n para luego encontrar las changuitas que necesit&aacute;s con mayor facilidad, sin tener que seleccionar de nuevo, por ejemplo, el barrio en el que te encontr&aacute;s. Cuantos m&aacute;s datos completes, m&aacute;s f&aacute;cil ser&aacute; que encuentres lo que busc&aacute;s.</p>
@@ -116,7 +116,7 @@ if(isset($_SESSION[SesionExterno]) && $_SESSION[SesionExterno] == 1) {
 }
 ?>
 	<div class="control-group">
-		<label class="control-label" for="mail">E-mail</label>
+		<label class="control-label" for="mail">* Email</label>
 		<div class="controls">
 			<input type="text" id="mail" name="mail" value="<?php echo $data["mail"] ?>" class="<?php echo $mailClass ?>" <?php echo $mailAttr ?> />
 			<a class="ayuda" title="Este campo es obligatorio. Ten&eacute;s que usar una direcci&oacute;n v&aacute;lida. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
@@ -132,21 +132,21 @@ if(!isset($_SESSION[SesionExterno]) || $_SESSION[SesionExterno] == 0) {
 	}
 ?>
 	<div class="control-group divClave <?php echo $clavesClass ?>">
-		<label class="control-label" for="clave">Contrase&ntilde;a</label>
+		<label class="control-label" for="clave">* Contrase&ntilde;a</label>
 		<div class="controls">
 			<input type="password" id="clave" name="clave" value="" />
 			<a class="ayuda" title="Este campo es obligatorio. Ten&eacute;s que ingresar una contrase&ntilde;a de por lo menos 8 (ocho) caracteres, que pueden ser letras (may&uacute;sculas y min&uacute;sculas) y n&uacute;meros. Ej.: miCLAveS3cr3t4"><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group divClave <?php echo $clavesClass ?>">
-		<label class="control-label" for="clave2">Repetir contrase&ntilde;a</label>
+		<label class="control-label" for="clave2">* Repetir contrase&ntilde;a</label>
 		<div class="controls">
 			<input type="password" id="clave2" name="clave2" value="" />
 			<a class="ayuda" title="Este campo es obligatorio. Ten&eacute;s que ingresar la misma contrase&ntilde;a que en el campo anterior."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group <?php echo $modificarClass ?>">
-		<label class="control-label" for="clave">Contrase&ntilde;a</label>
+		<label class="control-label" for="clave">* Contrase&ntilde;a</label>
 		<div class="controls">
 			<button class="btn btn-link" id="modificarClave">Modificar contrase&ntilde;a</button>
 		</div>
@@ -155,28 +155,28 @@ if(!isset($_SESSION[SesionExterno]) || $_SESSION[SesionExterno] == 0) {
 }
 ?>
 	<div class="control-group">
-		<label class="control-label" for="nombre">Nombre</label>
+		<label class="control-label" for="nombre">* Nombre</label>
 		<div class="controls">
 			<input type="text" id="nombre" name="nombre" value="<?php echo $data["nombre"] ?>" />
 			<a class="ayuda" title="Este campo es obligatorio. Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="apellido">Apellido</label>
+		<label class="control-label" for="apellido">* Apellido</label>
 		<div class="controls">
 			<input type="text" id="apellido" name="apellido" value="<?php echo $data["apellido"] ?>" />
 			<a class="ayuda" title="Este campo es obligatorio. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="dni">DNI</label>
+		<label class="control-label" for="dni">* DNI</label>
 		<div class="controls">
 			<input type="text" id="dni" name="dni" value="<?php echo $data["dni"] ?>" maxlength="8" />
 			<a class="ayuda" title="Este campo es obligatorio. Us&aacute; solo n&uacute;meros, sin puntos"><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="sexo">Sexo</label>
+		<label class="control-label" for="sexo">* Sexo</label>
 		<div class="controls">
 			<select id="sexo" name="sexo">
 				<option value="0">--- elegir ---</option>
@@ -195,14 +195,14 @@ foreach($sexo as $k => $v) {
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="nacimiento">A&ntilde;o de nacimiento</label>
+		<label class="control-label" for="nacimiento">* A&ntilde;o de nacimiento</label>
 		<div class="controls">
 			<input type="text" id="nacimiento" name="nacimiento" value="<?php echo $data["nacimiento"] ?>" maxlength="4" class="span1" />
 			<span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="localidad">Zona</label>
+		<label class="control-label" for="localidad">* Zona</label>
 		<div class="controls">
 			<select id="localidad" name="localidad">
 				<option value="0">--- elegir ---</option>
@@ -230,7 +230,7 @@ if($data["localidad"] == 0) {
 }
 ?>
 	<div class="control-group">
-		<label class="control-label" for="barrio">Localidad / Barrio</label>
+		<label class="control-label" for="barrio">* Localidad / Barrio</label>
 		<div class="controls">
 			<select id="barrio" name="barrio" class="<?php echo $barrioClass ?>" <?php echo $barrioAttr ?>>
 				<option value="0">--- elegir ---</option>
