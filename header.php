@@ -53,7 +53,7 @@
 									<a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
 										&iquest;C&oacute;mo funciona?
 									</a>
-									<a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
+									<a class="menucontainer" href="#/changuitas" rel="address:/changuitas">
 										Ver todas las changuitas
 									</a>
 								</p>

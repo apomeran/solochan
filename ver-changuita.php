@@ -21,7 +21,7 @@ $calificaciones = array("Negativo", "Neutro", "Positivo");
 if(isset($_GET["s"]) && in_array($_GET["s"], $statusPagoValidos))
 	$statusPago = $bd->real_escape_string($_GET["s"]);
 ?>
-<div class="row ver-changuita">
+<div class="row ver-changuita givemefont">
 	<div class="span6">
 <?php
 // datos de la changuita
@@ -190,7 +190,7 @@ $nPr = $resPr->num_rows;
 // denunciar
 $denunciarCh = "";
 if($fila["estado"] == 0 && $propia == 0)
-	$denunciarCh = "<p class='denunciar-ch'><button class='btn-link btn-denunciar-changuita' data-changuita-id='".$fila["id"]."'>Denunciar changuita</button> <a class='ayuda' title='Si te parece que la changuita ofrecida es inadecuada, ofensiva, discriminatoria y/o consider&aacute;s que deber&iacute;a ser eliminada, pod&eacute;s denunciarla. Nuestro equipo la evaluar&aacute; y tomar&aacute; las medidas que correspondan.'><i class='icon-question-sign'></i></a></p>";
+	$denunciarCh = "<p class='denunciar-ch '><button class='btn-link btn-denunciar-changuita' data-changuita-id='".$fila["id"]."'>Denunciar changuita</button> <a class='ayuda' title='Si te parece que la changuita ofrecida es inadecuada, ofensiva, discriminatoria y/o consider&aacute;s que deber&iacute;a ser eliminada, pod&eacute;s denunciarla. Nuestro equipo la evaluar&aacute; y tomar&aacute; las medidas que correspondan.'><i class='icon-question-sign'></i></a></p>";
 if($statusPago > -1) {
 	$classPago = "alert-";
 	$txtPago = "";
@@ -321,7 +321,7 @@ else if($fila["estado"] == 0 && !isset($_SESSION[SesionId]) && $vencida == 0) {
 ?>
 	</div>
 	</div>
-	<div class="span3 columna">
+	<div class="span3 columna givemefont" > 
 		<p class="center"><?php echo $postulados ?></p>
 		<?php echo $botPost ?>
 		<p class="precio">$<?php echo $fila["precio"] ?><br/><small><span>Tu fee (<?php echo Fee*100 ?>%):</span> $<?php echo str_replace(".", ",", sprintf("%01.2f", $fila["precio"]*Fee)) ?></small></p>

@@ -208,9 +208,9 @@ foreach($plan as $k => $v) {
 ?>
 		<label class="plan<?php echo $k ?>">
 			<input type="radio" id="plan<?php echo $k ?>" name="plan" value="<?php echo $k ?>" <?php echo $sel ?> />
-			<div class="plan-nombre"><?php echo $v ?></div>
+			<div class="plan-nombre"><?php echo $v . " ";  ?> <?php for ($i = 1; $i <= $k; $i++){echo '<span class="icon-star"/>';}?></div>
 			<div class="plan-descripcion"><?php echo $planDescripcion[$k] ?></div>
-			<div class="plan-precio">$ <?php echo $planPrecio[$k] ?>,00</div>
+			<div <?php if($k == 1) echo 'class="plan-precio-destacado"'; else echo 'class="plan-precio"';?>> <?php if($planPrecio[$k] == 0) echo "GRATIS"; else echo "$" . $planPrecio[$k] . ",00"; ?></div>
 		</label>
 <?php
 }
@@ -224,6 +224,6 @@ foreach($plan as $k => $v) {
 <p><strong>Garant&iacute;a de satisfacci&oacute;n</strong>: si elegiste un plan pago y la changuita no se realiza o si vence y no ten&eacute;s ning&uacute;n postulante, el dinero que pagaste al momento de publicar se te devolver&aacute; en forma de cr&eacute;dito para que uses dentro del sitio.</p>
 <p><strong>Importante</strong>: si elegiste un plan pago, al hacer click en el bot&oacute;n <em>Postear la changuita</em> te vamos a mostrar las opciones de pago. Si no complet&aacute;s el proceso de pago, la changuita se publicar&aacute; igual y el monto a pagar se te computar&aacute; como deuda.</p>
 <div class="form-actions">
-	<button class="btn btn-success btn-large" id="boton-submit-nueva">Postear la changuita</button>
+	<button class="btn btn-info btn-large" id="boton-submit-nueva">Postear la changuita</button>
 	<span class="help-inline text-error" id="validar"></span>
 </div>

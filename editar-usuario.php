@@ -284,28 +284,28 @@ foreach($educacion as $k => $v) {
 	<div class="control-group">
 		<label class="control-label" for="presentacion">Carta de presentaci&oacute;n<br /><small>Contale brevemente qui&eacute;n sos a tus posibles empleados o empleadores</small></label>
 		<div class="controls">
-			<textarea id="presentacion" name="presentacion" maxlength="500"><?php echo $data["presentacion"] ?></textarea><br/>
+			<textarea id="presentacion" placeholder="Ej: Estudiante de 3er. A&ntilde;o de Comunicaci&oacute;n Social UBA. S&eacute utilizar Adobe Photoshop e Illustator" name="presentacion" maxlength="500"><?php echo $data["presentacion"] ?></textarea><br/>
 			<a class="ayuda" title="M&aacute;ximo 500 caracteres. Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="perfil_fb">Link a tu perfil de Facebook<br /></label>
+		<label class="control-label" for="perfil_fb">Perfil de Facebook<br /></label>
 		<div class="controls">
-			http://<input type="text" id="perfil_fb" name="perfil_fb" value="<?php echo $data["perfil_fb"] ?>" />
+			facebook.com/<input type="text" id="perfil_fb" name="perfil_fb" value="<?php echo $data["perfil_fb"] ?>" />
 			<a class="ayuda" title="Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="perfil_li">Link a tu perfil de LinkedIn<br /></label>
+		<label class="control-label" for="perfil_li">Perfil de LinkedIn<br /></label>
 		<div class="controls">
-			http://<input type="text" id="perfil_li" name="perfil_li" value="<?php echo $data["perfil_li"] ?>" />
+			ar.linkedin.com/in/<input type="text" id="perfil_li" name="perfil_li" value="<?php echo $data["perfil_li"] ?>" />
 			<a class="ayuda" title="Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="perfil_gp">Link a tu perfil de Google+<br /></label>
+		<label class="control-label" for="perfil_gp">Perfil de Google+<br /></label>
 		<div class="controls">
-			http://<input type="text" id="perfil_gp" name="perfil_gp" value="<?php echo $data["perfil_gp"] ?>" />
+			plus.google.com/<input type="text" id="perfil_gp" name="perfil_gp" value="<?php echo $data["perfil_gp"] ?>" />
 			<a class="ayuda" title="Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
@@ -486,7 +486,7 @@ if($id == 0 || $externo == 1) {
 }
 ?>
 	<div class="form-actions">
-		<button class="btn btn-success btn-large" id="boton-submit">Continuar</button>
+		<button class="btn btn-success btn-large" id="boton-submit">Registrarse</button>
 		<span class="help-inline text-error" id="validar"></span>
 	</div>
 	</fieldset>

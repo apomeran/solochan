@@ -21,7 +21,7 @@
 			<div id="header">
 				<div class="row">
 					<div class="span6">
-						<p class="logo"><img src="../img/logo.png" alt="SoloChanguitas" /></p>
+						<p class="logo"><img src="../img/logo2.png" alt="SoloChanguitas" /></p>
 					</div>
 					<div class="span6">
 						<h2 class="head pull-right">Panel del control</h2>

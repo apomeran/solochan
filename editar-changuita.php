@@ -8,7 +8,7 @@ $s->permitir(0);
 include_once("class/funciones.php");
 $f = new Funciones();
 $bd = conectar();
-$sql = "select id, plan, precio, descripcion from planes where activo = '1' order by precio desc";
+$sql = "select id, plan, precio, descripcion from planes where activo = '1' order by precio, plan desc";
 $res = $bd->query($sql);
 $plan = array();
 $planPrecio = array();
@@ -70,7 +70,7 @@ else {
 }
 ?>
 <h3>Changuita</h3>
-<form class="form-horizontal" id="editar-changuita">
+<form class="form-horizontal givemefont givemeback" id="editar-changuita">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
 <?php

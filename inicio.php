@@ -52,7 +52,7 @@ while($fila = $res->fetch_assoc())
 			<h2 class="givemefont">Busco Ayuda</h2>
 			<p style="font-size:1.5em">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
 			<h4 class="givemefont" style="font-size:3.5em">&iexcl;Es GRATIS!</h4>
-			<button class="btn btn-info btn-large btn-publicar givemefont">Postear una changuita</button>
+			<button class="btn btn-info btn-large btn-publicar givemefont">Publicar una changuita</button>
 		</div>
 		<div class="hero-unit givemeback">
 			<h2 class="givemefont">Quiero trabajar</h2>
@@ -120,7 +120,7 @@ foreach($localidad as $k => $v) {
 			</div>
 			<label for="ini-palabras">Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
 			<input type="text" name="palabras" id="ini-palabras" value="" placeholder="Opcional" class="auto-palabras" />
-			<button class="btn btn-large givemefont" id="btn-buscar">Quiero hacer una changuita</button>
+			<button class="btn btn-large givemefont" id="btn-buscar">Buscar una changuita</button>
 			</form>
 			<button class="btn btn-link givemefont" id="btn-ver-todas">Ver todas las changuitas</button>
 		</div>

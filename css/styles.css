@@ -596,13 +596,13 @@ span.inicio-destacadas {
 	border-radius: 15px;
 }
 .plan3 {
-	background-color: #FFD700;
+	background-color: #D8C8C8;
 }
 .plan2 {
-	background-color: #FAEC4D;
+	background-color: #F5D9F1;
 }
 .plan1 {
-	background-color: #ccc;
+	background-color: #CCD6DB;
 }
 .plan-nombre {
 	font-weight: bold;
@@ -615,7 +615,13 @@ span.inicio-destacadas {
 }
 .plan-precio {
 	font-weight: bold;
-	font-size: 1.1em;
+	font-size: 1.3em;
+	float: right;
+	margin-top: -20px;
+}
+.plan-precio-destacado {
+	font-weight: bold;
+	font-size: 1.8em;
 	float: right;
 	margin-top: -20px;
 }

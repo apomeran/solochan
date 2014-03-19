@@ -68,7 +68,7 @@ else if($fila["sexo"] == 2)
 	$bienvenido = "Bienvenido";
 ?>
 <div id="fb-root"></div>
-<div id="columna-ok" class="givemefont" style="font-size: 1.1em; margin-left:15px;">
+<div id="columna-ok" class="givemefont " style="font-size: 1.1em; margin-left:15px;">
 	<ul>
 		<li>&iexcl;<?php echo $bienvenido ?>, <strong><?php echo $fila["nombre"] ?></strong>!</li>
 <?php
@@ -78,7 +78,7 @@ if($_SESSION[SesionNivel] > 0) {
 <?php
 }
 ?>
-		<li class="titulo">Notificaciones<div id="notificacionN"><span class="notificacion badge"><button class="btn-notificaciones"></button></span></div></li>
+		<li class="titulo ">Notificaciones<div id="notificacionN"><span class="notificacion badge"><button class="btn-notificaciones"></button></span></div></li>
 		<li class="titulo">Mi estado</li>
 <?php
 if($fila["balance"] < 0) {
