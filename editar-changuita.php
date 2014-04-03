@@ -4,7 +4,7 @@ header('Pragma: no-cache');
 include_once("includes/config.php");
 include_once("class/seguridad.php");
 $s = new Seguridad();
-$s->permitir(0);
+//$s->permitir(0);
 include_once("class/funciones.php");
 $f = new Funciones();
 $bd = conectar();
@@ -18,10 +18,18 @@ while($fila = $res->fetch_assoc()) {
 	$planPrecio[$fila["id"]] = $fila["precio"];
 	$planDescripcion[$fila["id"]] = $fila["descripcion"];
 }
-$sql = "select balance from usuarios where id = ".$_SESSION[SesionId]." and activo = '2'";
-$res = $bd->query($sql);
-$fila = $res->fetch_assoc();
-$balance = $fila["balance"];
+
+if (isset($_SESSION) && isset($_SESSION[SesionId])){ //ALAN CHANGE TO PUBLISH WITHOUT LOGGIN
+	$sql = "select balance from usuarios where id = ".$_SESSION[SesionId]." and activo = '2'";
+}
+else{
+	
+	$sql = "select balance from usuarios where id = -1 and activo = '2'";
+}
+	$res = $bd->query($sql);
+	$fila = $res->fetch_assoc();
+	$balance = $fila["balance"];
+
 $data = array();
 if(isset($_GET["id"])) {
 	$id = $bd->real_escape_string($_GET["id"]);
@@ -40,10 +48,16 @@ if(isset($_GET["id"])) {
 	$data["palabras"] = array();
 	while($fila = $res->fetch_assoc())
 		$data["palabras"][] = $fila["palabra"];
+	
 }
 else {
 	$id = 0;
-	$sql = "select localidad, barrio from usuarios where id = ".$_SESSION[SesionId];
+	if (isset($_SESSION) && isset($_SESSION[SesionId])){  //ALAN CHANGE TO PUBLISH WITHOUT LOGGIN 
+		$sql = "select localidad, barrio from usuarios where id = ".$_SESSION[SesionId];
+	}
+	else{
+		$sql = "select localidad, barrio from usuarios";
+	}
 	$res = $bd->query($sql);
 	$fila = $res->fetch_assoc();
 	$data["localidad"] = $fila["localidad"];

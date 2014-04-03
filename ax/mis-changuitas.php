@@ -52,7 +52,7 @@ else {
 				$estado = "Pendiente";
 				$estadoDesc = "Todav&iacute;a no eligiste ning&uacute;n postulante para que haga la changuita.";
 				if($nPostulantes > 0)
-					$botElegir = "<button class='btn btn-block btn-warning btn-elegir' data-changuita-id='".$fila["id"]."'>Elegir postulante<div class='cargando hide'><img src='img/cargando.gif' alt='cargando'/></div></button>";
+					$botElegir = "<button class='btn btn-block btn-warning btn-elegir' data-changuita-id='".$fila["id"]."'>Ver todos los postulantes<div class='cargando hide'><img src='img/cargando.gif' alt='cargando'/></div></button>";
 				$botBorrar = "<button class='btn btn-block btn-danger btn-borrar-ch' data-changuita-id='".$fila["id"]."'>Borrar changuita<div class='cargando hide'><img src='img/cargando.gif' alt='cargando'/></div></button>";
 				if($fila["vencida"] == "1") {
 					$botBorrar = "";

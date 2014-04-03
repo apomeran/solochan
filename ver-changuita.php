@@ -66,9 +66,9 @@ if($fila["estado"] == 0) {
 	if(isset($_SESSION[SesionId])) {
 		if($propia == 1 && $vencida == 0) {
 			if($nPostulantes > 0)
-				$botPost = "<button class='btn btn-warning btn-elegir' data-changuita-id='".$fila["id"]."'>Elegir postulante</button>";
+				$botPost = "<button class='btn btn-warning btn-elegir' data-changuita-id='".$fila["id"]."'>Ver todos los postulantes</button>";
 			else
-				$botPost = "<button class='btn btn-warning btn-elegir disabled' disabled>Elegir postulante</button>";
+				$botPost = "<button class='btn btn-warning btn-elegir disabled' disabled>Ver todos los postulantes</button>";
 			$botPost .= "<br/><a class='btn btn-block btn-primary btn-editar' href='#/editar-changuita|".$fila["id"]."' rel='address:/editar-changuita|".$fila["id"]."'>Editar changuita</a>";
 		}
 		else if($vencida == 0) {

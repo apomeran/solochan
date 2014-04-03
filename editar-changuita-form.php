@@ -31,7 +31,7 @@ if($data["localidad"] == "") {
 }
 ?>
 <div class="control-group">
-	<label class="control-label">Zona</label>
+	<label class="control-label">Provincia/Zona</label>
 	<div class="controls">
 		<p class="disabled disabled-corto"><?php echo $data["localidad"] ?></p>
 	</div>

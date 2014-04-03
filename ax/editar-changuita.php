@@ -4,7 +4,7 @@ header('Pragma: no-cache');
 include_once("../includes/config.php");
 include_once("../class/seguridad.php");
 $s = new Seguridad();
-$s->permitir(0);
+//$s->permitir(0); //ALAN CHANGE TO PUBLISH WITHOUT LOGGIN
 if(!isset($_POST["id"]))
 	$s->salir();
 $bd = conectar();
@@ -16,7 +16,11 @@ if($id > 0) {
 		$s->salir();
 	$fila = $res->fetch_assoc();
 }
+if (isset($_SESSION) && isset($_SESSION[SesionId])){ //ALAN CHANGE TO PUBLISH WITHOUT LOGGIN
 $sql = "select balance from usuarios where id = ".$_SESSION[SesionId];
+}else{
+$sql = "select balance from usuarios where id = -1";
+}
 $res = $bd->query($sql);
 $filaBalance = $res->fetch_assoc();
 $balance = $filaBalance["balance"];
@@ -74,7 +78,11 @@ if($id == 0) {
 	$col[] = "fecha";
 	$val[] = "'".$ahora."'";
 	$col[] = "usuario";
-	$val[] = $_SESSION[SesionId];
+	if (isset($_SESSION) && isset($_SESSION[SesionId])){  //ALAN CHANGE TO PUBLISH WITHOUT LOGGIN
+		$val[] = $_SESSION[SesionId];
+	}else{
+		$val[] = -1; //ALAN CHANGE TO PUBLISH WITHOUT LOGGIN
+	}
 	$plan = $bd->real_escape_string($_POST["plan"]);
 	if($plan == 1) {
 		$col[] = "pagado";
@@ -90,35 +98,50 @@ if($id == 0) {
 	$monto = $filaD["precio"];
 	$col[] = "debe";
 	$val[] = $monto;
+	$sql = "delete from changuitas where usuario = 0"; // ALAN CHANGE TO DELETE THE LAST ONE INSERTED WITHOUT REGISTERING
+	$bd->query($sql);
 	$sql = "insert into changuitas (".implode(",", $col).") values (".implode(",", $val).")";
+	
 	if($bd->query($sql)) {
 		$id = $bd->insert_id;
-		// mail y notif de ch nueva
-		include_once("../includes/class.phpmailer.php");
-		include_once("../class/mails.php");
-		$mail = new Mails();
-		$mail->nuevaChanguita($id);
-		include_once("../class/notificaciones.php");
-		$not = new Notificaciones();
-		$not->nuevaChanguita($id);
-		//
-		$data["estado"] = "ok";
-		if($plan > 1) {
-			$data["estado"] = "pagar";
-			if($balance >= $monto) {
-				// pago con credito: pagado a 1, bal -monto
-				$sql = "update changuitas set pagado = '1' where id = $id";
+		//CASO LOGGEADO.
+		if (isset($_SESSION) && isset($_SESSION[SesionId])){ // ALAN CHANGE TO PUBLISH CHANGUITA WIHTOUT LOGGED IN
+			// mail y notif de ch nueva
+			include_once("../includes/class.phpmailer.php");
+			include_once("../class/mails.php");
+			$mail = new Mails();
+			$mail->nuevaChanguita($id);
+			include_once("../class/notificaciones.php");
+			$not = new Notificaciones();
+			$not->nuevaChanguita($id);
+			//
+			$data["estado"] = "ok";
+			if($plan > 1) {
+				$data["estado"] = "pagar";
+				if($balance >= $monto) {
+					// pago con credito: pagado a 1, bal -monto
+					$sql = "update changuitas set pagado = '1' where id = $id";
+					$bd->query($sql);
+					$data["estado"] = "ok";
+				}
+				else if($balance > 0) {
+					// pago parte: cargo dif, bal -monto
+					$sql = "update changuitas set diferencia = ".($monto - $balance)." where id = $id";
+					$bd->query($sql);
+				}
+				$sql = "update usuarios set balance = balance - $monto where id = ".$_SESSION[SesionId];
+				$bd->query($sql);
+				$logb->log($_SESSION[SesionId], $id, $monto*-1, 1);
+			}
+		}
+		else{ //CASO desLOGGEADO.
+			$data["estado"] = "ok";
+			$_SESSION['PublishedCHwithoutReg'] = 1;	
+			if($plan > 1) {
+				$sql = "update changuitas set pagado = '0' where id = $id";
 				$bd->query($sql);
 				$data["estado"] = "ok";
 			}
-			else if($balance > 0) {
-				// pago parte: cargo dif, bal -monto
-				$sql = "update changuitas set diferencia = ".($monto - $balance)." where id = $id";
-				$bd->query($sql);
-			}
-			$sql = "update usuarios set balance = balance - $monto where id = ".$_SESSION[SesionId];
-			$bd->query($sql);
-			$logb->log($_SESSION[SesionId], $id, $monto*-1, 1);
 		}
 	}
 	else

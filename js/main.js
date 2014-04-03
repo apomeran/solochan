@@ -851,6 +851,17 @@ $('#principal').on('change', '#clave', function() {
     }
 });
 */
+$('#principal').on('click', '#notificacionesTodas', function (e) {
+    e.preventDefault();
+    $(' .notificacionesCheck').attr('checked', 'checked');
+    //$(' .notificacionesCheck').parent('label').addClass('btn-success');
+});
+$('#principal').on('click', '#notificacionesNinguna', function (e) {
+    e.preventDefault();
+    $('.notificacionesCheck').removeAttr('checked');
+    //$('.notificacionesCheck').parent('label').removeClass('btn-success');
+});
+
 $('#principal').on('click', '#categoriasTodas', function (e) {
     e.preventDefault();
     $('#categoriasLista .categoriaCheck').attr('checked', 'checked');
@@ -1090,8 +1101,21 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function (e
         $('#procesando').modal('show');
         $.post('ax/editar-changuita.php', $('#editar-changuita').serialize(), function (data) {
             if (data.estado === 'ok') {
-                $.address.path('/changuita|' + data.id);
-                $('#columna').load('columna-ok.php');
+				  $.post('ax/logged.php', {
+						bloqueado: 1
+					}, function (data2) {
+						//$('#procesando').modal('hide');
+						if (data2.estado === 'ok') {          //ALAN CHANGE . CHANGUITA PUBLISHED. REGISTERED!
+							 $.address.path('/changuita|' + data.id);
+							 $('#columna').load('columna-ok.php');
+						} else if (data2.estado === 'bloqueado') {
+							$('#aviso-bloqueado').modal('show');//ALAN CHANGE . CHANGUITA PUBLISHED. NOW REGISTER!
+						} else {
+							$('#aviso-login-changuita-publicated').modal('show');
+						}
+				   }, 'json');
+               // $.address.path('/changuita|' + data.id); //ALAN CHANGE
+               // $('#columna').load('columna-ok.php');   //ALAN CHANGE
             } else if (data.estado === 'pagar') {
                 // PAGO
                 $.post('ax/pagar.php', {
@@ -1364,6 +1388,8 @@ $('#principal').on('click', '#btn-ver-todas', function (e) {
 $('.container').on('click', '.btn-publicar', function (e) {
     e.preventDefault();
     //$('#procesando').modal('show');
+	 $.address.path('/changuita-nueva'); //ALAN CHANGE - Publish without loggin
+	 return;
     $.post('ax/logged.php', {
         bloqueado: 1
     }, function (data) {
@@ -2231,6 +2257,9 @@ $(document).ready(function () {
         show: false
     });
     $('#aviso-login').modal({
+        show: false
+    });
+	$('#aviso-login-changuita-publicated').modal({
         show: false
     });
     $('#denunciar').modal({

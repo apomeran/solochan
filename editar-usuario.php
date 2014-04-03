@@ -65,6 +65,19 @@ else {
 		$data[$v] = 1;
 	$data["categoria"] = array();
 	$data["barrioAviso"] = array();
+	$avisoCheckNp = "";
+	$avisoCheckRech = "";
+	$avisoCheckCa = "";
+	$avisoCheckCal = "";
+	$avisoCheckBal = "";
+	$avisoCheckPr = "";
+	$avisoCheckRes = "";
+	$avisoCheckPv = "";
+	$avisoCheckVe = "";
+    $avisoCheckInv = "";
+	$data["aviso_np"] = 1;
+	$data["aviso_rech"] = $data["aviso_ca"] = $data["aviso_cal"] = $data["aviso_bal"] = $data["aviso_pr"] = $data["aviso_res"] = $data["aviso_pv"] = $data["aviso_ve"] = $data["aviso_inv"] = 0;
+	
 }
 //
 $sexo = array(1=>"Femenino", "Masculino");
@@ -116,6 +129,13 @@ if(isset($_SESSION[SesionExterno]) && $_SESSION[SesionExterno] == 1) {
 }
 ?>
 	<div class="control-group">
+		<label class="control-label" for="nombre">* Nombre y Apellido</label>
+		<div class="controls">
+			<input type="text" id="nombre" name="nombre" value="<?php echo $data["nombre"] ?>" />
+			<a class="ayuda" title="Este campo es obligatorio. Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+		</div>
+	</div>
+	<div class="control-group">
 		<label class="control-label" for="mail">* Email</label>
 		<div class="controls">
 			<input type="text" id="mail" name="mail" value="<?php echo $data["mail"] ?>" class="<?php echo $mailClass ?>" <?php echo $mailAttr ?> />
@@ -131,6 +151,8 @@ if(!isset($_SESSION[SesionExterno]) || $_SESSION[SesionExterno] == 0) {
 		$modificarClass = "hide";
 	}
 ?>
+
+	
 	<div class="control-group divClave <?php echo $clavesClass ?>">
 		<label class="control-label" for="clave">* Contrase&ntilde;a</label>
 		<div class="controls">
@@ -154,18 +176,34 @@ if(!isset($_SESSION[SesionExterno]) || $_SESSION[SesionExterno] == 0) {
 <?php
 }
 ?>
-	<div class="control-group">
-		<label class="control-label" for="nombre">* Nombre</label>
+	
+	<div class="control-group" style="display:none;">
+		<label class="control-label" for="apellido">* Apellido</label>
 		<div class="controls">
-			<input type="text" id="nombre" name="nombre" value="<?php echo $data["nombre"] ?>" />
-			<a class="ayuda" title="Este campo es obligatorio. Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+			<input type="text" id="apellido" name="apellido" value="N/A" />
+			<a class="ayuda" title="Este campo es obligatorio. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="perfil_fb">Perfil de Facebook <br /></label>
+		<div class="controls">
+			facebook.com/<input type="text" id="perfil_fb" name="perfil_fb" value="<?php echo $data["perfil_fb"] ?>" />
+			<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"> <i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="apellido">* Apellido</label>
+		<label class="control-label" for="perfil_li">Perfil de LinkedIn<br /></label>
 		<div class="controls">
-			<input type="text" id="apellido" name="apellido" value="<?php echo $data["apellido"] ?>" />
-			<a class="ayuda" title="Este campo es obligatorio. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+			ar.linkedin.com/in/<input type="text" id="perfil_li" name="perfil_li" value="<?php echo $data["perfil_li"] ?>" />
+			<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"><i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="perfil_gp">Perfil de Google+<br /></label>
+		<div class="controls">
+			plus.google.com/<input type="text" id="perfil_gp" name="perfil_gp" value="<?php echo $data["perfil_gp"] ?>" />
+			<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"><i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
@@ -175,7 +213,7 @@ if(!isset($_SESSION[SesionExterno]) || $_SESSION[SesionExterno] == 0) {
 			<a class="ayuda" title="Este campo es obligatorio. Us&aacute; solo n&uacute;meros, sin puntos"><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="control-group" style="display:none">
 		<label class="control-label" for="sexo">* Sexo</label>
 		<div class="controls">
 			<select id="sexo" name="sexo">
@@ -195,6 +233,13 @@ foreach($sexo as $k => $v) {
 		</div>
 	</div>
 	<div class="control-group">
+		<label class="control-label" for="celular">* Celular</label>
+		<div class="controls">
+			<input type="text" id="celular_area" name="celular_area" value="<?php echo $data["celular_area"] ?>" class="span1" /> <input type="text" id="celular" name="celular" value="<?php echo $data["celular"] ?>" class="inputMenosSpan1" />
+			<a class="ayuda" title="Indic&aacute; primero el n&uacute;mero de &aacute;rea. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+		</div>
+	</div>
+	<div class="control-group">
 		<label class="control-label" for="nacimiento">* A&ntilde;o de nacimiento</label>
 		<div class="controls">
 			<input type="text" id="nacimiento" name="nacimiento" value="<?php echo $data["nacimiento"] ?>" maxlength="4" class="span1" />
@@ -202,7 +247,7 @@ foreach($sexo as $k => $v) {
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="localidad">* Zona</label>
+		<label class="control-label" for="localidad">Provincia/Zona</label>
 		<div class="controls">
 			<select id="localidad" name="localidad">
 				<option value="0">--- elegir ---</option>
@@ -230,7 +275,7 @@ if($data["localidad"] == 0) {
 }
 ?>
 	<div class="control-group">
-		<label class="control-label" for="barrio">* Localidad / Barrio</label>
+		<label class="control-label" for="barrio">Localidad / Barrio</label>
 		<div class="controls">
 			<select id="barrio" name="barrio" class="<?php echo $barrioClass ?>" <?php echo $barrioAttr ?>>
 				<option value="0">--- elegir ---</option>
@@ -248,13 +293,7 @@ foreach($barrio as $k => $v) {
 			<a class="ayuda" title="Primero ten&eacute;s que elegir una opci&oacute;n en el campo anterior."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="celular">Celular</label>
-		<div class="controls">
-			<input type="text" id="celular_area" name="celular_area" value="<?php echo $data["celular_area"] ?>" class="span1" /> <input type="text" id="celular" name="celular" value="<?php echo $data["celular"] ?>" class="inputMenosSpan1" />
-			<a class="ayuda" title="Indic&aacute; primero el n&uacute;mero de &aacute;rea. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-		</div>
-	</div>
+
 	<div class="control-group">
 		<label class="control-label" for="educacion">Nivel de educaci&oacute;n</label>
 		<div class="controls">
@@ -274,10 +313,10 @@ foreach($educacion as $k => $v) {
 			<span class="help-block"></span>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="control-group" style="display:none;">
 		<label class="control-label" for="institucion">Instituci&oacute;n</label>
 		<div class="controls">
-			<input type="text" id="institucion" name="institucion" value="<?php echo $data["institucion"] ?>" />
+			<input type="text" id="institucion" name="institucion" value="N/A" />
 			<span class="help-block"></span>
 		</div>
 	</div>
@@ -288,27 +327,7 @@ foreach($educacion as $k => $v) {
 			<a class="ayuda" title="M&aacute;ximo 500 caracteres. Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="perfil_fb">Perfil de Facebook<br /></label>
-		<div class="controls">
-			facebook.com/<input type="text" id="perfil_fb" name="perfil_fb" value="<?php echo $data["perfil_fb"] ?>" />
-			<a class="ayuda" title="Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="perfil_li">Perfil de LinkedIn<br /></label>
-		<div class="controls">
-			ar.linkedin.com/in/<input type="text" id="perfil_li" name="perfil_li" value="<?php echo $data["perfil_li"] ?>" />
-			<a class="ayuda" title="Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="perfil_gp">Perfil de Google+<br /></label>
-		<div class="controls">
-			plus.google.com/<input type="text" id="perfil_gp" name="perfil_gp" value="<?php echo $data["perfil_gp"] ?>" />
-			<a class="ayuda" title="Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-		</div>
-	</div>
+
 	<div class="control-group">
 		<label class="control-label control-label-sin-margen">Si quer&eacute;s trabajar, &iquest;sobre qu&eacute; categor&iacute;as te gustar&iacute;a recibir las b&uacute;squedas?</label>
 		<div class="controls">
@@ -454,39 +473,48 @@ if($data["aviso_ve"] == 1)
 if($data["aviso_inv"] == 1)
 	$avisoCheckInv = "checked='checked'";
 ?>
+
 <div class="control-group">
+
 	<label class="control-label control-label-sin-margen">Avisos por e-mail<br /><small>Eleg&iacute; qu&eacute; notificaciones quer&eacute;s recibir por e-mail</small></label>
+
 	<div class="controls">
-		<label><input type="checkbox" id="aviso_np" name="aviso_np" value="1" <?php echo $avisoCheckNp ?> /> Hay un nuevo postulante para mi changuita</label>
-		<label><input type="checkbox" id="aviso_rech" name="aviso_rech" value="1" <?php echo $avisoCheckRech ?> /> Una changuita a la que me postul&eacute; fue borrada, venci&oacute; o eligieron a otro para realizarla</label>
-		<label><input type="checkbox" id="aviso_ca" name="aviso_ca" value="1" <?php echo $avisoCheckCa ?> /> Tengo una calificaci&oacute;n pendiente</label>
-		<label><input type="checkbox" id="aviso_cal" name="aviso_cal" value="1" <?php echo $avisoCheckCal ?> /> Me calificaron</label>
-		<label><input type="checkbox" id="aviso_pr" name="aviso_pr" value="1" <?php echo $avisoCheckPr ?> /> Hay una pregunta para mi changuita</label>
-		<label><input type="checkbox" id="aviso_res" name="aviso_res" value="1" <?php echo $avisoCheckRes ?> /> Hay una respuesta para mi pregunta</label>
-		<label><input type="checkbox" id="aviso_pv" name="aviso_pv" value="1" <?php echo $avisoCheckPv ?> /> Una changuita que publiqu&eacute; est&aacute; por vencer</label>
-		<label><input type="checkbox" id="aviso_ve" name="aviso_ve" value="1" <?php echo $avisoCheckVe ?> /> Una changuita que publiqu&eacute; venci&oacute;</label>
-		<label><input type="checkbox" id="aviso_bal" name="aviso_bal" value="1" <?php echo $avisoCheckBal ?> /> Tengo cr&eacute;dito a favor o deuda</label>
-		<label><input type="checkbox" id="aviso_inv" name="aviso_inv" value="1" <?php echo $avisoCheckInv ?> /> Un contacto se sum&oacute; a mi red</label>
+		<button class="btn btn-link" id="notificacionesTodas">Todos</button> | <button class="btn btn-link" id="notificacionesNinguna">Ninguno</button>
+	
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_np" name="aviso_np" value="1" <?php echo $avisoCheckNp ?> /> Hay un nuevo postulante para mi changuita</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_rech" name="aviso_rech" value="1" <?php echo $avisoCheckRech ?> /> Una changuita a la que me postul&eacute; fue borrada, venci&oacute; o eligieron a otro para realizarla</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_ca" name="aviso_ca" value="1" <?php echo $avisoCheckCa ?> /> Tengo una calificaci&oacute;n pendiente</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_cal" name="aviso_cal" value="1" <?php echo $avisoCheckCal ?> /> Me calificaron</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_pr" name="aviso_pr" value="1" <?php echo $avisoCheckPr ?> /> Hay una pregunta para mi changuita</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_res" name="aviso_res" value="1" <?php echo $avisoCheckRes ?> /> Hay una respuesta para mi pregunta</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_pv" name="aviso_pv" value="1" <?php echo $avisoCheckPv ?> /> Una changuita que publiqu&eacute; est&aacute; por vencer</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_ve" name="aviso_ve" value="1" <?php echo $avisoCheckVe ?> /> Una changuita que publiqu&eacute; venci&oacute;</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_bal" name="aviso_bal" value="1" <?php echo $avisoCheckBal ?> /> Tengo cr&eacute;dito a favor o deuda</label>
+		<label><input type="checkbox" class="notificacionesCheck" id="aviso_inv" name="aviso_inv" value="1" <?php echo $avisoCheckInv ?> /> Un contacto se sum&oacute; a mi red</label>
 	</div>
 </div>
 <?php
+
 if($id == 0 || $externo == 1) {
 ?>
 	<div class="control-group">
 		<label class="control-label control-label-sin-margen" for="condiciones">T&eacute;rminos y condiciones</label>
 		<div class="controls">
 			<label>
-				<input type="checkbox" id="condiciones" name="condiciones" value="1" />
+				<input type="checkbox" id="condiciones" checked name="condiciones" value="1" />
 				Declaro que le&iacute; y acepto los <button class="btn-link btn-condiciones">t&eacute;rminos y condiciones de uso</button>
 			</label>
 			<span class="help-block"></span>
 		</div>
 	</div>
 <?php
+$buttonText="Registrarse";
+}else{
+$buttonText="Actualizar perfil";
 }
 ?>
 	<div class="form-actions">
-		<button class="btn btn-success btn-large" id="boton-submit">Registrarse</button>
+		<button class="btn btn-info btn-large" style="width:50%;" id="boton-submit"><?php echo $buttonText ?></button>
 		<span class="help-inline text-error" id="validar"></span>
 	</div>
 	</fieldset>

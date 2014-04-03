@@ -84,6 +84,16 @@ if($id == 0) {
 			$sql = "insert into usuarios (".implode(",", $col).") values (".implode(",", $val).")";
 			if($bd->query($sql)) {
 				$id = $bd->insert_id;
+				
+				/*ALAN CHANGE. ASSOCIATE PUBLICATED CHANGUITA TO REGISTERING USER*/
+				if (isset($_SESSION['PublishedCHwithoutReg']) && $_SESSION['PublishedCHwithoutReg'] = 1){
+					$_SESSION['PublishedCHwithoutReg'] = 0;
+					$sql = "update changuitas set usuario = " . $id . " where usuario = 0";
+					$bd->query($sql);
+				}
+				  
+				/*END ALAN CHANGE*/
+				
 				$_SESSION[SesionTmp] = $id;
 				$data["estado"] = "ok";
 				// mail activacion

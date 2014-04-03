@@ -37,11 +37,11 @@ foreach($categoria as $k => $v) {
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label">Zona</label>
+	<label class="control-label">Provincia/Zona</label>
 	<div class="controls">
-		<select name="localidad" id="changuita-localidad">
+		<select style="width:50%;"name="localidad" id="changuita-localidad">
 			<option value="0">--- elegir ---</option>
-			<option value="-1">Todas</option>
+			<option value="-1">Se puede realizar desde cualquier lugar</option>
 <?php
 foreach($localidad as $k => $v) {
 	$sel = "";
@@ -222,8 +222,8 @@ foreach($plan as $k => $v) {
 <p class="vence-default">Todas las changuitas se mantienen publicadas por un mes como m&aacute;ximo. Por lo tanto, si no eleg&iacute;s un postulante antes, vencer&aacute; el <?php echo $unMes ?>.</p>
 <p class="vence-fecha hide">Esta changuita se mantendr&aacute; publicada hasta el d&iacute;a que definiste como el que hay que hacer la changuita. <span id="vence"></span></p>
 <p><strong>Garant&iacute;a de satisfacci&oacute;n</strong>: si elegiste un plan pago y la changuita no se realiza o si vence y no ten&eacute;s ning&uacute;n postulante, el dinero que pagaste al momento de publicar se te devolver&aacute; en forma de cr&eacute;dito para que uses dentro del sitio.</p>
-<p><strong>Importante</strong>: si elegiste un plan pago, al hacer click en el bot&oacute;n <em>Postear la changuita</em> te vamos a mostrar las opciones de pago. Si no complet&aacute;s el proceso de pago, la changuita se publicar&aacute; igual y el monto a pagar se te computar&aacute; como deuda.</p>
+<p><strong>Importante</strong>: si elegiste un plan pago, al hacer click en el bot&oacute;n <em>Publicar la changuita</em> te vamos a mostrar las opciones de pago. Si no complet&aacute;s el proceso de pago, la changuita se publicar&aacute; igual y el monto a pagar se te computar&aacute; como deuda.</p>
 <div class="form-actions">
-	<button class="btn btn-info btn-large" id="boton-submit-nueva">Postear la changuita</button>
+	<button class="btn btn-info btn-large" id="boton-submit-nueva">Publicar la changuita</button>
 	<span class="help-inline text-error" id="validar"></span>
 </div>
