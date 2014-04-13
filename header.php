@@ -7,7 +7,7 @@
 		<meta name="keywords" content="trabajo trabajar changa changuita clasificados argentina laburo laburar trabajito gratis" />
 		<meta name="robots" content="index,follow" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="author" content="lucianoamor[at]gmail.com" />
+		<meta name="author" content="alan.pome[at]gmail.com" />
 		<title>SoloChanguitas</title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
 		<link type="text/css" rel="stylesheet" href="css/jquery-ui.css" />

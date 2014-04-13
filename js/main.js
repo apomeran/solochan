@@ -352,6 +352,7 @@ function validarContacto() {
 // - login
 
 function FBok(userid) {
+	
     $('#cargando').modal('show');
     $.post('ax/fb.php', {
         id: userid
@@ -375,10 +376,12 @@ function FBok(userid) {
 
 function FBlogin() {
     FB.getLoginStatus(function (response) {
+	 
         if (response.status === 'connected') {
-            FBok(response.authResponse.userID);
+			FBok(response.authResponse.userID);
         } else {
-            FB.login(function (response) {
+		  
+			FB.login(function (response) {
                 if (response.authResponse && response.status === 'connected') {
                     FBok(response.authResponse.userID);
                 }
@@ -579,13 +582,27 @@ $('.container').on('click', '.btn-link', function (e) {
 });
 // Login
 window.fbAsyncInit = function () {
-    FB.init({
+	//LOCAL !
+	/*FB.init({
+        appId: '1423275721261751', // App ID
+        channelUrl: 'includes/fb-channel.php', // Channel File
+        status: true, // check login status
+        cookie: true, // enable cookies to allow the server to access the session
+        xfbml: true // parse XFBML
+    });
+	
+	*/
+	// ONLINE !
+	
+	FB.init({
         appId: '511297335556303', // App ID
         channelUrl: 'includes/fb-channel.php', // Channel File
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true // parse XFBML
     });
+	
+	
     // Additional initialization code here
 };
 // Load the SDK Asynchronously

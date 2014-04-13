@@ -6,6 +6,7 @@ $bd = conectar();
 $userid = $bd->real_escape_string($_POST["id"]);
 $sql = "select id, activo from usuarios where fb_id = $userid";
 $res = $bd->query($sql);
+
 if($res->num_rows == 1) {
 	$fila = $res->fetch_assoc();
 	// si existe en la bbdd y activo: logueo
@@ -30,19 +31,34 @@ else {
 		'appId'  => '511297335556303',
 		'secret' => '574a1a675f22239be84c587f9dda88e6',
 	));
+	
+	$facebooklocal = new Facebook(array(
+		'appId'  => '1423275721261751',
+		'secret' => 'fb128bad83e110f49f368737e2885c8f',
+	));
+	
+	/* LOCAL FIX - COMMENT ON ONLINE VERSION */
+	/*	Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
+	/*	Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
+	/* END LOCAL FIX */ 
+	
+	//$facebook = $facebooklocal;
 	$user = $facebook->getUser();
 	if($user) {
 		try {
 			$user_profile = $facebook->api('/me', 'GET');
 			$fql = "SELECT first_name, last_name, email from user where uid = $user";
 	        $ret_obj = $facebook->api(array('method' => 'fql.query', 'query' => $fql));
-
 	        if($ret_obj[0]['email'] == "") {
 	        	$data["estado"] = "mail";
 	        	echo json_encode($data);
 	        	exit;
 	        }
-
+			
+		//	$response = $facebook->api("/me/friends");
+		//	$response = $facebook->api("/me/inbox");
+		//	var_dump($response);die;
+			
  	        $sql = "select id, dni, activo from usuarios where mail = '".$ret_obj[0]['email']."' and activo != '0'";
 	        $res = $bd->query($sql);
 	        if($res->num_rows == 1) {
