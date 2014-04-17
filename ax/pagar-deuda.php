@@ -11,6 +11,7 @@ $s->permitir(0);
 include_once("../includes/mercadopago.php");
 $bd = conectar();
 $mp = new MP($clientId, $clientSecret);
+
 $ok = 0;
 $nId = 0;
 $nFee = 0;
@@ -64,7 +65,9 @@ $preference_data = array(
         "email" => $fila["mail"]
     )
 );
-$preference = $mp->create_preference ($preference_data);
+$preference = $mp->create_preference($preference_data);
+$preference['response']['init_point'] = $preference['response']['sandbox_init_point'];
 $data["preferencia"] = $preference;
+
 echo json_encode($data);
 ?>
