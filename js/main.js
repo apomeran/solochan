@@ -779,7 +779,7 @@ var datepickerOp = { // para fecha de changuita: de manana a +1mes
     monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
     monthNamesShort: ["Ene", "Feb", "Mar", "Abr", "Mayo", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
     firstDay: 1,
-    maxDate: '+1m',
+    maxDate: '+3m',
     minDate: '+0d',
     //yearRange: '+0:+1',
     showOn: "both",
