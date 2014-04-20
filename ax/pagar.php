@@ -37,6 +37,7 @@ $preference_data = array(
     )
 );
 $preference = $mp->create_preference($preference_data);
+//$preference['response']['init_point'] = $preference['response']['sandbox_init_point'];
 $data["preferencia"] = $preference;
 echo json_encode($data);
 ?>
