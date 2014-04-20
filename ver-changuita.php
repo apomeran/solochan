@@ -169,7 +169,7 @@ else {
 			}
 		}
 		else { // soy contratado
-			$botPost .= "<p>Fuiste el postulante elegido</p>";
+			$botPost .= "<p></p>";
 			if($resCU->num_rows == 0)
 				$datos .= "<p>Todav&iacute;a no calificaste</p><p><button class='btn btn-block btn-success btn-calificar' data-changuita-id='$id'>Calificar<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button></p>";
 			else {

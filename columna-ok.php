@@ -78,7 +78,15 @@ if($_SESSION[SesionNivel] > 0) {
 <?php
 }
 ?>
-		<li class="titulo ">Notificaciones<div id="notificacionN"><span class="notificacion badge"><button class="btn-notificaciones"></button></span></div></li>
+		<li class="titulo ">Notificaciones
+		<div id="notificacionN">
+			<span class="notificacion badge">
+				<button class="btn-notificaciones">
+				</button>
+			</span>
+		</div>
+		
+		</li>
 		<li class="titulo">Mi estado</li>
 <?php
 if($fila["balance"] < 0) {
