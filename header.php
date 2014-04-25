@@ -26,8 +26,18 @@
 		<![endif]-->
 	</head>
 	<body class="body-bg ">
+		<div class="fancyheader">
+				<div class="twocol">
+					<a href="http://danielfiller.com" title="Go Home" class="logo"><img src="http://danielfiller.com/wp-content/themes/portfolio/imgs/logo_home.png" alt="danielfiller.com"></a>
+				</div>
+				<div class="eightcol">
+					<h1 class="h1header">SoloChanguitas <br>Trabajos por los que andas preguntando</h1>
+					<p>I have a passion for the details. I strive to make the design of everyday user experiences <em>come to life</em>.</p>
+					<a href="http://danielfiller.com/work/" title="View My Work" class="button-link">Ver mas</a>
+				</div>
+		</div>
 		<div class="container ">
-		
+			
 			<div id="header" class="" style="margin-bottom:35px;" >
 				<div class="row">
 					<div class="span6">
