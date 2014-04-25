@@ -1,7 +1,7 @@
 <?php
 include_once("includes/config.php");
 ?>
-<div class="wrapper_shadow givemeback" style="margin-left:15px;">
+<div class="givemeback" style="margin-left:15px;">
     <br>
 		<div class="login " >
 		<form id="form-login">

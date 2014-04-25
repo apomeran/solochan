@@ -26,9 +26,9 @@
 		<![endif]-->
 	</head>
 	<body class="body-bg ">
-		<div class="container wrapper_shadow">
+		<div class="container ">
 		
-			<div id="header" >
+			<div id="header" class="" style="margin-bottom:35px;" >
 				<div class="row">
 					<div class="span6">
 						<a href="#/inicio" rel="address:/" class="logo"><img src="img/logo2.png" alt="SoloChanguitas" /></a>

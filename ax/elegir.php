@@ -13,8 +13,9 @@ $bd = conectar();
 $id = $bd->real_escape_string($_POST["id"]);
 $data["html"] = "";
 $educacion = array(1=>"Primario completo", "Primario incompleto", "Primario en curso", "Secundario completo", "Secundario incompleto", "Secundario en curso", "Terciario completo", "Terciario incompleto", "Terciario en curso", "Universitario completo", "Universitario incompleto", "Universitario en curso");
-$sql = "select pos.usuario, usu.nombre, usu.apellido, usu.mail, loc.localidad, bar.barrio, usu.educacion, usu.presentacion, usu.perfil_fb, usu.perfil_li, usu.perfil_gp, cal.calificacion, cal.n, con.confianza from postulaciones as pos left join usuarios as usu on pos.usuario = usu.id left join changuitas as ch on pos.changuita = ch.id left join calificacion as cal on pos.usuario = cal.usuario left join confianza as con on pos.usuario = con.usuario left join localidades as loc on usu.localidad = loc.id left join barrios as bar on usu.barrio = bar.id where pos.changuita = $id and usu.activo = '2' and ch.activo = '1' and ch.estado = '0'";
+$sql = "select pos.usuario, usu.nombre, usu.apellido, usu.fb_id, usu.li_id, usu.mail, loc.localidad, bar.barrio, usu.educacion, usu.presentacion, usu.perfil_fb, usu.perfil_li, usu.perfil_gp, cal.calificacion, cal.n, con.confianza from postulaciones as pos left join usuarios as usu on pos.usuario = usu.id left join changuitas as ch on pos.changuita = ch.id left join calificacion as cal on pos.usuario = cal.usuario left join confianza as con on pos.usuario = con.usuario left join localidades as loc on usu.localidad = loc.id left join barrios as bar on usu.barrio = bar.id where pos.changuita = $id and usu.activo = '2' and ch.activo = '1' and ch.estado = '0'";
 $res = $bd->query($sql);
+
 if($res->num_rows == 0)
 	$data["html"] .= "No hay postulantes";
 else {
@@ -22,6 +23,8 @@ else {
 	if($res->num_rows == 1)
 		$sel = "checked";
 	while($fila = $res->fetch_assoc()) {
+		
+		
 		$sqlR = "select id from changuitas where contratado = ".$fila["usuario"]." and activo = '1' and (estado = '2' or estado = '3')";
 		$resR = $bd->query($sqlR);
 		$nR = $resR->num_rows;
@@ -45,8 +48,15 @@ else {
 			$data["html"] .= "<p>".$educacion[$fila["educacion"]]."</p>";
 		if($fila["presentacion"] != "")
 			$data["html"] .= "<p class='presentacion'>".$fila["presentacion"]."</p>";
-		if($fila["perfil_fb"] != "")
-			$data["html"] .= "<p><img src='img/fb.gif' alt='facebook' /> <a href='http://".$fila["perfil_fb"]."' target='_blank'>Ver perfil</a></p>";
+		if($fila["perfil_fb"] != ""){
+			if ($fila["fb_id"] != 0){
+				//$mutualFriends = $facebook->api('/me/mutualfriends/' . $fila["fb_id"] , 'GET');
+				$mutualFriends = 0;
+				$data["html"] .= "<p><img src='https://graph.facebook.com/".$fila["fb_id"]."/picture' alt='facebook' /> <a href='https://facebook.com/".$fila["perfil_fb"]."' target='_blank'>Ver perfil</a><small> (" . count($mutualFriends['data']) . " amigos en comun)</small></p>";
+			} else{
+				$data["html"] .= "<p><img src='https://graph.facebook.com/".$fila["perfil_fb"]."/picture' alt='facebook' /> <a href='https://facebook.com/".$fila["perfil_fb"]."' target='_blank'>Ver perfil</a></p>";
+			}
+		}
 		if($fila["perfil_li"] != "")
 			$data["html"] .= "<p><img src='img/li.gif' alt='linkedin' /> <a href='http://".$fila["perfil_li"]."' target='_blank'>Ver perfil</a></p>";
 		if($fila["perfil_gp"] != "")

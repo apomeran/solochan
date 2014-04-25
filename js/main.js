@@ -352,12 +352,11 @@ function validarContacto() {
 // - login
 
 function FBok(userid) {
-	
     $('#cargando').modal('show');
     $.post('ax/fb.php', {
         id: userid
     }, function (data) {
-        $('#cargando').modal('hide');
+		$('#cargando').modal('hide');
         if (data.estado === 'ok') {
             $('#columna').load('columna-ok.php');
             if ($('#datos-usuarios').size()) {
@@ -376,7 +375,6 @@ function FBok(userid) {
 
 function FBlogin() {
     FB.getLoginStatus(function (response) {
-	 
         if (response.status === 'connected') {
 			FBok(response.authResponse.userID);
         } else {
@@ -583,7 +581,7 @@ $('.container').on('click', '.btn-link', function (e) {
 // Login
 window.fbAsyncInit = function () {
 	//LOCAL !
-	/*FB.init({
+	FB.init({
         appId: '1423275721261751', // App ID
         channelUrl: 'includes/fb-channel.php', // Channel File
         status: true, // check login status
@@ -591,9 +589,9 @@ window.fbAsyncInit = function () {
         xfbml: true // parse XFBML
     });
 	
-	*/
-	// ONLINE !
 	
+	// ONLINE !
+	/*
 	FB.init({
         appId: '511297335556303', // App ID
         channelUrl: 'includes/fb-channel.php', // Channel File
@@ -601,7 +599,7 @@ window.fbAsyncInit = function () {
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true // parse XFBML
     });
-	
+	*/
 	
     // Additional initialization code here
 };
