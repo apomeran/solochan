@@ -25,17 +25,26 @@
 			<script src="js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
+	<script>
+	function scroll(element,parent){
+		 $(parent).animate({ scrollTop: $(parent).scrollTop() + $(element).offset().top - $(parent).offset().top }, { duration: 'slow', easing: 'swing'});
+		$('html,body').animate({ scrollTop: $(parent).offset().top }, { duration: 1000, easing: 'swing'});
+	}
+	</script>
 	<body class="body-bg ">
 		<div class="fancyheader">
 				<div class="twocol">
-					<a href="http://danielfiller.com" title="Go Home" class="logo"><img src="http://danielfiller.com/wp-content/themes/portfolio/imgs/logo_home.png" alt="danielfiller.com"></a>
+					
 				</div>
 				<div class="eightcol">
-					<h1 class="h1header">SoloChanguitas <br>Trabajos por los que andas preguntando</h1>
-					<p>I have a passion for the details. I strive to make the design of everyday user experiences <em>come to life</em>.</p>
-					<a href="http://danielfiller.com/work/" title="View My Work" class="button-link">Ver mas</a>
+					<h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"><img src="img/logosc.png" alt="solochanguitas.com"></a>SoloChanguitas</div> <br>Trabajos por los que andas preguntando</h1>
+					<p class="subheader"><em>Encontra u ofrece trabajo desde la comodidad tu casa, de manera segura y rapida</em>.</p>
+					<a title="Ver mas" class="button-link" id="another-one" onClick="scroll('#estee', '.container')">Ver mas <i class="icon-header icon-arrow-down"></i></a>
 				</div>
+				
 		</div>
+		<img class="comofuncionapic"src="img/comofunciona.jpg"></img>
+		<hr><hr>
 		<div class="container ">
 			
 			<div id="header" class="" style="margin-bottom:35px;" >
@@ -82,4 +91,4 @@
 				</div>
 			</div>
 			
-			<div class="row">
+			<div class="row" id="estee">

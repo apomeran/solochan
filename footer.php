@@ -1,5 +1,5 @@
 	</div>
-		<img style="margin-top:-20px"src="img/comofunciona.jpg"></img>
+		
 		<div id="footer" class="givemefont" style="font-size:1.15em;margin-top:0px">
 			<div class="row">
 				<div class="span12">
