@@ -112,11 +112,11 @@ $subcategoria = array();
 while($fila = $res->fetch_assoc())
 	$subcategoria[$fila["categoria"]][$fila["id"]] = $fila["subcategoria"];
 ?>
-<h3 class="givemefont">Datos del usuario</h3>
+<h3 class="givemefont">Cuenta</h3>
 <form class="form-horizontal givemefont" id="datos-usuarios">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
-	<p class="legend2">Complet&aacute; esta informaci&oacute;n para luego encontrar las changuitas que necesit&aacute;s con mayor facilidad, sin tener que seleccionar de nuevo, por ejemplo, el barrio en el que te encontr&aacute;s. Cuantos m&aacute;s datos completes, m&aacute;s f&aacute;cil ser&aacute; que encuentres lo que busc&aacute;s.</p>
+	<p class="legend2">Complet&aacute; esta informaci&oacute;n para luego encontrar las changuitas que necesit&aacute;s con mayor facilidad, sin tener que seleccionar de nuevo, por ejemplo, el barrio en el que te encontr&aacute;s. <br> <br><b>Cuantos m&aacute;s datos completes, m&aacute;s f&aacute;cil ser&aacute; que encuentres lo que busc&aacute;s.</b></p>
 <?php
 $mailClass = "";
 $mailAttr = "";
@@ -128,15 +128,16 @@ if(isset($_SESSION[SesionExterno]) && $_SESSION[SesionExterno] == 1) {
 <?php
 }
 ?>
+	<p class="move-me-left"><b>Datos de la cuenta </b><p>
 	<div class="control-group">
-		<label class="control-label" for="nombre">* Nombre y Apellido</label>
+		<label class="control-label" for="nombre">* Nombre Completo</label>
 		<div class="controls">
 			<input type="text" id="nombre" name="nombre" value="<?php echo $data["nombre"] ?>" />
 			<a class="ayuda" title="Este campo es obligatorio. Los dem&aacute;s usuarios podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
-		<label class="control-label" for="mail">* Email</label>
+		<label class="control-label" for="mail">* E-mail</label>
 		<div class="controls">
 			<input type="text" id="mail" name="mail" value="<?php echo $data["mail"] ?>" class="<?php echo $mailClass ?>" <?php echo $mailAttr ?> />
 			<a class="ayuda" title="Este campo es obligatorio. Ten&eacute;s que usar una direcci&oacute;n v&aacute;lida. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
@@ -176,34 +177,13 @@ if(!isset($_SESSION[SesionExterno]) || $_SESSION[SesionExterno] == 0) {
 <?php
 }
 ?>
-	
+	<p class="move-me-left"><b>Datos personales </b><p>
+
 	<div class="control-group" style="display:none;">
 		<label class="control-label" for="apellido">* Apellido</label>
 		<div class="controls">
 			<input type="text" id="apellido" name="apellido" value="N/A" />
 			<a class="ayuda" title="Este campo es obligatorio. Los usuarios que contrates o te contraten podr&aacute;n ver este dato."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-		</div>
-	</div>
-	
-	<div class="control-group">
-		<label class="control-label" for="perfil_fb">Perfil de Facebook <br /></label>
-		<div class="controls">
-			facebook.com/<input type="text" id="perfil_fb" name="perfil_fb" value="<?php echo $data["perfil_fb"] ?>" />
-			<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"> <i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="perfil_li">Perfil de LinkedIn<br /></label>
-		<div class="controls">
-			ar.linkedin.com/in/<input type="text" id="perfil_li" name="perfil_li" value="<?php echo $data["perfil_li"] ?>" />
-			<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"><i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
-		</div>
-	</div>
-	<div class="control-group">
-		<label class="control-label" for="perfil_gp">Perfil de Google+<br /></label>
-		<div class="controls">
-			plus.google.com/<input type="text" id="perfil_gp" name="perfil_gp" value="<?php echo $data["perfil_gp"] ?>" />
-			<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"><i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 	<div class="control-group">
@@ -246,6 +226,56 @@ foreach($sexo as $k => $v) {
 			<span class="help-block"></span>
 		</div>
 	</div>
+	<div id="social-registry" style="display:none">	
+		<div class="control-group">
+			<label class="control-label" for="perfil_fb">Perfil de Facebook <br /></label>
+			<div class="controls">
+				facebook.com/<input type="text" id="perfil_fb" name="perfil_fb" value="<?php echo $data["perfil_fb"] ?>" />
+				<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"> <i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="perfil_li">Perfil de LinkedIn<br /></label>
+			<div class="controls">
+				ar.linkedin.com/in/<input type="text" id="perfil_li" name="perfil_li" value="<?php echo $data["perfil_li"] ?>" />
+				<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"><i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="perfil_gp">Perfil de Google+<br /></label>
+			<div class="controls">
+				plus.google.com/<input type="text" id="perfil_gp" name="perfil_gp" value="<?php echo $data["perfil_gp"] ?>" />
+				<a class="ayuda" title="De esta manera sera mucho mas facil que te contraten"><i class="icon-question-sign"></i> <i class="icon-thumbs-up"></i></a><span class="help-block"></span>
+			</div>
+		</div>
+	</div>
+	<script>
+	 function fade_in_social(origin){
+		 $("#social-question").fadeOut("slow", function() {
+		  
+		 $( "#social-registry" ).fadeIn( "slow", function() {
+			
+		  });
+		 }); 
+	 } 
+	 function fade_in_extra_data(origin){
+		 $("#extra-question").fadeOut("slow", function() {
+		  
+		 $( "#extra-registry" ).fadeIn( "slow", function() {
+			
+		  });
+		 }); 
+	 }
+	</script>
+<p class="move-me-left"><b>Redes Sociales </b><p>
+	Si completas estos datos vas a poder ver los perfiles de las otras personas antes de concretar un trabajo y fijarte qu&eacute; contactos tienen en com&uacute;n.
+	Esto mejora significativamente tus posibilidades de ser contratado o de que se postulen usuarios a las changuitas que public&aacute;s. Si no completas estos datos, no vas a tener acceso a ning&uacute;n perfil social.
+	<div id="social-question" class="move-me-up">
+	<a title="¿Ten&eacute;s redes sociales?"  class="button-link-blue" onclick="fade_in_social(this)">
+	  Agregar redes sociales  <a class="ayuda move-me-right" title="De esta manera sera mucho mas facil que te contraten. Nunca vamos a publicar nada en tu nombre"><i class="icon-question-sign"></i></a><span class="help-block"></span>
+	</a>
+</div>	
+<div id="extra-registry" style="display:none">	
 	<div class="control-group">
 		<label class="control-label" for="localidad">Provincia/Zona</label>
 		<div class="controls">
@@ -318,7 +348,7 @@ foreach($educacion as $k => $v) {
 		<div class="controls">
 			<input type="text" id="institucion" name="institucion" value="N/A" />
 			<span class="help-block"></span>
-		</div>
+		</div> 
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="presentacion">Carta de presentaci&oacute;n<br /><small>Contale brevemente qui&eacute;n sos a tus posibles empleados o empleadores</small></label>
@@ -473,7 +503,17 @@ if($data["aviso_ve"] == 1)
 if($data["aviso_inv"] == 1)
 	$avisoCheckInv = "checked='checked'";
 ?>
+</div>
+<div id="extra-question" class="move-me-up">
+<p class="move-me-left"><b>Datos extra</b><p>
+Pod&eacute;s agregar mas informaci&oacute;n a tu perfil, lo cual mejora tus posibilidades de ser contratado.
+<a title="Agregar mas informacion de busqueda" class="button-link-black" onclick="fade_in_extra_data(this)">
+	  Agregar informaci&oacute;n de b&uacute;squeda 
+	  <a class="ayuda move-me-right" title="De esta manera sera mucho mas facil que te contraten. M&oacute;s datos, mejores resultados."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 
+</a>
+</div>
+	
 <div class="control-group">
 
 	<label class="control-label control-label-sin-margen">Avisos por e-mail<br /><small>Eleg&iacute; qu&eacute; notificaciones quer&eacute;s recibir por e-mail</small></label>

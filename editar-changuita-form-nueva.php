@@ -1,43 +1,72 @@
-<div class="control-group">
-	<label class="control-label">Categor&iacute;a</label>
-	<div class="controls">
-		<select name="categoria" id="changuita-categoria">
-			<option value="0">--- elegir ---</option>
-<?php
-foreach($categoria as $k => $v) {
-?>
-			<option value="<?php echo $k ?>"><?php echo $v ?></option>
-<?php
-}
-?>
-			<option value="-1">&iquest;No encontr&aacute;s lo que busc&aacute;s?</option>
-		</select>
-		<a class="ayuda" title="Este campo es obligatorio."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-		<div id="ini-div-sugerir" class="hide">
-			<input type="text" name="sugerir" id="ini-sugerir" value="" placeholder="Sugerinos la categor&iacute;a que falta" maxlength="100" />
-			<button class="btn btn-primary" id="btn-sugerir">Sugerir</button>
-			<div class="clearfix"></div>
+<script>
+$("#form-changuita-title").text("Nueva Changuita");
+ function fade_in_cat_subcat(){
+		 $("#cat-question").fadeOut("slow", function() {
+		  
+		 $( "#category-subcategory-container" ).fadeIn( "slow", function() {
+				
+		  });
+		 }); 
+  }
+</script>
+<div class="control-group" id="cat-question">
+	<div class="changuita-header-question">
+		<label class="control-label" style="width:100% !important;">&iquest;Qu&eacute; necesit&aacute;s hoy?</label>
+	</div>
+	<div class="controls" style="margin-left: 11% !important;" >
+		<input type="text"style="width: 60% !important; margin-top:15px; text-align:center; font-weight: bold; height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
+		<br><a title="Ver categorias y subcategorias"  style="margin-left:11%" onclick="fade_in_cat_subcat()">
+			  Si no lo encontr&aacutes, buscalo en nuestras opciones
+		</a>
+	</div>
+</div>
+
+
+<div id="category-subcategory-container" style="display:none;">
+	<div class="control-group">
+		<label class="control-label">Categor&iacute;a</label>
+		<div class="controls">
+			<select name="categoria" id="changuita-categoria">
+				<option value="0">--- elegir ---</option>
+	<?php
+	foreach($categoria as $k => $v) {
+	?>
+				<option value="<?php echo $k ?>"><?php echo $v ?></option>
+	<?php
+	}
+	?>
+				<option value="-1">&iquest;No encontr&aacute;s lo que busc&aacute;s?</option>
+			</select>
+			<a class="ayuda" title="Este campo es obligatorio."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+			<div id="ini-div-sugerir" class="hide">
+				<input type="text" name="sugerir" id="ini-sugerir" value="" placeholder="Sugerinos la categor&iacute;a que falta" maxlength="100" />
+				<button class="btn btn-primary" id="btn-sugerir">Sugerir</button>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">Subcategor&iacute;a</label>
+		<div class="controls">
+			<select name="subcategoria" id="changuita-subcategoria" class="disabled" disabled="disabled">
+				<option value="0">--- elegir ---</option>
+			</select>
+			<a class="ayuda" title="Este campo es obligatorio. Primero ten&eacute;s que elegir una opci&oacute;n en el campo anterior."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 		</div>
 	</div>
 </div>
+
 <div class="control-group">
-	<label class="control-label">Subcategor&iacute;a</label>
-	<div class="controls">
-		<select name="subcategoria" id="changuita-subcategoria" class="disabled" disabled="disabled">
-			<option value="0">--- elegir ---</option>
-		</select>
-		<a class="ayuda" title="Este campo es obligatorio. Primero ten&eacute;s que elegir una opci&oacute;n en el campo anterior."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-	</div>
-</div>
-<div class="control-group">
-	<label class="control-label" for="titulo">Nombre de la changuita</label>
+	<label class="control-label" for="titulo">Titulo de la changuita</label>
 	<div class="controls">
 		<input type="text" id="titulo" name="titulo" value="" maxlength="40" />
 			<a class="ayuda" title="Este campo es obligatorio. Ingres&aacute; un texto breve (menos de 40 caracteres) que identifique r&aacute;pidamente tu changuita (m&aacute;s abajo te vamos a pedir una descripci&oacute;n m&aacute;s detallada). Por ej.: Profesor de historia."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</div>
 </div>
+<br>
+<p class="move-me-left"><b>Ubicaci&oacute;n  </b><p>
 <div class="control-group">
-	<label class="control-label">Provincia/Zona</label>
+	<label class="control-label">Provincia/Zona </label>
 	<div class="controls">
 		<select style="width:50%;"name="localidad" id="changuita-localidad">
 			<option value="0">--- elegir ---</option>
@@ -89,13 +118,14 @@ if(count($barriosIni) > 0) {
 		<a class="ayuda" title="Este campo es obligatorio. M&aacute;ximo 1000 caracteres."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</div>
 </div>
-<div class="control-group">
+<div class="control-group" style="display:none;">
 	<label class="control-label" for="palabras">Palabras clave</label>
 	<div class="controls">
 		<input type="text" id="palabras" name="palabras" value="" class="span4" />
 			<a class="ayuda" title="Ingres&aacute; algunas palabras (separadas por comas) para ayudar a los dem&aacute;s a encontrar tu changuita."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</div>
 </div>
+<p class="move-me-left"><b>Horarios </b><p>
 <div class="control-group">
 	<label class="control-label" for="cuando">&iquest;Cu&aacute;ndo hay que hacer la changuita?</label>
 	<div class="controls">
@@ -172,6 +202,7 @@ for($i=0;$i<6;$i++) {
 		<span class="help-block"></span>
 	</div>
 </div>
+<p class="move-me-left"><b>Precio </b><p>
 <div class="control-group">
 	<label class="control-label" for="precio">&iquest;Cu&aacute;nto quer&eacute;s pagar por la changuita?<br /><small>En pesos argentinos</small></label>
 	<div class="controls">
@@ -181,6 +212,7 @@ for($i=0;$i<6;$i++) {
 		<a class="ayuda" title="Este campo es obligatorio. Ingres&aacute; un n&uacute;mero entero, sin centavos. No uses punto, coma ni el signo de pesos. Por ej.: 1234."><i class="icon-question-sign"></i></a><p id="precio-sugerido"></p><span class="help-block"></span>
 	</div>
 </div>
+<p class="move-me-left"><b>Publicaci&oacute;n </b><p>
 <div class="control-group">
 	<label class="control-label control-label-sin-margen">Servicio<br /><small>Eleg&iacute; qu&eacute; servicio de SoloChanguitas quer&eacute;s contratar</small></label>
 	<div class="controls">
