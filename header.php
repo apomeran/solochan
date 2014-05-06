@@ -43,7 +43,7 @@
 				</div>
 				
 		</div>
-		<img class="comofuncionapic"src="img/comofunciona.jpg"></img>
+		<img class="comofuncionapic"src="img/comofunciona2.png"></img>
 		<hr><hr>
 		<div class="container ">
 			
