@@ -116,7 +116,7 @@ while($fila = $res->fetch_assoc())
 <form class="form-horizontal givemefont" id="datos-usuarios">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
-	<p class="legend2">Complet&aacute; esta informaci&oacute;n para luego encontrar las changuitas que necesit&aacute;s con mayor facilidad, sin tener que seleccionar de nuevo, por ejemplo, el barrio en el que te encontr&aacute;s. <br> <br><b>Cuantos m&aacute;s datos completes, m&aacute;s f&aacute;cil ser&aacute; que encuentres lo que busc&aacute;s.</b></p>
+	<p class="legend2">Complet&aacute; esta informaci&oacute;n para luego encontrar las changuitas que necesit&aacute;s con mayor facilidad, sin tener que seleccionar de nuevo, por ejemplo, el barrio en el que te encontr&aacute;s. <br> <br><b>-Cuantos m&aacute;s datos completes, m&aacute;s f&aacute;cil ser&aacute; que encuentres lo que busc&aacute;s-</b></p>
 <?php
 $mailClass = "";
 $mailAttr = "";
@@ -226,6 +226,7 @@ foreach($sexo as $k => $v) {
 			<span class="help-block"></span>
 		</div>
 	</div>
+	<p class="move-me-left"><b>Redes Sociales </b><p>
 	<div id="social-registry" style="display:none">	
 		<div class="control-group">
 			<label class="control-label" for="perfil_fb">Perfil de Facebook <br /></label>
@@ -267,14 +268,17 @@ foreach($sexo as $k => $v) {
 		 }); 
 	 }
 	</script>
-<p class="move-me-left"><b>Redes Sociales </b><p>
-	Si completas estos datos vas a poder ver los perfiles de las otras personas antes de concretar un trabajo y fijarte qu&eacute; contactos tienen en com&uacute;n.
-	Esto mejora significativamente tus posibilidades de ser contratado o de que se postulen usuarios a las changuitas que public&aacute;s. Si no completas estos datos, no vas a tener acceso a ning&uacute;n perfil social.
+
+	
 	<div id="social-question" class="move-me-up">
+	<br>
+	<p>Si completas estos datos vas a poder ver los perfiles de las otras personas antes de concretar un trabajo y fijarte qu&eacute; contactos tienen en com&uacute;n.
+	Esto mejora significativamente tus posibilidades de ser contratado o de que se postulen usuarios a las changuitas que public&aacute;s. Si no completas estos datos, no vas a tener acceso a ning&uacute;n perfil social.</p>
 	<a title="¿Ten&eacute;s redes sociales?"  class="button-link-blue" onclick="fade_in_social(this)">
 	  Agregar redes sociales  <a class="ayuda move-me-right" title="De esta manera sera mucho mas facil que te contraten. Nunca vamos a publicar nada en tu nombre"><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</a>
 </div>	
+<p class="move-me-left"><b>Datos extra</b><p>
 <div id="extra-registry" style="display:none">	
 	<div class="control-group">
 		<label class="control-label" for="localidad">Provincia/Zona</label>
@@ -446,7 +450,22 @@ foreach($localidad as $k => $v) {
 			<span class="help-block"></span>
 		</div>
 	</div>
+
+
+</div>
+
+<div id="extra-question" class="move-me-up">
+<br>
+<p>Pod&eacute;s agregar mas informaci&oacute;n a tu perfil, lo cual mejora tus posibilidades de ser contratado.</p>
+<a title="Agregar mas informacion de busqueda" class="button-link-black" onclick="fade_in_extra_data(this)">
+	  Agregar informaci&oacute;n de b&uacute;squeda 
+	  <a class="ayuda move-me-right" title="De esta manera sera mucho mas facil que te contraten. M&oacute;s datos, mejores resultados."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+
+</a>
+</div>
+<p class="move-me-left"><b>Notificaciones</b><p>
 	<div class="control-group">
+	
 		<label class="control-label control-label-sin-margen">E-mails con changuitas nuevas<br /><small>Eleg&iacute; cada cu&aacute;nto quer&eacute;s recibir e-mails con las nuevas changuitas publicadas en las categor&iacute;as que elegiste</small></label>
 		<div class="controls">
 <?php
@@ -502,18 +521,7 @@ if($data["aviso_ve"] == 1)
 	$avisoCheckVe = "checked='checked'";
 if($data["aviso_inv"] == 1)
 	$avisoCheckInv = "checked='checked'";
-?>
-</div>
-<div id="extra-question" class="move-me-up">
-<p class="move-me-left"><b>Datos extra</b><p>
-Pod&eacute;s agregar mas informaci&oacute;n a tu perfil, lo cual mejora tus posibilidades de ser contratado.
-<a title="Agregar mas informacion de busqueda" class="button-link-black" onclick="fade_in_extra_data(this)">
-	  Agregar informaci&oacute;n de b&uacute;squeda 
-	  <a class="ayuda move-me-right" title="De esta manera sera mucho mas facil que te contraten. M&oacute;s datos, mejores resultados."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-
-</a>
-</div>
-	
+?>		
 <div class="control-group">
 
 	<label class="control-label control-label-sin-margen">Avisos por e-mail<br /><small>Eleg&iacute; qu&eacute; notificaciones quer&eacute;s recibir por e-mail</small></label>
