@@ -118,11 +118,13 @@ foreach($localidad as $k => $v) {
 					</div>
 				</div>
 			</div>
-			<label for="ini-palabras">Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
-			<input type="text" name="palabras" id="ini-palabras" value="" placeholder="Opcional" class="auto-palabras" />
-			<button class="btn btn-large givemefont" id="btn-buscar">Buscar una changuita</button>
+			<div style="visibility:hidden;">
+				<label for="ini-palabras">Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
+				<input type="text" name="palabras" id="ini-palabras" value="" placeholder="Opcional" class="auto-palabras" />
+			</div>
+			<button class="btn btn-large givemefont" style="margin-top:-7px !important;" id="btn-buscar">Buscar una changuita</button>
 			</form>
-			<button class="btn btn-link givemefont" id="btn-ver-todas">Ver todas las changuitas</button>
+			<button class="btn btn-link givemefont"  id="btn-ver-todas">Ver todas las changuitas</button>
 		</div>
 	</div>
 </div>

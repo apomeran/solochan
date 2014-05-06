@@ -1,5 +1,23 @@
 /*ALAN AGREGADO*/
 
+.move-me-left{
+	margin-left: -10px;
+}
+.move-me-right{
+	margin-left: 6px;
+}
+
+.move-me-up{
+	margin-top: -17px;
+}
+.move-me-down{
+	margin-top: 15px;
+}
+.changuita-header-question{
+	font-size: 1.5em;
+	margin-left: 25%;	
+}
+
 .wrapper_shadow {
 -webkit-box-shadow: 0 20px 30px 3px rgba(0,0,0,0.2);
 -moz-box-shadow: 0 20px 30px 3px rgba(0,0,0,0.2);
@@ -49,6 +67,42 @@ margin-top: 4px;
 margin: 20px auto 3em 0;
 color: #FFF;
 background: #FD661E!important; 
+-webkit-border-radius: 3px !important;
+padding: .5em .9em;
+-webkit-transition: .2s ease-in-out all !important;
+text-transform: uppercase;
+border: none;
+color: #FFF;
+font-weight: 700;
+display: inline-block;
+font-style: normal;
+text-decoration: none !important;
+cursor: auto;
+text-shadow: none;
+}
+
+.button-link-black{
+margin: 20px auto 3em 0;
+color: #FFF;
+background: #2C2C2B!important; 
+-webkit-border-radius: 3px !important;
+padding: .5em .9em;
+-webkit-transition: .2s ease-in-out all !important;
+text-transform: uppercase;
+border: none;
+color: #FFF;
+font-weight: 700;
+display: inline-block;
+font-style: normal;
+text-decoration: none !important;
+cursor: auto;
+text-shadow: none;
+}
+
+.button-link-blue{
+margin: 20px auto 3em 0;
+color: #FFF;
+background: #477E8B!important; 
 -webkit-border-radius: 3px !important;
 padding: .5em .9em;
 -webkit-transition: .2s ease-in-out all !important;
