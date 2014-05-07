@@ -27,13 +27,13 @@ class Destacadas {
 		$res = $this->bd->query($sql);
 		if($res->num_rows == 0)
 			return;
-		$html .= "<div class='destacadas-cont'><div class='destacadas' id='d$plan-$cat'>";
+		$html .= "<div class='destacadas-cont givemefont'><div class='destacadas' id='d$plan-$cat'>";
 		while($fila = $res->fetch_assoc()) {
 			if($cat == 0)
 				$categoria = "<h6>".$fila["categoria"]." &gt ".$fila["subcategoria"]."</h6>";
 			else
 				$categoria = "<h6>".$fila["subcategoria"]."</h6>";
-			$html .= "<div class='destacada' data-changuita-id='".$fila["id"]."'>$categoria<h5>".$fila["titulo"]."</h5><span class='precio'>$".$fila["precio"]."</span><a class='btn ver-mas' href='#/changuita|".$fila["id"]."' rel='address:/changuita|".$fila["id"]."' data-changuita-id='".$fila["id"]."' data-changuita-plan='$plan'>Ver m&aacute;s</a></div>";
+			$html .= "<div class='destacada' data-changuita-id='".$fila["id"]."'>$categoria<h5>".$fila["titulo"]."</h5><span class='precio'>$".$fila["precio"]."</span><a class='btn ver-mas btn-info btn-publicar givemefont' href='#/changuita|".$fila["id"]."' rel='address:/changuita|".$fila["id"]."' data-changuita-id='".$fila["id"]."' data-changuita-plan='$plan'>Ver m&aacute;s</a></div>";
 		}
 		$html .= "</div><button class='carousel-prev' id='carousel-prev-$plan-$cat'></button><button class='carousel-next' id='carousel-next-$plan-$cat'></button></div>
 <script>

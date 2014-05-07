@@ -26,17 +26,19 @@
 		<![endif]-->
 	</head>
 	<script>
+
 	function scroll(element,parent){
 		 $(parent).animate({ scrollTop: $(parent).scrollTop() + $(element).offset().top - $(parent).offset().top }, { duration: 'slow', easing: 'swing'});
 		$('html,body').animate({ scrollTop: $(parent).offset().top }, { duration: 1000, easing: 'swing'});
 	}
+	
 	</script>
-	<body class="body-bg ">
+	<body class="body-bg fadein">
 		<div class="fancyheader">
 				<div class="twocol">
 					
 				</div>
-				<div class="eightcol">
+				<div class="eightcol ">
 					<h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"><img src="img/logosc.png" alt="solochanguitas.com"></a>SoloChanguitas</div> <br>Trabajos por los que andas preguntando</h1>
 					<p class="subheader"><em>Encontra u ofrece trabajo desde la comodidad tu casa, de manera segura y rapida</em>.</p>
 					<a title="Ver mas" class="button-link" id="another-one" onClick="scroll('#estee', '.container')">Ver mas <i class="icon-header icon-arrow-down"></i></a>

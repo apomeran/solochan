@@ -1,3 +1,22 @@
+<?php
+$sql = "select categoria, id from categorias WHERE activo = '1' order by categoria ";
+$res = $bd->query($sql);
+$sql2 = "select subcategoria, id, categoria from subcategorias WHERE activo = '1' order by subcategoria";
+$res2 = $bd->query($sql2);
+$arreglo_php = array();
+
+if($res->num_rows == 0 && $res2->num_rows == 0)
+   array_push($arreglo_php, "No hay datos");
+else{
+  while($palabras = $res->fetch_assoc()){
+    array_push($arreglo_php, $palabras["categoria"]);
+  }
+  while($palabras = $res2->fetch_assoc()){
+    array_push($arreglo_php, $palabras["subcategoria"]);
+  }
+
+}  
+?>
 <script>
 $("#form-changuita-title").text("Nueva Changuita");
  function fade_in_cat_subcat(){
@@ -7,14 +26,17 @@ $("#form-changuita-title").text("Nueva Changuita");
 				
 		  });
 		 }); 
-  }
+ }
+
+ 
 </script>
+
 <div class="control-group" id="cat-question">
 	<div class="changuita-header-question">
 		<label class="control-label" style="width:100% !important;">&iquest;Qu&eacute; necesit&aacute;s hoy?</label>
 	</div>
 	<div class="controls" style="margin-left: 11% !important;" >
-		<input type="text"style="width: 60% !important; margin-top:15px; text-align:center; font-weight: bold; height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
+		<input id="subcat_cat_search" type="text" style="width: 60% !important; margin-top:15px; text-align:center; font-weight: bold; height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
 		<br><a title="Ver categorias y subcategorias"  style="margin-left:11%" onclick="fade_in_cat_subcat()">
 			  Si no lo encontr&aacutes, buscalo en nuestras opciones
 		</a>
@@ -57,7 +79,7 @@ $("#form-changuita-title").text("Nueva Changuita");
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="titulo">Titulo de la changuita</label>
+	<label class="control-label" for="titulo">Nombre para la changuita</label>
 	<div class="controls">
 		<input type="text" id="titulo" name="titulo" value="" maxlength="40" />
 			<a class="ayuda" title="Este campo es obligatorio. Ingres&aacute; un texto breve (menos de 40 caracteres) que identifique r&aacute;pidamente tu changuita (m&aacute;s abajo te vamos a pedir una descripci&oacute;n m&aacute;s detallada). Por ej.: Profesor de historia."><i class="icon-question-sign"></i></a><span class="help-block"></span>
