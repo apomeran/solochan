@@ -42,8 +42,10 @@ if($fila["vencida"] == 1)
 	$vencida = 1;
 // propia?
 $propia = 0;
-if(isset($_SESSION[SesionId]) && $_SESSION[SesionId] == $fila["usuario"])
+if(isset($_SESSION[SesionId]) && $_SESSION[SesionId] == $fila["usuario"]){
+	//echo '<h2 style="font-size: 17px; text-align: center; width: 100% !important"><p> -Asi se visualiza tu changuita en el sitio- </p></h2>';
 	$propia = 1;
+}
 $soyContratado = 0;
 if(isset($_SESSION[SesionId]) && $fila["contratado"] == $_SESSION[SesionId])
 	$soyContratado = 1;
@@ -145,8 +147,13 @@ else {
 	if($fila["estado"] == 1) {
 		if($soyContratado == 1)
 			$botPost .= "<h4>Changuita en curso</h4><p>&iexcl;Sos el postulante elegido!</p>";
-		else
-			$botPost .= "<h4>Changuita en curso</h4><p>Ya hay un postulante elegido y en este momento est&aacute; haciendo la changuita</p>";
+		else{
+			if ($propia == 1){
+			 $botPost .= "<h4>&iexcl;Felicitaciones!</h4><p>Ya elegiste a un postulante.</p><p> <b>Contact&aacute;lo para concretar la changuita</b></p><p>Nombre: <b>". $fila2['nombre'] . "</b></p><p> Tel&eacute;fono:<b> (" . $fila2['celular_area'] . ") " . $fila2['celular'] . '</b>';
+			} else {
+			 $botPost .= "<h4>Changuita en curso</h4><p>Ya hay un postulante elegido y en este momento est&aacute; haciendo la changuita</p>";
+			}
+		}
 	}
 	else
 		$botPost .= "<h4>Changuita finalizada</h4>";
@@ -336,7 +343,15 @@ else if($fila["estado"] == 0 && !isset($_SESSION[SesionId]) && $vencida == 0) {
 			}
 			?>
 		</p>
-		<?php echo $datos ?>
+		
+		<?php if($propia == 1){
+			$datos_propios = "<p class='center'>Tu changuita fue publicada el ".$f->convertirMuestra($fila["fecha"], "fecha")."<br /> (hace ".$f->convertirMuestra($fila["fecha"], "hace").")</p>";
+		//	$datos_propios .= "<div class='datos-usuario'><h4 class='center'>Datos del usuario</h4></div>";
+			echo $datos_propios;
+		}else{
+			echo $datos;
+		 }  
+		?>
 	</div>
 </div>
 <script type="text/javascript" src="https://apis.google.com/js/platform.js">
