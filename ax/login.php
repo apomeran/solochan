@@ -17,12 +17,25 @@ if($res->num_rows == 1) {
 	$t_hasher = new PasswordHash(HashCost, FALSE);
 	$check = $t_hasher->CheckPassword($clave, $fila["clave"]);
 	if($check) {
+		
+		  
 		$_SESSION[SesionId] = $fila["id"];
 		$_SESSION[SesionNivel] = $fila["nivel"];
 		$_SESSION[SesionExterno] = 0;
 		if(isset($_SESSION[SesionTmp]))
 			unset($_SESSION[SesionTmp]);
 		$data["estado"] = "ok";
+		if ($_SESSION['PublishedCHwithoutReg'] == 1){
+		    $_SESSION['PublishedCHwithoutReg'] = 0;
+			$sql_set_user = "UPDATE changuitas SET activo = '1', usuario = " . $fila['id'] . " WHERE activo = '0' AND usuario = 0";
+			$bd->query($sql_set_user);
+			$sql_get_changuita_last_id = "SELECT MAX(id) as chang_id FROM changuitas WHERE activo = '1' AND usuario = " . $fila['id'];
+			$chang_res = $bd->query($sql_get_changuita_last_id);
+			$chang_row = $chang_res->fetch_assoc();
+			$chang_id = $chang_row['chang_id'];
+			$data["estado"] .= "$chang_id";
+		}
+		
 	}
 	else
 		$data["estado"] = "error clave";

@@ -16,7 +16,10 @@ function esMail(txt) {
     }
     return true;
 }
-
+function enableButton(){
+	document.getElementById("boton-submit-nueva").disabled = '';
+	document.getElementById("boton-submit-nueva").className = 'btn btn-info btn-large';
+}
 function esClave(txt) {
     var clave = $.trim(txt);
     if (clave === '') {
@@ -265,7 +268,7 @@ function validarChanguita() {
         errorChanguita++;
     }
     if ($('#changuita-localidad option:selected').val() === 0) {
-        $('#changuita-localidad').parent().parent().addClass('error');
+		$('#changuita-localidad').parent().parent().addClass('error');
         $('#changuita-localidad').siblings('span').html('Ten&eacute;s que elegir una opci&oacute;n');
         errorChanguita++;
     }
@@ -647,12 +650,20 @@ $('#columna').on('submit', '#form-login', function (e) {
     $('#procesando').modal('show');
     $.post('ax/login.php', $(this).serialize(), function (data) {
         $('#procesando').modal('hide');
+		var chang_id_ok = data.estado.substr(0, 2);
+		if (chang_id_ok == 'ok'){
+			var chang_id = data.estado.substr(2);
+			data.estado = 'ok';
+		}
         if (data.estado === 'ok') {
             $.address.update();
             $('#columna').load('columna-ok.php');
             if ($('#datos-usuarios').size()) {
                 $.address.path('/inicio');
             }
+			if(chang_id !== undefined){
+				$.address.path('/changuita|' + chang_id);
+			}
         } else {
             $('#login-usuario').addClass('input-error').val('');
             $('#login-clave').addClass('input-error').val('');
@@ -754,6 +765,10 @@ $('#principal').on('click', '#btn-contrasena-nueva', function (e) {
     $('#contrasena-nueva').submit();
 });
 $('#btn-modal-login').click(function () {
+    $('#columna-login').css('border-color', '#FF496F');
+    $('#login-usuario').focus();
+});
+$('#btn-modal-login-2').click(function () {
     $('#columna-login').css('border-color', '#FF496F');
     $('#login-usuario').focus();
 });
@@ -969,6 +984,9 @@ $('#principal').on('blur', '#editar-changuita .validar', function () {
     $(this).removeClass('validar');
     validarChanguita();
 });
+
+
+
 $('#principal').on('change', '#cuando_fecha', function () {
     $(this).removeClass('validar');
     validarChanguita();

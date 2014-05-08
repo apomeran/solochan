@@ -56,7 +56,7 @@
 			<p><b>Los datos de tu Changuita que acab&aacutes de publicar estar&aacuten disponibles cuando crees tu cuenta</b></p>
 		</div>
 		<div class="modal-footer">
-			<a href="#/editar-usuario" rel="address:/editar-usuario" class="btn btn-success aviso-login-cerrar" data-dismiss="modal">Registrate</a> &nbsp; &nbsp; <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-login">Inici&aacute; sesi&oacute;n</button> &nbsp; &nbsp; <button class="btn btn-link" data-dismiss="modal">Cerrar</button>
+			<a href="#/editar-usuario" rel="address:/editar-usuario" class="btn btn-success aviso-login-cerrar" data-dismiss="modal">Registrate</a> &nbsp; &nbsp; <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-login-2">Inici&aacute; sesi&oacute;n</button> &nbsp; &nbsp; <button class="btn btn-link" data-dismiss="modal" onclick="enableButton()">Cerrar</button>
 		</div>
 	</div>
 	<div id="aviso-bloqueado" class="modal hide fade" tabindex="-1">
@@ -114,7 +114,7 @@
 			<h3>Atenci&oacute;n</h3>
 		</div>
 		<div class="modal-body">
-			<p>&iquest;Est&aacute;s seguro de cancelar tu postulaci&oacute;n?</p>
+			<p>&iquest;Est&aacute;s seguro de realizar esta acci&oacute;n?</p>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-success btn-confirmar-ok" data-dismiss="modal">Aceptar</button> &nbsp; &nbsp; <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>

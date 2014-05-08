@@ -32,10 +32,11 @@ $(function() {
 					"font-size": "1.1em"
 				});
 			},
-			minLength: 4,
+			minLength: 2,
 			select: function(event, ui) {
 				var compound = ui.item.value;
-				var subcat_id = compound.substr(0, compound.indexOf('-')); 
+				var subcat_id =
+				compound.substr(0, compound.indexOf('-')); 
 				var cat_id = compound.substr(compound.indexOf('-') + 1); 
 				$("#changuita-categoria").val(cat_id);
 				$('#changuita-subcategoria').prop('disabled', false);
@@ -43,6 +44,15 @@ $(function() {
 				$("#changuita-subcategoria").val(subcat_id);
 				$("#subcat_cat_search").val(ui.item.label);
 				return false;
+			},
+			change: function(event, ui) {
+				if (ui.item == null) {
+					$("#subcat_cat_search").css('border-color', 'red');
+				} else {
+					$("#subcat_cat_search").css('border-color', '');
+					//$("#the-question").append('<i class="icon-question-sign"></i>'); ADD TICKS! 
+
+				}
 			}
 		});
 	
