@@ -48,7 +48,7 @@
 	</div>
 	<div id="aviso-login-changuita-publicated" class="modal hide fade" tabindex="-1">
 		<div class="modal-header">
-			<h3>&iexcl;Bienvenido!</h3>
+			<h3>Bienvenido</h3>
 		</div>
 		<div class="modal-body">
 			<p>Ten&eacute;s que iniciar sesi&oacute;n para publicar o postularte a una changuita. Si todav&iacute;a no ten&eacute;s una cuenta, cre&aacute; una en menos de 1 minuto</p>
@@ -114,7 +114,7 @@
 			<h3>Atenci&oacute;n</h3>
 		</div>
 		<div class="modal-body">
-			<p>&iquest;Est&aacute;s seguro?</p>
+			<p>&iquest;Est&aacute;s seguro de cancelar tu postulaci&oacute;n?</p>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-success btn-confirmar-ok" data-dismiss="modal">Aceptar</button> &nbsp; &nbsp; <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>

@@ -8,6 +8,10 @@
             animation: fadein 1s;
 }
 
+ul.ui-autocomplete {
+    list-style: none;
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }

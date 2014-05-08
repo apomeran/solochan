@@ -80,7 +80,8 @@ class Mails {
             $sql = "select nombre, apellido from usuarios where id = ".$_SESSION[SesionId];
             $res = $this->bd->query($sql);
             $fila = $res->fetch_assoc();
-            $calificador = $fila["nombre"]." ".$fila["apellido"];
+           // $calificador = $fila["nombre"]." ".$fila["apellido"];
+            $calificador = $fila["nombre"];
             $sql = "select titulo from changuitas where id = $changuita";
             $res = $this->bd->query($sql);
             $fila = $res->fetch_assoc();
@@ -116,7 +117,8 @@ class Mails {
         $res = $this->bd->query($sql);
         $fila = $res->fetch_assoc();
         $uNombre = $fila["nombre"];
-        $uNombreCompleto = $uNombre." ".$fila["apellido"];
+        //$uNombreCompleto = $uNombre." ".$fila["apellido"];
+        $uNombreCompleto = $uNombre;
         $uMail = $fila["mail"];
         // $uTel = $fila["telefono_area"]." ".$fila["telefono"];
         $uCel = $fila["celular_area"]." ".$fila["celular"];
@@ -124,7 +126,8 @@ class Mails {
         $res = $this->bd->query($sql);
         $fila = $res->fetch_assoc();
         $cNombre = $fila["nombre"];
-        $cNombreCompleto = $cNombre." ".$fila["apellido"];
+      //  $cNombreCompleto = $cNombre." ".$fila["apellido"];
+        $cNombreCompleto = $cNombre;
         $cMail = $fila["mail"];
         // $cTel = $fila["telefono_area"]." ".$fila["telefono"];
         $cCel = $fila["celular_area"]." ".$fila["celular"];
@@ -166,7 +169,8 @@ class Mails {
             $sql = "select nombre, apellido, mail, celular_area, celular from usuarios where id = $contraparte";
             $res = $this->bd->query($sql);
             $fila = $res->fetch_assoc();
-            $cNombre = $fila["nombre"]." ".$fila["apellido"];
+            //$cNombre = $fila["nombre"]." ".$fila["apellido"];
+            $cNombre = $fila["nombre"];
             $cMail = $fila["mail"];
             // $cTel = $fila["telefono_area"]." ".$fila["telefono"];
             $cCel = $fila["celular_area"]." ".$fila["celular"];

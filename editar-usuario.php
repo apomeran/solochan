@@ -491,16 +491,16 @@ foreach($aviso as $k => $v) {
 	</div>
 
 <?php
-$avisoCheckNp = "";
-$avisoCheckRech = "";
-$avisoCheckCa = "";
-$avisoCheckCal = "";
-$avisoCheckBal = "";
-$avisoCheckPr = "";
-$avisoCheckRes = "";
-$avisoCheckPv = "";
-$avisoCheckVe = "";
-$avisoCheckInv = "";
+$avisoCheckNp = "checked='checked'";
+$avisoCheckRech = "checked='checked'";
+$avisoCheckCa = "checked='checked'";
+$avisoCheckCal = "checked='checked'";
+$avisoCheckBal = "checked='checked'";
+$avisoCheckPr = "checked='checked'";
+$avisoCheckRes = "checked='checked'";
+$avisoCheckPv = "checked='checked'";
+$avisoCheckVe = "checked='checked'";
+$avisoCheckInv = "checked='checked'";
 if($data["aviso_np"] == 1)
 	$avisoCheckNp = "checked='checked'";
 if($data["aviso_rech"] == 1)
@@ -522,7 +522,7 @@ if($data["aviso_ve"] == 1)
 if($data["aviso_inv"] == 1)
 	$avisoCheckInv = "checked='checked'";
 ?>		
-<div class="control-group">
+<div class="control-group" style="display:none">
 
 	<label class="control-label control-label-sin-margen">Avisos por e-mail<br /><small>Eleg&iacute; qu&eacute; notificaciones quer&eacute;s recibir por e-mail</small></label>
 

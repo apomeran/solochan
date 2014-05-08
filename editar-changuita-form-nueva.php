@@ -1,25 +1,10 @@
-<?php
-$sql = "select categoria, id from categorias WHERE activo = '1' order by categoria ";
-$res = $bd->query($sql);
-$sql2 = "select subcategoria, id, categoria from subcategorias WHERE activo = '1' order by subcategoria";
-$res2 = $bd->query($sql2);
-$arreglo_php = array();
-
-if($res->num_rows == 0 && $res2->num_rows == 0)
-   array_push($arreglo_php, "No hay datos");
-else{
-  while($palabras = $res->fetch_assoc()){
-    array_push($arreglo_php, $palabras["categoria"]);
-  }
-  while($palabras = $res2->fetch_assoc()){
-    array_push($arreglo_php, $palabras["subcategoria"]);
-  }
-
-}  
-?>
 <script>
 $("#form-changuita-title").text("Nueva Changuita");
  function fade_in_cat_subcat(){
+		 $("#changuita-categoria").val(0);
+		 $('#changuita-subcategoria').prop('disabled', true);
+		 $('#mySelect').empty().append('<option value="0">--- elegir ---</option>');
+		 $("#changuita-subcategoria").val(0);
 		 $("#cat-question").fadeOut("slow", function() {
 		  
 		 $( "#category-subcategory-container" ).fadeIn( "slow", function() {
@@ -27,22 +12,54 @@ $("#form-changuita-title").text("Nueva Changuita");
 		  });
 		 }); 
  }
-
  
+
 </script>
 
-<div class="control-group" id="cat-question">
-	<div class="changuita-header-question">
-		<label class="control-label" style="width:100% !important;">&iquest;Qu&eacute; necesit&aacute;s hoy?</label>
+<script type="text/javascript">
+$(function() {
+
+	$("#subcat_cat_search").autocomplete({
+			source: "search-categorias.php",
+			open: function(event, ui) {
+				$(this).autocomplete("widget").css({
+					"width": 450
+				});
+				$(this).autocomplete("widget").css({
+					"font-family": 'Amaranth'
+				});
+				$(this).autocomplete("widget").css({
+					"font-size": "1.1em"
+				});
+			},
+			minLength: 4,
+			select: function(event, ui) {
+				var compound = ui.item.value;
+				var subcat_id = compound.substr(0, compound.indexOf('-')); 
+				var cat_id = compound.substr(compound.indexOf('-') + 1); 
+				$("#changuita-categoria").val(cat_id);
+				$('#changuita-subcategoria').prop('disabled', false);
+				$("#changuita-subcategoria").append('<option value='+subcat_id+'>'+ui.item.label+'</option>');
+				$("#changuita-subcategoria").val(subcat_id);
+				$("#subcat_cat_search").val(ui.item.label);
+				return false;
+			}
+		});
+	
+});
+</script>
+
+<div class="control-group" id="cat-question" style="margin-bottom:100px; margin-top:20px;">
+	<div class="changuita-header-question" >
+		<label class="control-label"  style="width:100% !important;">&iquest;Qu&eacute; necesit&aacute;s hoy?</label>
 	</div>
-	<div class="controls" style="margin-left: 11% !important;" >
+	<div class="controls" style="margin-left: 11% !important;" id="the-question">
 		<input id="subcat_cat_search" type="text" style="width: 60% !important; margin-top:15px; text-align:center; font-weight: bold; height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
 		<br><a title="Ver categorias y subcategorias"  style="margin-left:11%" onclick="fade_in_cat_subcat()">
 			  Si no lo encontr&aacutes, buscalo en nuestras opciones
 		</a>
 	</div>
 </div>
-
 
 <div id="category-subcategory-container" style="display:none;">
 	<div class="control-group">
@@ -70,7 +87,7 @@ $("#form-changuita-title").text("Nueva Changuita");
 	<div class="control-group">
 		<label class="control-label">Subcategor&iacute;a</label>
 		<div class="controls">
-			<select name="subcategoria" id="changuita-subcategoria" class="disabled" disabled="disabled">
+			<select name="subcategoria" id="changuita-subcategoria">
 				<option value="0">--- elegir ---</option>
 			</select>
 			<a class="ayuda" title="Este campo es obligatorio. Primero ten&eacute;s que elegir una opci&oacute;n en el campo anterior."><i class="icon-question-sign"></i></a><span class="help-block"></span>

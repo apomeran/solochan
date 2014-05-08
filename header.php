@@ -20,6 +20,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>	
 		<!--[if lt IE 9]>
 			<script src="js/respond.min.js"></script>
 			<script src="js/html5shiv.js"></script>
@@ -39,7 +40,7 @@
 					
 				</div>
 				<div class="eightcol ">
-					<h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"><img src="img/logosc.png" alt="solochanguitas.com"></a>SoloChanguitas</div> <br>Trabajos por los que andas preguntando</h1>
+					<h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"> </a><img src="img/logo2.png" alt="SoloChanguitas" /></div> <br>Trabajos por los que andas preguntando</h1>
 					<p class="subheader"><em>Encontra u ofrece trabajo desde la comodidad tu casa, de manera segura y rapida</em>.</p>
 					<a title="Ver mas" class="button-link" id="another-one" onClick="scroll('#estee', '.container')">Ver mas <i class="icon-header icon-arrow-down"></i></a>
 				</div>
