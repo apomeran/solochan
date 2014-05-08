@@ -324,7 +324,18 @@ else if($fila["estado"] == 0 && !isset($_SESSION[SesionId]) && $vencida == 0) {
 	<div class="span3 columna givemefont" > 
 		<p class="center"><?php echo $postulados ?></p>
 		<?php echo $botPost ?>
-		<p class="precio">$<?php echo $fila["precio"] ?><br/><small><span>Tu fee (<?php echo Fee*100 ?>%):</span> $<?php echo str_replace(".", ",", sprintf("%01.2f", $fila["precio"]*Fee)) ?></small></p>
+		<p class="precio">$<?php echo $fila["precio"] ?>
+			<br/>
+			<?php
+			if ($propia == 1){
+				echo '<small>Precio de publicaci&oacute;n</small>';
+			}else{
+				echo '<small>
+					<span> Tu fee ('; echo Fee*100; echo '%): </span> 
+					$'; echo str_replace(".", ",", sprintf("%01.2f", $fila["precio"]*Fee)); echo '</small>';
+			}
+			?>
+		</p>
 		<?php echo $datos ?>
 	</div>
 </div>
