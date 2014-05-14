@@ -35,6 +35,7 @@
 	
 	</script>
 	<body class="body-bg fadein">
+		<div style="display:none">
 		<div class="fancyheader">
 				<div class="twocol">
 					
@@ -47,7 +48,9 @@
 				
 		</div>
 		<img class="comofuncionapic"src="img/comofunciona2.png"></img>
+		</div>
 		<hr><hr>
+		
 		<div class="container ">
 			
 			<div id="header" class="" style="margin-bottom:35px;" >

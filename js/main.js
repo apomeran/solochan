@@ -604,17 +604,17 @@ $('.container').on('click', '.btn-link', function(e) {
 // Login
 window.fbAsyncInit = function() {
     //LOCAL !
-    FB.init({
+   /* FB.init({
         appId: '1423275721261751', // App ID
         channelUrl: 'includes/fb-channel.php', // Channel File
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true // parse XFBML
     });
-
+*/
 
     // ONLINE !
-    /*
+    
      FB.init({
      appId: '511297335556303', // App ID
      channelUrl: 'includes/fb-channel.php', // Channel File
@@ -623,7 +623,7 @@ window.fbAsyncInit = function() {
      xfbml: true // parse XFBML
      });
      
-     */
+     
     // Additional initialization code here
 };
 // Load the SDK Asynchronously

@@ -14,9 +14,9 @@ include_once("../includes/facebook.php");
 	));
 	
 	/* LOCAL FIX - COMMENT ON ONLINE VERSION */
-		Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
-		Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
+//		Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
+//		Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
 	/* END LOCAL FIX */ 
 	
-$facebook = $facebooklocal;	
+//$facebook = $facebooklocal;	
 	

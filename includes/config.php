@@ -1,6 +1,6 @@
 <?php
-//error_reporting(0);
-error_reporting(E_ALL);
+error_reporting(0);
+//error_reporting(E_ALL);
 define("Sitio", "http://www.solochanguitas.com.ar");
 // BD
 /*define("Servidor", "192.168.0.66");
