@@ -8,6 +8,7 @@ $userid = $_POST["res"]["values"][0]["id"];
 $nombre = $_POST["res"]["values"][0]["firstName"];
 $apellido = $_POST["res"]["values"][0]["lastName"];
 $mail = $_POST["res"]["values"][0]["emailAddress"];
+$id_to_insert = 0; // TO PUBLISH CHANGUITA WITHOUT LOGGIN'
 // si existe en la bbdd: logueo
 $sql = "select id, activo from usuarios where li_id = '$userid'";
 $res = $bd->query($sql);
@@ -17,11 +18,13 @@ if($res->num_rows == 1) {
 		$_SESSION[SesionId] = $fila["id"];
 		$_SESSION[SesionNivel] = 0;
 		$_SESSION[SesionExterno] = 1;
+		$id_to_insert = $fila["id"];
 		$data["estado"] = "ok";
 	}
 	else if($fila["activo"] == "1") {
 		$_SESSION[SesionTmp] = "ex".$fila["id"];
 		$data["estado"] = "activar";
+		$id_to_insert = $fila["id"];
 		$data["id"] = $fila["id"];
 	}
 	else
@@ -34,6 +37,7 @@ else {
 		// mail ya registrado (por login comun o fb)
 		$fila = $res->fetch_assoc();
 		$nid = $fila["id"];
+		$id_to_insert = $fila["id"];
 		$sql = "update usuarios set li_id = '$userid' where id = $nid";
 		$res = $bd->query($sql);
 		if($fila["dni"] != "" && $fila["activo"] == "1") {
@@ -66,10 +70,17 @@ else {
 			$_SESSION[SesionTmp] = "ex".$nid;
 			$data["estado"] = "activar";
 			$data["id"] = $nid;
+			$id_to_insert = $nid;
 		}
 		else
 			$data["estado"] = "error";
 	}
 }
+
+if (isset($_SESSION['PublishedCHwithoutReg']) && $_SESSION['PublishedCHwithoutReg'] == 1){
+ 	   $_SESSION['nid'] = $id_to_insert;
+	   $_SESSION['PublishedCHwithoutReg'] = 0;
+}
+
 echo json_encode($data);
 ?>
