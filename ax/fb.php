@@ -6,7 +6,7 @@ $bd = conectar();
 $userid = $bd->real_escape_string($_POST["id"]);
 $sql = "select id, activo from usuarios where fb_id = $userid";
 $res = $bd->query($sql);
-
+$id_to_insert = 0; // TO PUBLISH CHANGUITA WITHOUT LOGGIN'
 if($res->num_rows == 1) {
 	$fila = $res->fetch_assoc();
 	// si existe en la bbdd y activo: logueo
@@ -15,12 +15,15 @@ if($res->num_rows == 1) {
 		$_SESSION[SesionNivel] = 0;
 		$_SESSION[SesionExterno] = 1;
 		$data["estado"] = "ok";
+		$id_to_insert = $fila["id"];
+
 	}
 	// no activo
 	else if($fila["activo"] == "1") {
 		$_SESSION[SesionTmp] = "ex".$fila["id"];
 		$data["estado"] = "activar";
 		$data["id"] = $fila["id"];
+		$id_to_insert = $fila["id"];
 	}
 	else
 		$data["estado"] = "error";
@@ -50,6 +53,8 @@ else {
 	        	// mail ya registrado (por login comun o linkedIn)
 	        	$fila = $res->fetch_assoc();
 	        	$nid = $fila["id"];
+				$id_to_insert = $nid;
+
 	        	$sql = "update usuarios set fb_id = $user where id = $nid";
 	        	$res = $bd->query($sql);
 	        	if($fila["dni"] != "" && $fila["activo"] == "1") {
@@ -82,6 +87,7 @@ else {
 					$_SESSION[SesionTmp] = "ex".$nid;
 					$data["estado"] = "activar";
 					$data["id"] = $nid;
+					$id_to_insert = $nid;
 				}
 				else
 					$data["estado"] = "error";
@@ -96,5 +102,11 @@ else {
 	else
 		$data["estado"] = "error";
 }
+
+if (isset($_SESSION['PublishedCHwithoutReg']) && $_SESSION['PublishedCHwithoutReg'] == 1){
+ 	   $_SESSION['nid'] = $id_to_insert;
+	   $_SESSION['PublishedCHwithoutReg'] = 0;
+}
+
 echo json_encode($data);
 ?>

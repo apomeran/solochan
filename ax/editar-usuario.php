@@ -109,6 +109,7 @@ if($id == 0) {
 	}
 }
 else {
+
 	$sql = "select id from usuarios where activo != '0' and mail = '".$mail."' and id != $id";
 	$res = $bd->query($sql);
 	if($res->num_rows == 0) {
@@ -120,6 +121,14 @@ else {
 				$upd[] = $v." = ".$val[$k];
 			$sql = "update usuarios set ".implode(",", $upd)." where id = $id";
 			if($bd->query($sql)) {
+	 	 	    if (isset($_SESSION['nid']) && $_SESSION['nid'] != 0){
+				  $id_2 = $_SESSION['nid'];
+				  $sql_2 = "UPDATE changuitas SET activo = '1', usuario = " . $id_2 . " WHERE usuario = 0 AND activo = '0'";
+				  $bd->query($sql_2);	
+				  unset($_SESSION['nid']);
+				  $_SESSION['PublishedCHwithoutReg'] = 0;
+				}
+
 				$data["estado"] = "ok";
 				$ok = 1;
 			}
