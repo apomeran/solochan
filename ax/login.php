@@ -25,7 +25,7 @@ if($res->num_rows == 1) {
 		if(isset($_SESSION[SesionTmp]))
 			unset($_SESSION[SesionTmp]);
 		$data["estado"] = "ok";
-		if ($_SESSION['PublishedCHwithoutReg'] == 1){
+		if (isset($_SESSION['PublishedCHwithoutReg']) && $_SESSION['PublishedCHwithoutReg'] == 1){
 		    $_SESSION['PublishedCHwithoutReg'] = 0;
 			$sql_set_user = "UPDATE changuitas SET activo = '1', usuario = " . $fila['id'] . " WHERE activo = '0' AND usuario = 0";
 			$bd->query($sql_set_user);

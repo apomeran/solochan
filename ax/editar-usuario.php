@@ -121,15 +121,21 @@ else {
 				$upd[] = $v." = ".$val[$k];
 			$sql = "update usuarios set ".implode(",", $upd)." where id = $id";
 			if($bd->query($sql)) {
-	 	 	    if (isset($_SESSION['nid']) && $_SESSION['nid'] != 0){
+	 	 	  
+
+				$data["estado"] = "ok";
+				  if (isset($_SESSION['nid']) && $_SESSION['nid'] != 0){
 				  $id_2 = $_SESSION['nid'];
 				  $sql_2 = "UPDATE changuitas SET activo = '1', usuario = " . $id_2 . " WHERE usuario = 0 AND activo = '0'";
 				  $bd->query($sql_2);	
 				  unset($_SESSION['nid']);
 				  $_SESSION['PublishedCHwithoutReg'] = 0;
+				  $sql_get_changuita_last_id = "SELECT MAX(id) as chang_id FROM changuitas WHERE activo = '1' AND usuario = " . $id_2;
+				  $chang_res = $bd->query($sql_get_changuita_last_id);
+				  $chang_row = $chang_res->fetch_assoc();
+				  $chang_id = $chang_row['chang_id'];
+				  $data["estado"] .= "$chang_id";
 				}
-
-				$data["estado"] = "ok";
 				$ok = 1;
 			}
 			else

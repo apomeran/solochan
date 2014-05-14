@@ -23,7 +23,7 @@ $avisosCheck = array("aviso_np", "aviso_rech", "aviso_ca", "aviso_pr", "aviso_re
 $bd = conectar();
 if(isset($_GET["id"])) {
 	$id = $bd->real_escape_string($_GET["id"]);
-	if($_SESSION[SesionNivel] == "1") {
+	if(isset($_SESSION[SesionNivel]) && $_SESSION[SesionNivel] == "1") {
 		$sql = "select ".implode(", ", $columnas)." from usuarios where id = $id";
 	}
 	else {

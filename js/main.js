@@ -1,7 +1,7 @@
 // hack for iOS6 / Safari POST caching bug
 $.ajaxSetup({
     type: 'POST',
-    headers: { "cache-control": "no-cache" }
+    headers: {"cache-control": "no-cache"}
 });
 // Funciones
 // - validacion general
@@ -16,9 +16,9 @@ function esMail(txt) {
     }
     return true;
 }
-function enableButton(){
-	document.getElementById("boton-submit-nueva").disabled = '';
-	document.getElementById("boton-submit-nueva").className = 'btn btn-info btn-large';
+function enableButton() {
+    document.getElementById("boton-submit-nueva").disabled = '';
+    document.getElementById("boton-submit-nueva").className = 'btn btn-info btn-large';
 }
 function esClave(txt) {
     var clave = $.trim(txt);
@@ -193,17 +193,17 @@ function validarUsuario() {
         }
     }
     /*
-    if(!esDia(dia)) {
-        $('#nacimiento_d').parent().parent().addClass('error');
-        $('#nacimiento_d').siblings('span').html('No es una fecha v&aacute;lida');
-        error++;
-    }
-    if(!esMes(mes)) {
-        $('#nacimiento_m').parent().parent().addClass('error');
-        $('#nacimiento_m').siblings('span').html('No es una fecha v&aacute;lida');
-        error++;
-    }
-    */
+     if(!esDia(dia)) {
+     $('#nacimiento_d').parent().parent().addClass('error');
+     $('#nacimiento_d').siblings('span').html('No es una fecha v&aacute;lida');
+     error++;
+     }
+     if(!esMes(mes)) {
+     $('#nacimiento_m').parent().parent().addClass('error');
+     $('#nacimiento_m').siblings('span').html('No es una fecha v&aacute;lida');
+     error++;
+     }
+     */
     if (!esAno(ano) && $.trim(ano) !== '') {
         $('#nacimiento').parent().parent().addClass('error');
         $('#nacimiento').siblings('span').html('No es un a&ntilde;o v&aacute;lido');
@@ -231,14 +231,14 @@ function validarUsuario() {
 
 function validarChanguita() {
     var errorChanguita = 0,
-        titulo = $.trim($('#titulo').val()),
-        descripcion = $.trim($('#descripcion').val()),
-        precio = $.trim($('#precio').val()),
-        cuando = $('input[name="cuando"]:checked').val(),
-        desdeH = $('select[name="desde_hora"]').val(),
-        desdeM = $('select[name="desde_minuto"]').val(),
-        hastaH = $('select[name="hasta_hora"]').val(),
-        hastaM = $('select[name="hasta_minuto"]').val();
+            titulo = $.trim($('#titulo').val()),
+            descripcion = $.trim($('#descripcion').val()),
+            precio = $.trim($('#precio').val()),
+            cuando = $('input[name="cuando"]:checked').val(),
+            desdeH = $('select[name="desde_hora"]').val(),
+            desdeM = $('select[name="desde_minuto"]').val(),
+            hastaH = $('select[name="hasta_hora"]').val(),
+            hastaM = $('select[name="hasta_minuto"]').val();
     $('.help-block').html('');
     $('.error').removeClass('error');
     $('#validar').html('');
@@ -268,7 +268,7 @@ function validarChanguita() {
         errorChanguita++;
     }
     if ($('#changuita-localidad option:selected').val() === 0) {
-		$('#changuita-localidad').parent().parent().addClass('error');
+        $('#changuita-localidad').parent().parent().addClass('error');
         $('#changuita-localidad').siblings('span').html('Ten&eacute;s que elegir una opci&oacute;n');
         errorChanguita++;
     }
@@ -358,15 +358,25 @@ function FBok(userid) {
     $('#cargando').modal('show');
     $.post('ax/fb.php', {
         id: userid
-    }, function (data) {
-		$('#cargando').modal('hide');
+    }, function(data) {
+        $('#cargando').modal('hide');
+        var chang_id_ok = data.estado.substr(0, 2);
+        if (chang_id_ok === 'ok') {
+            var chang_id = data.estado.substr(2);
+            data.estado = 'ok';
+
+        }
         if (data.estado === 'ok') {
             $('#columna').load('columna-ok.php');
             if ($('#datos-usuarios').size()) {
                 $.address.path('/inicio');
             }
+            if (chang_id !== undefined && chang_id !== '') {
+                $.address.path('/changuita|' + chang_id);
+                $('#changuita-publicada').modal('show');
+            }
         } else if (data.estado === 'activar') {
-            $.address.path('/mi-perfil|'+data.id);
+            $.address.path('/mi-perfil|' + data.id);
         } else if (data.estado === 'mail') {
             $('#form-login-mensaje').show('clip').html('Facebook no nos deja acceder a tu perfil. No pod&eacute;s iniciar sesi&oacute;n por este medio.');
         } else {
@@ -377,12 +387,12 @@ function FBok(userid) {
 }
 
 function FBlogin() {
-    FB.getLoginStatus(function (response) {
+    FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-			FBok(response.authResponse.userID);
+            FBok(response.authResponse.userID);
         } else {
-		  
-			FB.login(function (response) {
+
+            FB.login(function(response) {
                 if (response.authResponse && response.status === 'connected') {
                     FBok(response.authResponse.userID);
                 }
@@ -401,37 +411,47 @@ function LIok(n) {
     }
     $('#cargando').modal('show');
     IN.API.Profile("me")
-        .fields(["id", "firstName", "lastName", "emailAddress"])
-        .result(function (result) {
-            $.post('ax/li.php', {
-                res: result
-            }, function (data) {
-                $('#cargando').modal('hide');
-                if (data.estado === 'ok') {
-                    $('#columna').load('columna-ok.php');
-                    if ($('#datos-usuarios').size()) {
-                        $.address.path('/inicio');
+            .fields(["id", "firstName", "lastName", "emailAddress"])
+            .result(function(result) {
+                $.post('ax/li.php', {
+                    res: result
+                }, function(data) {
+                    var chang_id_ok = data.estado.substr(0, 2);
+                    if (chang_id_ok === 'ok') {
+                        var chang_id = data.estado.substr(2);
+                        data.estado = 'ok';
                     }
-                } else if (data.estado === 'activar') {
-                    $.address.path('/mi-perfil|'+data.id);
-                } else {
-                    // fallo login LI
-                    console.log(data);
-                }
-            }, 'json');
-        })
-        .error(function (e) {
-            // fallo login LI
-            console.log(e);
-            $('#cargando').modal('hide');
-        });
+
+                    $('#cargando').modal('hide');
+                    if (data.estado === 'ok') {
+                        $('#columna').load('columna-ok.php');
+                        if ($('#datos-usuarios').size()) {
+                            $.address.path('/inicio');
+                        }
+                        if (chang_id !== undefined && chang_id !== "") {
+                            $('#changuita-publicada').modal('show');
+                            $.address.path('/changuita|' + chang_id);
+                        }
+                    } else if (data.estado === 'activar') {
+                        $.address.path('/mi-perfil|' + data.id);
+                    } else {
+                        // fallo login LI
+                        console.log(data);
+                    }
+                }, 'json');
+            })
+            .error(function(e) {
+                // fallo login LI
+                console.log(e);
+                $('#cargando').modal('hide');
+            });
 }
 
 function LIlogin() {
     if (IN.User.isAuthorized()) {
         LIok();
     } else {
-        IN.User.authorize(function () {
+        IN.User.authorize(function() {
             liLoginN++;
             LIok(liLoginN);
         });
@@ -454,7 +474,7 @@ function cargar(valor, container) {
     //
     //console.log(valor, url);
     container.hide('clip');
-    container.load(url, function () {
+    container.load(url, function() {
         container.show('clip');
     });
 }
@@ -467,7 +487,7 @@ function cargar2(url, container) {
         url = 'inicio.php';
     }
     container.hide('clip');
-    container.load(url, function () {
+    container.load(url, function() {
         container.show('clip');
     });
 }
@@ -500,7 +520,7 @@ function postulaciones() {
     tipo = $('#postulaciones-filtros button.active').val();
     $.post('ax/postulaciones.php', {
         tipo: tipo
-    }, function (data) {
+    }, function(data) {
         $('#postulaciones-tabla').html(data.html).show('clip');
         $('.resultados-cargando').hide('clip');
     }, 'json');
@@ -513,7 +533,7 @@ function misChanguitas() {
     tipo = $('#mis-changuitas-filtros button.active').val();
     $.post('ax/mis-changuitas.php', {
         tipo: tipo
-    }, function (data) {
+    }, function(data) {
         $('#mis-changuitas-tabla').html(data.html).show('clip');
         $('.resultados-cargando').hide('clip');
     }, 'json');
@@ -526,7 +546,7 @@ function preguntas() {
     tipo = $('#preguntas-filtros button.active').val();
     $.post('ax/preguntas.php', {
         tipo: tipo
-    }, function (data) {
+    }, function(data) {
         $('#preguntas-tabla').html(data.html).show('clip');
         $('.resultados-cargando').hide('clip');
     }, 'json');
@@ -535,7 +555,7 @@ function preguntas() {
 function preguntas2() {
     $('#preguntas2-tabla').html('').hide('clip');
     $('.resultados-cargando').show('clip');
-    $.post('ax/preguntas2.php', function (data) {
+    $.post('ax/preguntas2.php', function(data) {
         $('#preguntas2-tabla').html(data.html).show('clip');
         $('.resultados-cargando').hide('clip');
     }, 'json');
@@ -548,7 +568,7 @@ function calificaciones() {
     tipo = $('#calificaciones-filtros button.active').val();
     $.post('ax/calificaciones.php', {
         tipo: tipo
-    }, function (data) {
+    }, function(data) {
         $('#calificaciones-tabla').html(data.html).show('clip');
         $('.resultados-cargando').hide('clip');
     }, 'json');
@@ -559,13 +579,13 @@ function cerrarNotificaciones() {
     $('.btn-notificaciones').popover('hide');
     $('.btn-notificaciones').removeAttr('disabled').removeClass('disabled');
     // lee todas
-    $.post('ax/leido.php', function () {
+    $.post('ax/leido.php', function() {
         actualizarNotificaciones();
     });
 }
 
 function actualizarNotificaciones() {
-    $.post('ax/notificacionesN.php?' + Math.random(), function (data) {
+    $.post('ax/notificacionesN.php?' + Math.random(), function(data) {
         $('#notificacionN button:first').html(data.html);
         $('#notificacionN span:first').removeClass('badge-warning').addClass(data.estiloSpan);
     }, 'json');
@@ -578,38 +598,38 @@ function actualizaColumna() {
 }
 // General
 // - button
-$('.container').on('click', '.btn-link', function (e) {
+$('.container').on('click', '.btn-link', function(e) {
     e.preventDefault();
 });
 // Login
-window.fbAsyncInit = function () {
-	//LOCAL !
-	/*FB.init({
+window.fbAsyncInit = function() {
+    //LOCAL !
+    FB.init({
         appId: '1423275721261751', // App ID
         channelUrl: 'includes/fb-channel.php', // Channel File
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true // parse XFBML
     });
-	*/
-	
-	// ONLINE !
-	
-	FB.init({
-        appId: '511297335556303', // App ID
-        channelUrl: 'includes/fb-channel.php', // Channel File
-        status: true, // check login status
-        cookie: true, // enable cookies to allow the server to access the session
-        xfbml: true // parse XFBML
-    });
-	
-	
+
+
+    // ONLINE !
+    /*
+     FB.init({
+     appId: '511297335556303', // App ID
+     channelUrl: 'includes/fb-channel.php', // Channel File
+     status: true, // check login status
+     cookie: true, // enable cookies to allow the server to access the session
+     xfbml: true // parse XFBML
+     });
+     
+     */
     // Additional initialization code here
 };
 // Load the SDK Asynchronously
-(function (d) {
+(function(d) {
     var js, id = 'facebook-jssdk',
-        ref = d.getElementsByTagName('script')[0];
+            ref = d.getElementsByTagName('script')[0];
     if (d.getElementById(id)) {
         return;
     }
@@ -620,13 +640,13 @@ window.fbAsyncInit = function () {
     ref.parentNode.insertBefore(js, ref);
 }(document));
 
-$('#columna').on('click', '#login-fb-btn', function () {
+$('#columna').on('click', '#login-fb-btn', function() {
     FBlogin();
 });
-$('#columna').on('click', '#login-li-btn', function () {
+$('#columna').on('click', '#login-li-btn', function() {
     LIlogin();
 });
-$('#columna').on('submit', '#form-login', function (e) {
+$('#columna').on('submit', '#form-login', function(e) {
     e.preventDefault();
     $('#login-usuario').removeClass('input-error');
     $('#login-clave').removeClass('input-error');
@@ -648,22 +668,23 @@ $('#columna').on('submit', '#form-login', function (e) {
         return false;
     }
     $('#procesando').modal('show');
-    $.post('ax/login.php', $(this).serialize(), function (data) {
+    $.post('ax/login.php', $(this).serialize(), function(data) {
         $('#procesando').modal('hide');
-		var chang_id_ok = data.estado.substr(0, 2);
-		if (chang_id_ok == 'ok'){
-			var chang_id = data.estado.substr(2);
-			data.estado = 'ok';
-		}
+        var chang_id_ok = data.estado.substr(0, 2);
+        if (chang_id_ok === 'ok') {
+            var chang_id = data.estado.substr(2);
+            data.estado = 'ok';
+        }
         if (data.estado === 'ok') {
             $.address.update();
             $('#columna').load('columna-ok.php');
             if ($('#datos-usuarios').size()) {
                 $.address.path('/inicio');
             }
-			if(chang_id !== undefined){
-				$.address.path('/changuita|' + chang_id);
-			}
+            if (chang_id !== undefined && chang_id !== "") {
+                $('#changuita-publicada').modal('show');
+                $.address.path('/changuita|' + chang_id);
+            }
         } else {
             $('#login-usuario').addClass('input-error').val('');
             $('#login-clave').addClass('input-error').val('');
@@ -672,23 +693,23 @@ $('#columna').on('submit', '#form-login', function (e) {
     }, 'json');
     return false;
 });
-$('#columna').on('focus', '#form-login .input-error', function () {
+$('#columna').on('focus', '#form-login .input-error', function() {
     $(this).removeClass('input-error');
 });
-$('#columna').on('click', '#olvido', function () {
+$('#columna').on('click', '#olvido', function() {
     $('#form-login-mensaje').html('Ingres&aacute; tu direcci&oacute;n de e-mail').show('clip');
     $('#olvido-usuario').removeClass('input-error').val('');
     $('#form-login').hide('clip');
     $('#form-olvido').show('clip');
 });
-$('#columna').on('click', '#iniciar', function () {
+$('#columna').on('click', '#iniciar', function() {
     $('#form-login-mensaje').html('').hide('clip');
     $('#login-usuario').removeClass('input-error').val('');
     $('#login-clave').removeClass('input-error').val('');
     $('#form-login').show('clip');
     $('#form-olvido').hide('clip');
 });
-$('#columna').on('submit', '#form-olvido', function (e) {
+$('#columna').on('submit', '#form-olvido', function(e) {
     e.preventDefault();
     $('#olvido-usuario').removeClass('input-error');
     $('#form-login-mensaje').html('').hide('clip');
@@ -702,7 +723,7 @@ $('#columna').on('submit', '#form-olvido', function (e) {
         return false;
     }
     $('#procesando').modal('show');
-    $.post('ax/olvido.php', $(this).serialize(), function (data) {
+    $.post('ax/olvido.php', $(this).serialize(), function(data) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $('#form-login').show('clip');
@@ -715,7 +736,7 @@ $('#columna').on('submit', '#form-olvido', function (e) {
     }, 'json');
     return false;
 });
-$('#principal').on('submit', '#contrasena-nueva', function (e) {
+$('#principal').on('submit', '#contrasena-nueva', function(e) {
     e.preventDefault();
     $('#nueva-clave').removeClass('input-error');
     $('#nueva-clave2').removeClass('input-error');
@@ -745,7 +766,7 @@ $('#principal').on('submit', '#contrasena-nueva', function (e) {
         return false;
     }
     $('#procesando').modal('show');
-    $.post('ax/contrasena-nueva.php', $(this).serialize(), function (data) {
+    $.post('ax/contrasena-nueva.php', $(this).serialize(), function(data) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $.address.update();
@@ -757,32 +778,32 @@ $('#principal').on('submit', '#contrasena-nueva', function (e) {
     }, 'json');
     return false;
 });
-$('#principal').on('focus', '#contrasena-nueva .input-error', function () {
+$('#principal').on('focus', '#contrasena-nueva .input-error', function() {
     $(this).removeClass('input-error');
 });
-$('#principal').on('click', '#btn-contrasena-nueva', function (e) {
+$('#principal').on('click', '#btn-contrasena-nueva', function(e) {
     e.preventDefault();
     $('#contrasena-nueva').submit();
 });
-$('#btn-modal-login').click(function () {
+$('#btn-modal-login').click(function() {
     $('#columna-login').css('border-color', '#FF496F');
     $('#login-usuario').focus();
 });
-$('#btn-modal-login-2').click(function () {
+$('#btn-modal-login-2').click(function() {
     $('#columna-login').css('border-color', '#FF496F');
     $('#login-usuario').focus();
 });
-$('#columna-login').click(function () {
+$('#columna-login').click(function() {
     $('#columna-login').css('border-color', '#E3E3E3');
 });
-$('#columna').on('click', '.btn-registrate', function () {
+$('#columna').on('click', '.btn-registrate', function() {
     $('html,body').animate({
         scrollTop: $('#principal').offset().top
     }, 'slow');
 });
 // Formularios
 // - datepicker
-var datepickerOp = { // para fecha de changuita: de manana a +1mes
+var datepickerOp = {// para fecha de changuita: de manana a +1mes
     changeMonth: true,
     changeYear: true,
     dateFormat: 'dd/mm/yy',
@@ -798,10 +819,10 @@ var datepickerOp = { // para fecha de changuita: de manana a +1mes
     showOn: "both",
     buttonImage: "img/calendar.gif"
 };
-$('#principal').on('focus', '.datepicker', function () {
+$('#principal').on('focus', '.datepicker', function() {
     $(this).datepicker(datepickerOp);
 });
-$('#principal').on('mouseenter', '.ayuda-datepicker', function () {
+$('#principal').on('mouseenter', '.ayuda-datepicker', function() {
     $('.datepicker').datepicker(datepickerOp);
 });
 // - tooltip
@@ -810,11 +831,11 @@ $('#principal, #columna').tooltip({
     placement: 'right',
     selector: '.ayuda'
 });
-$('#principal, #columna').on('click', '.ayuda', function (e) {
+$('#principal, #columna').on('click', '.ayuda', function(e) {
     e.preventDefault();
 });
 // - validacion
-$('#principal').on('focus', '.form-horizontal .error input, .form-horizontal .error select, .form-horizontal .error textarea', function () {
+$('#principal').on('focus', '.form-horizontal .error input, .form-horizontal .error select, .form-horizontal .error textarea', function() {
     $(this).parent().parent('.error').removeClass('error');
     $(this).parent().parent().parent('.error').removeClass('error');
     $(this).siblings('span:not(".add-on")').html('');
@@ -822,16 +843,16 @@ $('#principal').on('focus', '.form-horizontal .error input, .form-horizontal .er
     $(this).addClass('validar');
 });
 // - editar usuario
-$('#principal').on('blur', '#datos-usuarios .validar', function () {
+$('#principal').on('blur', '#datos-usuarios .validar', function() {
     $(this).removeClass('validar');
     validarUsuario();
 });
-$('#principal').on('click', '#modificarClave', function (e) {
+$('#principal').on('click', '#modificarClave', function(e) {
     e.preventDefault();
     $(this).parent().parent().hide('clip');
     $('.divClave').show('clip');
 });
-$('#principal').on('change', '#localidad', function () {
+$('#principal').on('change', '#localidad', function() {
     var localidad = $('#localidad option:selected').val();
     if (localidad !== '0') {
         $(this).addClass('disabled');
@@ -841,7 +862,7 @@ $('#principal').on('change', '#localidad', function () {
         $('#barrio').addClass('cargandoBarrios');
         $.post('ax/usuario-barrios.php', {
             id: localidad
-        }, function (data) {
+        }, function(data) {
             if (data.estado === 'ok') {
                 $('#barrio').html('');
                 $('#barrio').html(data.html);
@@ -857,70 +878,70 @@ $('#principal').on('change', '#localidad', function () {
     }
 });
 /*$('#principal').on('change', '#educacion', function () {
-    var educacion = $('#educacion option:selected').val();
-    if (educacion !== '0') {
-        $('#educacion2').removeClass('disabled');
-        $('#educacion2').removeAttr('disabled');
-    } else {
-        $('#educacion2').val('0');
-        $('#educacion2').addClass('disabled');
-        $('#educacion2').attr('disabled', 'disabled');
-    }
-});*/
+ var educacion = $('#educacion option:selected').val();
+ if (educacion !== '0') {
+ $('#educacion2').removeClass('disabled');
+ $('#educacion2').removeAttr('disabled');
+ } else {
+ $('#educacion2').val('0');
+ $('#educacion2').addClass('disabled');
+ $('#educacion2').attr('disabled', 'disabled');
+ }
+ });*/
 /*
-$('#principal').on('change', '#clave', function() {
-    var clave = $.trim($('#clave').val());
-    if(clave !== '') {
-        $('#clave2').removeClass('disabled');
-        $('#clave2').removeAttr('disabled');
-    }
-    else {
-        $('#clave2').val('');
-        $('#clave2').addClass('disabled');
-        $('#clave2').attr('disabled', 'disabled');
-    }
-});
-*/
-$('#principal').on('click', '#notificacionesTodas', function (e) {
+ $('#principal').on('change', '#clave', function() {
+ var clave = $.trim($('#clave').val());
+ if(clave !== '') {
+ $('#clave2').removeClass('disabled');
+ $('#clave2').removeAttr('disabled');
+ }
+ else {
+ $('#clave2').val('');
+ $('#clave2').addClass('disabled');
+ $('#clave2').attr('disabled', 'disabled');
+ }
+ });
+ */
+$('#principal').on('click', '#notificacionesTodas', function(e) {
     e.preventDefault();
     $(' .notificacionesCheck').attr('checked', 'checked');
     //$(' .notificacionesCheck').parent('label').addClass('btn-success');
 });
-$('#principal').on('click', '#notificacionesNinguna', function (e) {
+$('#principal').on('click', '#notificacionesNinguna', function(e) {
     e.preventDefault();
     $('.notificacionesCheck').removeAttr('checked');
     //$('.notificacionesCheck').parent('label').removeClass('btn-success');
 });
 
-$('#principal').on('click', '#categoriasTodas', function (e) {
+$('#principal').on('click', '#categoriasTodas', function(e) {
     e.preventDefault();
     $('#categoriasLista .categoriaCheck').attr('checked', 'checked');
     $('#categoriasLista .categoriaCheck').parent('label').addClass('btn-success');
     $('#categoriasLista .subcategoriaCheck').attr('checked', 'checked');
     $('#categoriasLista .subcats').show();
 });
-$('#principal').on('click', '#categoriasNinguna', function (e) {
+$('#principal').on('click', '#categoriasNinguna', function(e) {
     e.preventDefault();
     $('#categoriasLista .categoriaCheck').removeAttr('checked');
     $('#categoriasLista .categoriaCheck').parent('label').removeClass('btn-success');
     $('#categoriasLista .subcategoriaCheck').removeAttr('checked');
     $('#categoriasLista .subcats').hide();
 });
-$('#principal').on('click', '#zonasTodas', function (e) {
+$('#principal').on('click', '#zonasTodas', function(e) {
     e.preventDefault();
     $('#zonasLista .categoriaCheck').attr('checked', 'checked');
     $('#zonasLista .categoriaCheck').parent('label').addClass('btn-success');
     $('#zonasLista .subcategoriaCheck').attr('checked', 'checked');
     $('#zonasLista .subcats').show();
 });
-$('#principal').on('click', '#zonasNinguna', function (e) {
+$('#principal').on('click', '#zonasNinguna', function(e) {
     e.preventDefault();
     $('#zonasLista .categoriaCheck').removeAttr('checked');
     $('#zonasLista .categoriaCheck').parent('label').removeClass('btn-success');
     $('#zonasLista .subcategoriaCheck').removeAttr('checked');
     $('#zonasLista .subcats').hide();
 });
-$('#principal').on('click', '.categoriaCheck', function () {
+$('#principal').on('click', '.categoriaCheck', function() {
     var sc = $(this).parent().siblings('.subcats');
     if ($(this).is(':checked')) {
         sc.show();
@@ -932,7 +953,7 @@ $('#principal').on('click', '.categoriaCheck', function () {
         $(this).parent('label').removeClass('btn-success');
     }
 });
-$('#principal').on('click', '.subcategoriaCheck', function () {
+$('#principal').on('click', '.subcategoriaCheck', function() {
     if (!$(this).is(':checked')) {
         var sc = $(this).parents('.subcats');
         var c = $(this).parents('.categoria');
@@ -943,16 +964,25 @@ $('#principal').on('click', '.subcategoriaCheck', function () {
         }
     }
 });
-$('#principal').on('click', '#datos-usuarios #boton-submit', function (e) {
+$('#principal').on('click', '#datos-usuarios #boton-submit', function(e) {
     e.preventDefault();
     if (validarUsuario()) {
         $('#procesando').modal('show');
-        $.post('ax/editar-usuario.php', $('#datos-usuarios').serialize(), function (data) {
+        $.post('ax/editar-usuario.php', $('#datos-usuarios').serialize(), function(data) {
+            var chang_id_ok = data.estado.substr(0, 2);
+            if (chang_id_ok === 'ok') {
+                var chang_id = data.estado.substr(2);
+                data.estado = 'ok';
+            }
             if (data.estado === 'ok') {
                 $.address.path('/inicio');
                 actualizaColumna();
-                if(data.col) {
+                if (data.col) {
                     $('#columna').load('columna-ok.php');
+                }
+                if (chang_id !== undefined && chang_id !== "") {
+                    $('#changuita-publicada').modal('show');
+                    $.address.path('/changuita|' + chang_id);
                 }
             } else if (data.estado === 'existeMail') {
                 $('#validar').html('Error: ya existe un usuario con esa direcci&oacute;n de e-mail. Si ya te registraste en estos d&iacute;as, busc&aacute; el e-mail de activaci&oacute;n (fijate tambi&eacute;n en el correo no deseado o spam)');
@@ -970,24 +1000,24 @@ $('#principal').on('click', '#datos-usuarios #boton-submit', function (e) {
     }
     return false;
 });
-$('#principal').on('click', '#datos-usuarios .btn-abrir-sugerir', function () {
+$('#principal').on('click', '#datos-usuarios .btn-abrir-sugerir', function() {
     $('#ini-div-sugerir').show('clip');
 });
-$('#principal').on('click', '.btn-condiciones', function () {
+$('#principal').on('click', '.btn-condiciones', function() {
     $('#ventana').modal('show');
     $('#ventana .modal-header h3').html('');
     $('#ventana .modal-header h4').html('');
     $('#ventana .modal-body').load('condiciones.php');
 });
 // - editar changuita
-$('#principal').on('blur', '#editar-changuita .validar', function () {
+$('#principal').on('blur', '#editar-changuita .validar', function() {
     $(this).removeClass('validar');
     validarChanguita();
 });
 
 
 
-$('#principal').on('change', '#cuando_fecha', function () {
+$('#principal').on('change', '#cuando_fecha', function() {
     $(this).removeClass('validar');
     validarChanguita();
     $('#vence').html('');
@@ -995,7 +1025,7 @@ $('#principal').on('change', '#cuando_fecha', function () {
         $('#vence').html('Por lo tanto, si no eleg&iacute;s un postulante antes, vencer&aacute; el ' + $(this).val() + '.');
     }
 });
-$('#principal').on('change', '#changuita-localidad', function () {
+$('#principal').on('change', '#changuita-localidad', function() {
     var localidad = $('#changuita-localidad option:selected').val();
     if (localidad !== '0') {
         $(this).addClass('disabled');
@@ -1005,7 +1035,7 @@ $('#principal').on('change', '#changuita-localidad', function () {
         $('#changuita-barrio').addClass('cargandoBarrios');
         $.post('ax/changuita-barrios.php', {
             id: localidad
-        }, function (data) {
+        }, function(data) {
             if (data.estado === 'ok') {
                 $('#changuita-barrio').html('');
                 $('#changuita-barrio').html(data.html);
@@ -1020,7 +1050,7 @@ $('#principal').on('change', '#changuita-localidad', function () {
         $('#changuita-barrio').attr('disabled', 'disabled');
     }
 });
-$('#principal').on('change', '#changuita-categoria', function () {
+$('#principal').on('change', '#changuita-categoria', function() {
     var categoria = $('#changuita-categoria option:selected').val();
     $('#ini-div-sugerir').hide('clip');
     $('#ini-sugerir').val('');
@@ -1032,7 +1062,7 @@ $('#principal').on('change', '#changuita-categoria', function () {
         $('#changuita-subcategoria').addClass('cargandoBarrios');
         $.post('ax/changuita-subcategorias.php', {
             id: categoria
-        }, function (data) {
+        }, function(data) {
             if (data.estado === 'ok') {
                 $('#changuita-subcategoria').html('');
                 $('#changuita-subcategoria').html(data.html);
@@ -1050,7 +1080,7 @@ $('#principal').on('change', '#changuita-categoria', function () {
     }
     $('#changuita-subcategoria').val('0').change();
 });
-$('#principal').on('change', '#changuita-subcategoria', function () {
+$('#principal').on('change', '#changuita-subcategoria', function() {
     var subcategoria = $('#changuita-subcategoria option:selected').val();
     $('#precio-sugerido').html('');
     if (subcategoria > '0') {
@@ -1059,7 +1089,7 @@ $('#principal').on('change', '#changuita-subcategoria', function () {
         });
     }
 });
-$('#principal').on('change', '#changuita-localidad', function () {
+$('#principal').on('change', '#changuita-localidad', function() {
     var localidad = $('#changuita-localidad option:selected').val();
     if (localidad === '-1') {
         $('#changuita-barrio').val('0');
@@ -1069,13 +1099,13 @@ $('#principal').on('change', '#changuita-localidad', function () {
         $('#changuita-barrio').parents('.control-group').show();
     }
 });
-$('#principal').on('click', '#editar-changuita #boton-submit', function (e) {
+$('#principal').on('click', '#editar-changuita #boton-submit', function(e) {
     e.preventDefault();
     $(this).attr('disabled', 'disabled').addClass('disabled');
     if (validarChanguitaEdit()) {
         var status = 0;
         $('#procesando').modal('show');
-        $.post('ax/editar-changuita.php', $('#editar-changuita').serialize(), function (data) {
+        $.post('ax/editar-changuita.php', $('#editar-changuita').serialize(), function(data) {
             if (data.estado === 'ok') {
                 $.address.path('/changuita|' + data.id);
                 $('#columna').load('columna-ok.php');
@@ -1083,13 +1113,13 @@ $('#principal').on('click', '#editar-changuita #boton-submit', function (e) {
                 // PAGO
                 $.post('ax/pagar.php', {
                     id: data.id
-                }, function (data2) {
+                }, function(data2) {
                     // pagar arma el json con precio, datos del comprador, token, apiID, etc.
                     if (data2.estado === 'ok') {
                         $MPC.openCheckout({
                             url: data2.preferencia.response.init_point,
                             mode: "modal",
-                            onreturn: function (dataMP) {
+                            onreturn: function(dataMP) {
                                 if (dataMP.collection_status === 'approved') {
                                     $.post('ax/pagado.php', {
                                         id: data.id
@@ -1126,41 +1156,41 @@ $('#principal').on('click', '#editar-changuita #boton-submit', function (e) {
     }
     return false;
 });
-$('#principal').on('click', '#editar-changuita #boton-submit-nueva', function (e) {
+$('#principal').on('click', '#editar-changuita #boton-submit-nueva', function(e) {
     e.preventDefault();
     $(this).attr('disabled', 'disabled').addClass('disabled');
     if (validarChanguita()) {
         var status = 0;
         $('#procesando').modal('show');
-        $.post('ax/editar-changuita.php', $('#editar-changuita').serialize(), function (data) {
+        $.post('ax/editar-changuita.php', $('#editar-changuita').serialize(), function(data) {
             if (data.estado === 'ok') {
-				  $.post('ax/logged.php', {
-						bloqueado: 1
-					}, function (data2) {
-						//$('#procesando').modal('hide');
-						if (data2.estado === 'ok') {          //ALAN CHANGE . CHANGUITA PUBLISHED. REGISTERED!
-							 $.address.path('/changuita|' + data.id);
-							 $('#columna').load('columna-ok.php');
-						} else if (data2.estado === 'bloqueado') {
-							$('#aviso-bloqueado').modal('show');//ALAN CHANGE . CHANGUITA PUBLISHED. NOW REGISTER!
-						} else {
-							$('#aviso-login-changuita-publicated').modal('show');
-						}
-				   }, 'json');
-               // $.address.path('/changuita|' + data.id); //ALAN CHANGE
-               // $('#columna').load('columna-ok.php');   //ALAN CHANGE
+                $.post('ax/logged.php', {
+                    bloqueado: 1
+                }, function(data2) {
+                    //$('#procesando').modal('hide');
+                    if (data2.estado === 'ok') {          //ALAN CHANGE . CHANGUITA PUBLISHED. REGISTERED!
+                        $.address.path('/changuita|' + data.id);
+                        $('#columna').load('columna-ok.php');
+                    } else if (data2.estado === 'bloqueado') {
+                        $('#aviso-bloqueado').modal('show');//ALAN CHANGE . CHANGUITA PUBLISHED. NOW REGISTER!
+                    } else {
+                        $('#aviso-login-changuita-publicated').modal('show');
+                    }
+                }, 'json');
+                // $.address.path('/changuita|' + data.id); //ALAN CHANGE
+                // $('#columna').load('columna-ok.php');   //ALAN CHANGE
             } else if (data.estado === 'pagar') {
                 // PAGO
                 $.post('ax/pagar.php', {
                     id: data.id
-                }, function (data2) {
+                }, function(data2) {
                     // pagar arma el json con precio, datos del comprador, token, apiID, etc.
                     if (data2.estado === 'ok') {
                         $('#procesando').modal('hide');
                         $MPC.openCheckout({
                             url: data2.preferencia.response.init_point,
                             mode: "modal",
-                            onreturn: function (dataMP) {
+                            onreturn: function(dataMP) {
                                 if (dataMP.collection_status === 'approved') {
                                     $.post('ax/pagado.php', {
                                         id: data.id
@@ -1193,20 +1223,20 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function (e
     }
     return false;
 });
-$('#principal').on('click', '.btn-planes', function () {
+$('#principal').on('click', '.btn-planes', function() {
     $('#ventana').modal('show');
     $('#ventana .modal-header h3').html('Servicios');
     $('#ventana .modal-header h4').html('');
     $('#ventana .modal-body').load('planes.php');
 });
-$('#principal').on('change', '#plan4', function () {
+$('#principal').on('change', '#plan4', function() {
     if ($(this).is(':checked')) {
         $(this).parent().parent().siblings('.plan-precio').addClass('plan-no');
     } else {
         $(this).parent().parent().siblings('.plan-precio').removeClass('plan-no');
     }
 });
-$('#principal').on('change', 'input[name="cuando"]', function () {
+$('#principal').on('change', 'input[name="cuando"]', function() {
     if ($('#cuando2').is(':checked')) {
         $('#cuando2').parent().next('div').show();
     } else {
@@ -1225,7 +1255,7 @@ $('#principal').on('change', 'input[name="cuando"]', function () {
         $('.vence-fecha').hide();
     }
 });
-$('#principal').on('click', '.btn-cuando-lav', function () {
+$('#principal').on('click', '.btn-cuando-lav', function() {
     $('input[name="cuando_dias[]"]').removeAttr('checked');
     $('#cuando_dias1').attr('checked', 'checked');
     $('#cuando_dias2').attr('checked', 'checked');
@@ -1235,7 +1265,7 @@ $('#principal').on('click', '.btn-cuando-lav', function () {
 });
 // Home
 // - buscar
-$('#principal').on('click', '#drop-categoria a', function (e) {
+$('#principal').on('click', '#drop-categoria a', function(e) {
     e.preventDefault();
     var id = $(this).attr('data-cat-id');
     var cat = $(this).html();
@@ -1252,7 +1282,7 @@ $('#principal').on('click', '#drop-categoria a', function (e) {
         $('#btn-drop-subcategoria p').removeClass('bold');
         $.post('ax/inicio-subcategorias.php', {
             id: id
-        }, function (data) {
+        }, function(data) {
             if (data.estado === 'ok') {
                 $('#drop-subcategoria').html(data.html);
                 $('#btn-drop-subcategoria').removeClass('disabled').removeAttr('disabled');
@@ -1262,7 +1292,7 @@ $('#principal').on('click', '#drop-categoria a', function (e) {
         }, 'json');
     }
 });
-$('#principal').on('click', '#drop-subcategoria a', function (e) {
+$('#principal').on('click', '#drop-subcategoria a', function(e) {
     e.preventDefault();
     var id = $(this).attr('data-subcat-id');
     var subcat = $(this).html();
@@ -1270,7 +1300,7 @@ $('#principal').on('click', '#drop-subcategoria a', function (e) {
     $('#btn-drop-subcategoria .txt').html(subcat);
     $('#btn-drop-subcategoria p').addClass('bold');
 });
-$('#principal').on('click', '#drop-localidad a', function (e) {
+$('#principal').on('click', '#drop-localidad a', function(e) {
     e.preventDefault();
     var id = $(this).attr('data-loc-id');
     var loc = $(this).html();
@@ -1285,7 +1315,7 @@ $('#principal').on('click', '#drop-localidad a', function (e) {
         $('#btn-drop-barrio p').removeClass('bold');
         $.post('ax/inicio-barrios.php', {
             id: id
-        }, function (data) {
+        }, function(data) {
             if (data.estado === 'ok') {
                 $('#drop-barrio').html(data.html);
                 $('#btn-drop-barrio').removeClass('disabled').removeAttr('disabled');
@@ -1295,7 +1325,7 @@ $('#principal').on('click', '#drop-localidad a', function (e) {
         }, 'json');
     }
 });
-$('#principal').on('click', '#drop-barrio input, #drop-barrio label', function (e) {
+$('#principal').on('click', '#drop-barrio input, #drop-barrio label', function(e) {
     e.stopPropagation();
     var nBarrios = $('#drop-barrio input:checked').size();
     if (nBarrios === 0) {
@@ -1306,13 +1336,13 @@ $('#principal').on('click', '#drop-barrio input, #drop-barrio label', function (
         $('#btn-drop-barrio p').addClass('bold');
     }
 });
-$('#principal').on('click', '#drop-barrios-ninguno', function (e) {
+$('#principal').on('click', '#drop-barrios-ninguno', function(e) {
     e.preventDefault();
     $('#drop-barrio input').removeAttr('checked', 'checked');
     $('#btn-drop-barrio .txt').html('Eleg&iacute; localidades o barrios');
     $('#btn-drop-barrio p').removeClass('bold');
 });
-$('#principal').on('click', '#drop-barrios-todos', function (e) {
+$('#principal').on('click', '#drop-barrios-todos', function(e) {
     e.preventDefault();
     $('#drop-barrio input').attr('checked', 'checked');
     var nBarrios = $('#drop-barrio input:checked').size();
@@ -1320,49 +1350,49 @@ $('#principal').on('click', '#drop-barrios-todos', function (e) {
     $('#btn-drop-barrio p').addClass('bold');
 });
 /*
-$('#principal').on('change', '#ini-categoria', function() {
-    var categoria = $('#ini-categoria option:selected').val();
-    $('#ini-div-sugerir').hide('clip');
-    $('#ini-sugerir').val('');
-    if(categoria > '0') {
-        $('#ini-categoria').addClass('disabled');
-        $('#ini-categoria').attr('disabled', 'disabled');
-        $('#ini-categoria').addClass('cargandoBarrios');
-        $.post('ax/inicio-subcategorias.php', {id: categoria}, function(data) {
-            if(data.estado === 'ok') {
-                $('#ini-subcategoria').html(data.html);
-                $('#ini-categoria').removeClass('disabled');
-                $('#ini-categoria').removeAttr('disabled');
-                $('#ini-subcategoria').removeClass('disabled');
-                $('#ini-subcategoria').removeAttr('disabled');
-            }
-            $('#ini-categoria').removeClass('cargandoBarrios');
-        }, 'json');
-    }
-    else {
-        $('#ini-subcategoria').val(0);
-        $('#ini-subcategoria').addClass('disabled');
-        $('#ini-subcategoria').attr('disabled', 'disabled');
-        if(categoria < 0)
-            $('#ini-div-sugerir').show('clip');
-    }
-});
-*/
-$('#principal').on('click', '#btn-sugerir', function (e) {
+ $('#principal').on('change', '#ini-categoria', function() {
+ var categoria = $('#ini-categoria option:selected').val();
+ $('#ini-div-sugerir').hide('clip');
+ $('#ini-sugerir').val('');
+ if(categoria > '0') {
+ $('#ini-categoria').addClass('disabled');
+ $('#ini-categoria').attr('disabled', 'disabled');
+ $('#ini-categoria').addClass('cargandoBarrios');
+ $.post('ax/inicio-subcategorias.php', {id: categoria}, function(data) {
+ if(data.estado === 'ok') {
+ $('#ini-subcategoria').html(data.html);
+ $('#ini-categoria').removeClass('disabled');
+ $('#ini-categoria').removeAttr('disabled');
+ $('#ini-subcategoria').removeClass('disabled');
+ $('#ini-subcategoria').removeAttr('disabled');
+ }
+ $('#ini-categoria').removeClass('cargandoBarrios');
+ }, 'json');
+ }
+ else {
+ $('#ini-subcategoria').val(0);
+ $('#ini-subcategoria').addClass('disabled');
+ $('#ini-subcategoria').attr('disabled', 'disabled');
+ if(categoria < 0)
+ $('#ini-div-sugerir').show('clip');
+ }
+ });
+ */
+$('#principal').on('click', '#btn-sugerir', function(e) {
     e.preventDefault();
     var sugerencia = $.trim($('#ini-sugerir').val());
     sugerencia = sugerencia.replace(/[^a-zA-Z0-9\s\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\00fc\00e7]/gi, ' ');
     sugerencia = sugerencia.replace(/[\s]+/g, ' ');
     $('#ini-sugerir').val(sugerencia);
     if (sugerencia !== '') {
-        $.post('ax/logged.php', function (data) {
+        $.post('ax/logged.php', function(data) {
             if (data.estado === 'ok') {
                 $('#ventana').modal('show');
                 $('#ventana .modal-header h3').html('Gracias');
                 $('#ventana .modal-header h4').html('');
                 $.post('ax/sugerir.php', {
                     s: sugerencia
-                }, function () {
+                }, function() {
                     $('#ventana .modal-body').html('Nuestro equipo evaluar&aacute; tu sugerencia.');
                 });
                 $('#ini-div-sugerir').hide('clip');
@@ -1375,30 +1405,30 @@ $('#principal').on('click', '#btn-sugerir', function (e) {
     }
 });
 /*$('#principal').on('change', '#ini-localidad', function() {
-    var localidad = $('#ini-localidad option:selected').val();
-    if(localidad !== '0') {
-        $('#ini-localidad').addClass('disabled');
-        $('#ini-localidad').attr('disabled', 'disabled');
-        $('#ini-localidad').addClass('cargandoBarrios');
-        $.post('ax/inicio-barrios.php', {id: localidad}, function(data) {
-            if(data.estado === 'ok') {
-                $('#ini-barrios').html(data.html);
-                $('#ini-localidad').removeClass('disabled');
-                $('#ini-localidad').removeAttr('disabled');
-            }
-            $('#ini-localidad').removeClass('cargandoBarrios');
-        }, 'json');
-    }
-    else
-        $('#ini-barrios').html('');
-});*/
-$('#principal').on('click', '#ini-barrios-todos', function () {
+ var localidad = $('#ini-localidad option:selected').val();
+ if(localidad !== '0') {
+ $('#ini-localidad').addClass('disabled');
+ $('#ini-localidad').attr('disabled', 'disabled');
+ $('#ini-localidad').addClass('cargandoBarrios');
+ $.post('ax/inicio-barrios.php', {id: localidad}, function(data) {
+ if(data.estado === 'ok') {
+ $('#ini-barrios').html(data.html);
+ $('#ini-localidad').removeClass('disabled');
+ $('#ini-localidad').removeAttr('disabled');
+ }
+ $('#ini-localidad').removeClass('cargandoBarrios');
+ }, 'json');
+ }
+ else
+ $('#ini-barrios').html('');
+ });*/
+$('#principal').on('click', '#ini-barrios-todos', function() {
     $('#ini-barrios input').attr('checked', 'checked');
 });
-$('#principal').on('click', '#ini-barrios-ninguno', function () {
+$('#principal').on('click', '#ini-barrios-ninguno', function() {
     $('#ini-barrios input').removeAttr('checked', 'checked');
 });
-$('#principal').on('click', '#btn-buscar', function (e) {
+$('#principal').on('click', '#btn-buscar', function(e) {
     e.preventDefault();
     if ($('#ini-categoria option:selected').val() === 0 && $('#ini-localidad option:selected').val() === 0 && $.trim($('#ini-palabras').val()) === '') {
         return false;
@@ -1407,25 +1437,25 @@ $('#principal').on('click', '#btn-buscar', function (e) {
     buscar = buscar.replace(/[^a-zA-Z0-9\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\00fc\00e7]/gi, ' ');
     buscar = buscar.replace(/[\s]+/g, ' ');
     $('#ini-palabras').val(buscar);
-    $.post('ax/buscar.php', $('#ini-buscar').serialize(), function (data) {
+    $.post('ax/buscar.php', $('#ini-buscar').serialize(), function(data) {
         $.address.path('/changuitas');
     });
 });
-$('#principal').on('click', '#btn-ver-todas', function (e) {
+$('#principal').on('click', '#btn-ver-todas', function(e) {
     e.preventDefault();
-    $.post('ax/buscar.php', function (data) {
+    $.post('ax/buscar.php', function(data) {
         $.address.path('/changuitas');
     });
 });
 // - publicar
-$('.container').on('click', '.btn-publicar', function (e) {
+$('.container').on('click', '.btn-publicar', function(e) {
     e.preventDefault();
     //$('#procesando').modal('show');
-	 $.address.path('/changuita-nueva'); //ALAN CHANGE - Publish without loggin
-	 return;
+    $.address.path('/changuita-nueva'); //ALAN CHANGE - Publish without loggin
+    return;
     $.post('ax/logged.php', {
         bloqueado: 1
-    }, function (data) {
+    }, function(data) {
         //$('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $.address.path('/changuita-nueva');
@@ -1437,7 +1467,7 @@ $('.container').on('click', '.btn-publicar', function (e) {
     }, 'json');
 });
 // Vista changuitas
-$('#principal').on('change', '#changuitas-categoria', function () {
+$('#principal').on('change', '#changuitas-categoria', function() {
     var categoria = $('#changuitas-categoria option:selected').val();
     $('#ini-div-sugerir').hide('clip');
     $('#ini-sugerir').val('');
@@ -1447,7 +1477,7 @@ $('#principal').on('change', '#changuitas-categoria', function () {
         $('#changuitas-categoria').addClass('cargandoBarrios');
         $.post('ax/changuitas-subcategorias.php', {
             id: categoria
-        }, function (data) {
+        }, function(data) {
             if (data.estado === 'ok') {
                 $('#changuitas-subcategoria').html(data.html);
                 $('#changuitas-categoria').removeClass('disabled');
@@ -1466,7 +1496,7 @@ $('#principal').on('change', '#changuitas-categoria', function () {
         }
     }
 });
-$('#principal').on('change', '#changuitas-localidad', function () {
+$('#principal').on('change', '#changuitas-localidad', function() {
     var localidad = $('#changuitas-localidad option:selected').val();
     if (localidad !== '0') {
         $('#changuitas-localidad').addClass('disabled');
@@ -1474,7 +1504,7 @@ $('#principal').on('change', '#changuitas-localidad', function () {
         $('#changuitas-localidad').addClass('cargandoBarrios');
         $.post('ax/changuitas-barrios.php', {
             id: localidad
-        }, function (data) {
+        }, function(data) {
             if (data.estado === 'ok') {
                 $('#changuitas-barrio').html(data.html);
                 $('#changuitas-localidad').removeClass('disabled');
@@ -1492,21 +1522,21 @@ $('#principal').on('change', '#changuitas-localidad', function () {
         $('#btn-changuitas-barrios').html('Ninguno elegido');
     }
 });
-$('#principal').on('click', '#btn-buscar-changuitas', function (e) {
+$('#principal').on('click', '#btn-buscar-changuitas', function(e) {
     e.preventDefault();
     desactivaBuscarCh();
     var buscar = $('#changuitas-palabras').val();
     buscar = buscar.replace(/[^a-zA-Z0-9\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\00fc\00e7]/gi, ' ');
     buscar = buscar.replace(/[\s]+/g, ' ');
     $('#changuitas-palabras').val(buscar);
-    $.post('ax/buscar.php', $('#changuitas-buscar').serialize(), function () {
-        $.post('ax/changuitas.php', $('#changuitas-buscar').serialize(), function (data) {
+    $.post('ax/buscar.php', $('#changuitas-buscar').serialize(), function() {
+        $.post('ax/changuitas.php', $('#changuitas-buscar').serialize(), function(data) {
             activaBuscarCh();
             $('#changuitas-resultados').html(data.html);
         }, 'json');
     });
 });
-$('#principal').on('click', '#btn-changuitas-todas', function (e) {
+$('#principal').on('click', '#btn-changuitas-todas', function(e) {
     e.preventDefault();
     $('#changuitas-buscar input#changuitas-palabras').val('');
     $('#changuitas-buscar select').val(0);
@@ -1514,25 +1544,25 @@ $('#principal').on('click', '#btn-changuitas-todas', function (e) {
     chBarrios(0);
     desactivaBuscarCh();
     $.post('ax/buscar.php');
-    $.post('ax/changuitas.php', function (data) {
+    $.post('ax/changuitas.php', function(data) {
         activaBuscarCh();
         $('#changuitas-resultados').html(data.html);
     }, 'json');
 });
-$('#principal').on('click', '#btn-changuitas-barrios', function (e) {
+$('#principal').on('click', '#btn-changuitas-barrios', function(e) {
     e.preventDefault();
 });
-$('#principal').on('click', '#changuitas-barrio input, #changuitas-barrio label', function (e) {
+$('#principal').on('click', '#changuitas-barrio input, #changuitas-barrio label', function(e) {
     e.stopPropagation();
     var nBarrios = $('#changuitas-barrio input:checked').size();
     chBarrios(nBarrios);
 });
-$('#principal').on('click', '#btn-changuitas-barrios-ninguno', function (e) {
+$('#principal').on('click', '#btn-changuitas-barrios-ninguno', function(e) {
     e.preventDefault();
     $('#changuitas-barrio input').removeAttr('checked', 'checked');
     $('#btn-changuitas-barrios').html('Ninguno elegido');
 });
-$('#principal').on('click', '#btn-changuitas-barrios-todos', function (e) {
+$('#principal').on('click', '#btn-changuitas-barrios-todos', function(e) {
     e.preventDefault();
     $('#changuitas-barrio input').attr('checked', 'checked');
     var nBarrios = $('#changuitas-barrio input:checked').size();
@@ -1542,19 +1572,19 @@ $('#principal').on('click', '#btn-changuitas-barrios-todos', function (e) {
         $('#btn-changuitas-barrios').html('Elegidos: <strong>' + nBarrios + '</strong>');
     }
 });
-$('#principal').on('click', '.btn-postular:not(".disabled")', function (e) {
+$('#principal').on('click', '.btn-postular:not(".disabled")', function(e) {
     e.preventDefault();
     var btn = $(this);
     $.post('ax/logged.php', {
         bloqueado: 1
-    }, function (data) {
+    }, function(data) {
         if (data.estado === 'ok') {
             var chId = btn.attr('data-changuita');
             btn.attr('disabled', 'disabled');
             btn.children('.cargando').show();
             $.post('ax/postular.php', {
                 id: chId
-            }, function (data2) {
+            }, function(data2) {
                 btn.removeAttr('disabled');
                 btn.children('.cargando').hide();
                 if (data2.estado === 'ok') {
@@ -1569,38 +1599,38 @@ $('#principal').on('click', '.btn-postular:not(".disabled")', function (e) {
     }, 'json');
 });
 // Paginacion buscar
-$('#principal').on('click', '#pag-pri', function () {
+$('#principal').on('click', '#pag-pri', function() {
     if ($(this).hasClass('disabled')) {
         return false;
     }
     $('#ini option:first').attr('selected', 'selected');
     $('#ini').change();
 });
-$('#principal').on('click', '#pag-ant:not(".disabled")', function () {
+$('#principal').on('click', '#pag-ant:not(".disabled")', function() {
     $('#ini option:selected').prev().attr('selected', 'selected');
     $('#ini').change();
 });
-$('#principal').on('click', '#pag-sig', function () {
+$('#principal').on('click', '#pag-sig', function() {
     if ($(this).hasClass('disabled')) {
         return false;
     }
     $('#ini option:selected').next().attr('selected', 'selected');
     $('#ini').change();
 });
-$('#principal').on('click', '#pag-ult', function () {
+$('#principal').on('click', '#pag-ult', function() {
     if ($(this).hasClass('disabled')) {
         return false;
     }
     $('#ini option:last').attr('selected', 'selected');
     $('#ini').change();
 });
-$('#principal').on('change', '#ini', function () {
+$('#principal').on('change', '#ini', function() {
     var ini = $('#ini').val();
     var orden = $('#orden').val();
     $('#btn-buscar-changuitas, #btn-changuitas-todas').addClass('disabled').attr('disabled', 'disabled');
     $('#changuitas-resultados').hide('clip');
     $('#changuitas-resultados-cargando').show('clip');
-    $.post('ax/changuitas.php', $('#changuitas-buscar').serialize() + '&ini=' + ini + '&orden=' + orden, function (data) {
+    $.post('ax/changuitas.php', $('#changuitas-buscar').serialize() + '&ini=' + ini + '&orden=' + orden, function(data) {
         $('#btn-buscar-changuitas, #btn-changuitas-todas').removeClass('disabled').removeAttr('disabled');
         $('#changuitas-resultados-cargando').hide('clip');
         $('#changuitas-resultados').show('clip');
@@ -1608,16 +1638,16 @@ $('#principal').on('change', '#ini', function () {
     }, 'json');
 });
 // vista changuita
-$('#principal').on('click', '.btn-hacer-pregunta', function () {
+$('#principal').on('click', '.btn-hacer-pregunta', function() {
     $('html:not(:animated), body:not(:animated)').animate({
         scrollTop: $('#pregunta').offset().top
     }, 750);
     $('#pregunta').focus();
 });
-$('#principal').on('click', '.btn-preguntar:not(".disabled")', function (e) {
+$('#principal').on('click', '.btn-preguntar:not(".disabled")', function(e) {
     e.preventDefault();
     var btn = $(this);
-    $.post('ax/logged.php', function (data) {
+    $.post('ax/logged.php', function(data) {
         if (data.estado === 'ok') {
             if ($.trim($('#pregunta').val()) === '') {
                 return;
@@ -1629,7 +1659,7 @@ $('#principal').on('click', '.btn-preguntar:not(".disabled")', function (e) {
             $.post('ax/preguntar.php', {
                 id: chId,
                 pregunta: $.trim($('#pregunta').val())
-            }, function (data2) {
+            }, function(data2) {
                 btn.removeAttr('disabled');
                 $('#pregunta').removeAttr('disabled');
                 btn.children('.cargando').hide();
@@ -1644,7 +1674,7 @@ $('#principal').on('click', '.btn-preguntar:not(".disabled")', function (e) {
         }
     }, 'json');
 });
-$('#principal').on('click', '.btn-responder:not(".disabled")', function (e) {
+$('#principal').on('click', '.btn-responder:not(".disabled")', function(e) {
     e.preventDefault();
     var respuesta = $.trim($(this).prev('.respuesta').val());
     if (respuesta === '') {
@@ -1658,7 +1688,7 @@ $('#principal').on('click', '.btn-responder:not(".disabled")', function (e) {
     $.post('ax/responder.php', {
         id: id,
         respuesta: respuesta
-    }, function (data) {
+    }, function(data) {
         btn.removeAttr('disabled');
         $('.respuesta').removeAttr('disabled');
         btn.children('.cargando').hide();
@@ -1670,12 +1700,12 @@ $('#principal').on('click', '.btn-responder:not(".disabled")', function (e) {
 });
 var denunciaId;
 var denunciaTipo;
-$('#principal').on('click', '.btn-denunciar-changuita', function (e) {
+$('#principal').on('click', '.btn-denunciar-changuita', function(e) {
     e.preventDefault();
     var btn = $(this);
     $.post('ax/logged.php', {
         bloqueado: 1
-    }, function (data) {
+    }, function(data) {
         if (data.estado === 'ok') {
             denunciaId = btn.attr('data-changuita-id');
             denunciaTipo = 'ch';
@@ -1688,12 +1718,12 @@ $('#principal').on('click', '.btn-denunciar-changuita', function (e) {
         }
     }, 'json');
 });
-$('#principal').on('click', '.btn-denunciar-pregunta', function (e) {
+$('#principal').on('click', '.btn-denunciar-pregunta', function(e) {
     e.preventDefault();
     var btn = $(this);
     $.post('ax/logged.php', {
         bloqueado: 1
-    }, function (data) {
+    }, function(data) {
         if (data.estado === 'ok') {
             denunciaId = btn.attr('data-pregunta-id');
             denunciaTipo = 'p';
@@ -1706,12 +1736,12 @@ $('#principal').on('click', '.btn-denunciar-pregunta', function (e) {
         }
     }, 'json');
 });
-$('#principal').on('click', '.btn-denunciar-respuesta', function (e) {
+$('#principal').on('click', '.btn-denunciar-respuesta', function(e) {
     e.preventDefault();
     var btn = $(this);
     $.post('ax/logged.php', {
         bloqueado: 1
-    }, function (data) {
+    }, function(data) {
         if (data.estado === 'ok') {
             denunciaId = btn.attr('data-respuesta-id');
             denunciaTipo = 'r';
@@ -1724,7 +1754,7 @@ $('#principal').on('click', '.btn-denunciar-respuesta', function (e) {
         }
     }, 'json');
 });
-$('#denunciar').on('click', '.btn-denunciar-ok', function (e) {
+$('#denunciar').on('click', '.btn-denunciar-ok', function(e) {
     e.preventDefault();
     $.post('ax/denunciar.php', {
         id: denunciaId,
@@ -1732,26 +1762,26 @@ $('#denunciar').on('click', '.btn-denunciar-ok', function (e) {
         comentario: $('#denuncia').val()
     });
 });
-$('#principal').on('click', '.btn-iniciar-sesion', function () {
+$('#principal').on('click', '.btn-iniciar-sesion', function() {
     $('html:not(:animated), body:not(:animated)').animate({
         scrollTop: 0
     }, 750);
     $('#login-usuario').focus();
 });
-$('#principal, #elegir').on('click', '.btn-detalle-calificaciones', function (e) {
+$('#principal, #elegir').on('click', '.btn-detalle-calificaciones', function(e) {
     e.preventDefault();
     var usuarioId = $(this).attr('data-usuario-id');
     $('#ventana').modal('show');
     $('#ventana .modal-header h3').html('Calificaciones');
     $.post('ax/ver-calificaciones.php', {
         id: usuarioId
-    }, function (data) {
+    }, function(data) {
         $('#ventana .modal-header h4').html(data.nombre);
         $('#ventana .modal-body').html(data.html);
     }, 'json');
 });
 var calificarId;
-$('#principal').on('click', '.btn-calificar', function (e) {
+$('#principal').on('click', '.btn-calificar', function(e) {
     e.preventDefault();
     calificarId = $(this).attr('data-changuita-id');
     $('.btn-calificar-realizo').removeAttr('checked');
@@ -1760,18 +1790,18 @@ $('#principal').on('click', '.btn-calificar', function (e) {
     $('#calificar').modal('show');
     $('.modal-body button').removeClass('active');
 });
-$('#calificar').on('click', '.modal-body .btn-calificar-realizo', function () {
+$('#calificar').on('click', '.modal-body .btn-calificar-realizo', function() {
     $('.btn-group button').removeClass('disabled active');
     if ($(this).val() === '0') {
         $('.btn-calificar-positivo').addClass('disabled');
     }
 });
-$('#calificar').on('click', '.modal-body button', function (e) {
+$('#calificar').on('click', '.modal-body button', function(e) {
     e.preventDefault();
     $('.modal-body button').removeClass('active');
     $(this).addClass('active');
 });
-$('#calificar').on('click', '.btn-calificar-ok', function (e) {
+$('#calificar').on('click', '.btn-calificar-ok', function(e) {
     e.preventDefault();
     var realizo = $('.btn-calificar-realizo:checked').val();
     var valor = $('#calificar .modal-body button.active').val();
@@ -1787,7 +1817,7 @@ $('#calificar').on('click', '.btn-calificar-ok', function (e) {
         valor: valor,
         realizo: realizo,
         comentario: comentario
-    }, function (data) {
+    }, function(data) {
         $('.btn-calificar').removeAttr('disabled');
         $('.btn-calificar').children('.cargando').hide();
         if (data.estado === 'ok') {
@@ -1797,12 +1827,12 @@ $('#calificar').on('click', '.btn-calificar-ok', function (e) {
     }, 'json');
 });
 // - orden
-$('#principal').on('change', '#orden', function () {
+$('#principal').on('change', '#orden', function() {
     var orden = $('#orden').val();
     $('#btn-buscar-changuitas, #btn-changuitas-todas').addClass('disabled').attr('disabled', 'disabled');
     $('#changuitas-resultados').hide('clip');
     $('#changuitas-resultados-cargando').show('clip');
-    $.post('ax/changuitas.php', $('#changuitas-buscar').serialize() + '&ini=0&orden=' + orden, function (data) {
+    $.post('ax/changuitas.php', $('#changuitas-buscar').serialize() + '&ini=0&orden=' + orden, function(data) {
         $('#btn-buscar-changuitas, #btn-changuitas-todas').removeClass('disabled').removeAttr('disabled');
         $('#changuitas-resultados-cargando').hide('clip');
         $('#changuitas-resultados').show('clip');
@@ -1810,71 +1840,71 @@ $('#principal').on('change', '#orden', function () {
     }, 'json');
 });
 // postulaciones / mis-changuitas / preguntas / calificaciones
-$('.container').on('click', '#postulaciones-filtros button', function (e) {
+$('.container').on('click', '#postulaciones-filtros button', function(e) {
     e.preventDefault();
     $('#postulaciones-filtros button').removeClass('active');
     $(this).addClass('active');
     postulaciones();
 });
-$('.container').on('click', '#mis-changuitas-filtros button', function (e) {
+$('.container').on('click', '#mis-changuitas-filtros button', function(e) {
     e.preventDefault();
     $('#mis-changuitas-filtros button').removeClass('active');
     $(this).addClass('active');
     misChanguitas();
 });
-$('.container').on('click', '#preguntas-filtros button', function (e) {
+$('.container').on('click', '#preguntas-filtros button', function(e) {
     e.preventDefault();
     $('#preguntas-filtros button').removeClass('active');
     $(this).addClass('active');
     preguntas();
 });
-$('.container').on('click', '#calificaciones-filtros button', function (e) {
+$('.container').on('click', '#calificaciones-filtros button', function(e) {
     e.preventDefault();
     $('#calificaciones-filtros button').removeClass('active');
     $(this).addClass('active');
     calificaciones();
 });
-$('.container').on('click', '.btn-vista-ver', function (e) {
+$('.container').on('click', '.btn-vista-ver', function(e) {
     e.preventDefault();
     var idCh = $(this).attr('data-changuita-id');
     $.address.path('changuita|' + idCh);
 });
 var accion, accionId, accionBtn;
-$('.container').on('click', '.btn-finalizar', function (e) {
+$('.container').on('click', '.btn-finalizar', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
     accion = 'finalizar';
     $('#confirmar').modal('show');
 });
-$('.container').on('click', '.btn-anular-postulacion', function (e) {
+$('.container').on('click', '.btn-anular-postulacion', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
     accion = 'despostular';
     $('#confirmar').modal('show');
 });
-$('.container').on('click', '.btn-borrar-ch', function (e) {
+$('.container').on('click', '.btn-borrar-ch', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
     accion = 'borrar';
     $('#confirmar').modal('show');
 });
-$('#confirmar').on('click', '.btn-confirmar-ok', function (e) {
+$('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
     e.preventDefault();
     accionBtn.attr('disabled', 'disabled');
     accionBtn.children('.cargando').show();
     $.post('ax/' + accion + '.php', {
         id: accionId
-    }, function () {
+    }, function() {
         $('#columna').load('columna-ok.php');
         accionBtn.removeAttr('disabled');
         accionBtn.children('.cargando').hide();
         $.address.update();
     });
 });
-$('.container').on('click', '.btn-elegir', function (e) {
+$('.container').on('click', '.btn-elegir', function(e) {
     e.preventDefault();
     var idCh = $(this).attr('data-changuita-id');
     $(this).attr('disabled', 'disabled');
@@ -1882,21 +1912,21 @@ $('.container').on('click', '.btn-elegir', function (e) {
     var btn = $(this);
     $.post('ax/elegir.php', {
         id: idCh
-    }, function (data) {
+    }, function(data) {
         btn.removeAttr('disabled');
         btn.children('.cargando').hide();
         $('#elegir .modal-body').html(data.html);
         $('#elegir').modal('show');
     }, 'json');
 });
-$('#elegir').on('click', '.btn-contratar', function (e) {
+$('#elegir').on('click', '.btn-contratar', function(e) {
     e.preventDefault();
     var idU = $(this).attr('data-usuario-id');
     var idCh = $(this).attr('data-changuita-id');
     $.post('ax/contratar.php', {
         u: idU,
         ch: idCh
-    }, function (data) {
+    }, function(data) {
         if (data.estado === 'ok') {
             $.address.update();
             actualizarNotificaciones();
@@ -1904,11 +1934,11 @@ $('#elegir').on('click', '.btn-contratar', function (e) {
     }, 'json');
 });
 // contacto
-$('#principal').on('click', '#contacto #boton-contacto', function (e) {
+$('#principal').on('click', '#contacto #boton-contacto', function(e) {
     e.preventDefault();
     if (validarContacto()) {
         $('#procesando').modal('show');
-        $.post('ax/contacto.php', $('#contacto').serialize(), function (data) {
+        $.post('ax/contacto.php', $('#contacto').serialize(), function(data) {
             if (data.estado === 'ok') {
                 $('#contacto-ok').show();
             } else {
@@ -1920,11 +1950,11 @@ $('#principal').on('click', '#contacto #boton-contacto', function (e) {
     return false;
 });
 // Address
-$.address.change(function (event) {
+$.address.change(function(event) {
     var pos,
-        address = event.value,
-        get = '',
-        splitCh = '|';
+            address = event.value,
+            get = '',
+            splitCh = '|';
 
     pos = address.indexOf(splitCh);
     if (pos === -1) {
@@ -1942,39 +1972,39 @@ $.address.change(function (event) {
         }
     }
     switch (address) {
-    case '/editar-changuita':
-        cargar2('editar-changuita.php' + get);
-        break;
-    case '/changuita-nueva':
-        cargar2('editar-changuita.php');
-        break;
-    case '/changuita':
-        cargar2('ver-changuita.php' + get);
-        break;
-    case '/mi-perfil':
-        cargar2('editar-usuario.php' + get);
-        break;
-    case '/invitar2':
-        cargar2('invitar2.php');
-        break;
-    case '/invitar-ok':
-        cargar2('invitar-ok.php');
-        break;
-    case '/changuitas':
-        cargar2('changuitas.php');
-        break;
-    case '/notificaciones':
-        cargar2('notificaciones.php');
-        break;
-    case '/republicar':
-        cargar2('republicar.php' + get);
-        break;
-    default:
-        cargar(address);
+        case '/editar-changuita':
+            cargar2('editar-changuita.php' + get);
+            break;
+        case '/changuita-nueva':
+            cargar2('editar-changuita.php');
+            break;
+        case '/changuita':
+            cargar2('ver-changuita.php' + get);
+            break;
+        case '/mi-perfil':
+            cargar2('editar-usuario.php' + get);
+            break;
+        case '/invitar2':
+            cargar2('invitar2.php');
+            break;
+        case '/invitar-ok':
+            cargar2('invitar-ok.php');
+            break;
+        case '/changuitas':
+            cargar2('changuitas.php');
+            break;
+        case '/notificaciones':
+            cargar2('notificaciones.php');
+            break;
+        case '/republicar':
+            cargar2('republicar.php' + get);
+            break;
+        default:
+            cargar(address);
     }
 });
 // destacadas
-$('#principal').on('click', '.ver-mas', function () {
+$('#principal').on('click', '.ver-mas', function() {
     var id = $(this).attr('data-changuita-id');
     var plan = $(this).attr('data-changuita-plan');
     $.post('ax/click.php', {
@@ -1983,7 +2013,7 @@ $('#principal').on('click', '.ver-mas', function () {
     });
 });
 // columna
-$('#columna').on('click', '.btn-notificaciones:not(".disabled")', function () {
+$('#columna').on('click', '.btn-notificaciones:not(".disabled")', function() {
     $(this).attr('disabled', 'disabled').addClass('disabled');
     $('.btn-notificaciones').popover({
         title: '<button class="btn-link btn-notificaciones-cerrar">Cerrar</button>',
@@ -1991,7 +2021,7 @@ $('#columna').on('click', '.btn-notificaciones:not(".disabled")', function () {
         html: true,
         placement: 'bottom'
     });
-    $.post('ax/notificaciones.php', function (data) {
+    $.post('ax/notificaciones.php', function(data) {
         if (data.estado === 'ok') {
             $('.btn-notificaciones').popover('show');
             $('#columna-ok .popover-content').html(data.html);
@@ -2000,48 +2030,48 @@ $('#columna').on('click', '.btn-notificaciones:not(".disabled")', function () {
         }
     }, 'json');
 });
-$('#columna').on('click', '.btn-notificaciones-cerrar', function () {
+$('#columna').on('click', '.btn-notificaciones-cerrar', function() {
     cerrarNotificaciones();
 });
-$('#columna').on('click', '.btn-notificaciones-todas', function () {
+$('#columna').on('click', '.btn-notificaciones-todas', function() {
     cerrarNotificaciones();
     $.address.path('/notificaciones');
 });
 /*$('#columna').on('click', '.btn-notificacion-ver', function () {
-    var idCh = $(this).attr('data-changuita-id');
-    var idN = $(this).attr('data-notificacion-id');
-    cerrarNotificaciones();
-    if (!$(this).hasClass('no-leer')) {
-        $.post('ax/leido.php', {
-            id: idN
-        });
-    }
-    actualizarNotificaciones();
-    $.address.path('/changuita|' + idCh);
-});*/
+ var idCh = $(this).attr('data-changuita-id');
+ var idN = $(this).attr('data-notificacion-id');
+ cerrarNotificaciones();
+ if (!$(this).hasClass('no-leer')) {
+ $.post('ax/leido.php', {
+ id: idN
+ });
+ }
+ actualizarNotificaciones();
+ $.address.path('/changuita|' + idCh);
+ });*/
 /*$('#columna').on('click', '.btn-notificacion-leer', function () {
-    $(this).parent('.notif').addClass('leido').hide('clip');
-    if ($('.btn-notificacion-leer').parents('.notif:not(".leido")').size() === 0) {
-        cerrarNotificaciones();
-    }
-    var id = $(this).attr('data-notificacion-id');
-    $.post('ax/leido.php', {
-        id: id
-    }, function () {
-        actualizarNotificaciones();
-    });
-});*/
+ $(this).parent('.notif').addClass('leido').hide('clip');
+ if ($('.btn-notificacion-leer').parents('.notif:not(".leido")').size() === 0) {
+ cerrarNotificaciones();
+ }
+ var id = $(this).attr('data-notificacion-id');
+ $.post('ax/leido.php', {
+ id: id
+ }, function () {
+ actualizarNotificaciones();
+ });
+ });*/
 // pagar deuda
-$('.container').on('click', '.btn-pagar-deuda', function (e) {
+$('.container').on('click', '.btn-pagar-deuda', function(e) {
     e.preventDefault();
     var ch = [],
-        fee = [],
-        respuesta,
-        clase;
-    $('input[name="pagar-ch[]"]').each(function () {
+            fee = [],
+            respuesta,
+            clase;
+    $('input[name="pagar-ch[]"]').each(function() {
         ch.push($(this).val());
     });
-    $('input[name="pagar-fee[]"]').each(function () {
+    $('input[name="pagar-fee[]"]').each(function() {
         fee.push($(this).val());
     });
     $(this).attr('disabled', 'disabled').addClass('disabled');
@@ -2050,13 +2080,13 @@ $('.container').on('click', '.btn-pagar-deuda', function (e) {
     $.post('ax/pagar-deuda.php', {
         id: ch,
         fee: fee
-    }, function (data) {
+    }, function(data) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $MPC.openCheckout({
                 url: data.preferencia.response.init_point,
                 mode: "modal",
-                onreturn: function (dataMP) {
+                onreturn: function(dataMP) {
                     if (dataMP.collection_status === 'approved') {
                         $.post('ax/pagado.php', {
                             id: ch,
@@ -2089,7 +2119,7 @@ $('.container').on('click', '.btn-pagar-deuda', function (e) {
 });
 // invitar
 // - beta
-$('.container').on('click', '.btn-invitar-fbx, .btn-invitar-lix, .btn-invitar-gmx, .btn-invitar-hmx', function (e) {
+$('.container').on('click', '.btn-invitar-fbx, .btn-invitar-lix, .btn-invitar-gmx, .btn-invitar-hmx', function(e) {
     e.preventDefault();
     $('.ul-invitar li').removeClass('invitar-li-ok');
     $('p.invitar-li-ok').removeClass('invitar-li-ok');
@@ -2100,7 +2130,7 @@ $('.container').on('click', '.btn-invitar-fbx, .btn-invitar-lix, .btn-invitar-gm
 });
 // ********
 
-$('.container').on('click', '.btn-invitar-gm', function (e) {
+$('.container').on('click', '.btn-invitar-gm', function(e) {
     e.preventDefault();
     $('#invitar-res').hide();
     handleClientLoad();
@@ -2110,17 +2140,17 @@ $('.container').on('click', '.btn-invitar-gm', function (e) {
 });
 // Google API
 function handleClientLoad() {
-    if(!gapi.client) {
+    if (!gapi.client) {
         return;
     }
     var apiKey = 'AIzaSyD-jUuG1xVWmNTDInPB-2d1wAB8VaKnTOw';
     gapi.client.setApiKey(apiKey);
-    window.setTimeout(checkAuth,1);
+    window.setTimeout(checkAuth, 1);
 }
 
 function checkAuth() {
     var scope = 'https://www.google.com/m8/feeds',
-        clientId = '90058208866';
+            clientId = '90058208866';
     gapi.auth.authorize({client_id: clientId, scope: scope, immediate: true}, handleAuthResult);
 }
 
@@ -2142,12 +2172,12 @@ function makeApiCall(authResult) {
         success: function(data) {
             $('#procesando').modal('show');
             $.post('ax/invitar-gm.php', {data: data}, function(data2) {
-                if(data2.estado === 'ok') {
+                if (data2.estado === 'ok') {
                     $('#procesando').modal('hide');
                     $('#form-invitar').html(data2.html);
                     $('#invitar-res').show();
                 } else {
-                  $('#form-invitar-mensaje').show('clip').html('No hay contactos para importar');
+                    $('#form-invitar-mensaje').show('clip').html('No hay contactos para importar');
                 }
             }, 'json');
         }
@@ -2189,29 +2219,29 @@ function makeApiCall(authResult) {
 //         }
 //     });
 // });
-$('.container').on('click', '.btn-invitar-manual', function (e) {
+$('.container').on('click', '.btn-invitar-manual', function(e) {
     e.preventDefault();
     $('#invitar-res').hide();
     $('.ul-invitar li').removeClass('invitar-li-ok');
     $(this).parent('p').addClass('invitar-li-ok');
     $('.btn-invitar-submit').removeAttr('disabled').removeClass('disabled');
     $('#procesando').modal('show');
-    $.post('ax/invitar-manual.php', function (data) {
+    $.post('ax/invitar-manual.php', function(data) {
         $('#procesando').modal('hide');
         $('#invitar-res').show();
         $('#form-invitar').html(data.html);
     }, 'json');
 });
-$('.container').on('click', '.btn-invitar-submit:visible', function (e) {
+$('.container').on('click', '.btn-invitar-submit:visible', function(e) {
     e.preventDefault();
     // valida
-    if($('input[name="source"]').val() === 'manual') {
+    if ($('input[name="source"]').val() === 'manual') {
         $('input[name="invitado[]"]').removeClass('error');
         var error = 0,
-            ok = 0,
-            vacio = 0,
-            n = 0;
-        $('input[name="invitado[]"]').each(function () {
+                ok = 0,
+                vacio = 0,
+                n = 0;
+        $('input[name="invitado[]"]').each(function() {
             n++;
             if ($.trim($(this).val()) === '') {
                 vacio++;
@@ -2231,13 +2261,13 @@ $('.container').on('click', '.btn-invitar-submit:visible', function (e) {
             return false;
         }
     } else {
-        if($('div.invitado input:not(".disabled"):checked').size() === 0) {
+        if ($('div.invitado input:not(".disabled"):checked').size() === 0) {
             $('#form-invitar-mensaje').show('clip').html('Tenés que elegir algún contacto');
             return false;
         }
     }
     $('#procesando').modal('show');
-    $.post('ax/invitar.php', $('#form-invitar').serialize(), function (data) {
+    $.post('ax/invitar.php', $('#form-invitar').serialize(), function(data) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $.address.path('/invitar-ok');
@@ -2247,40 +2277,40 @@ $('.container').on('click', '.btn-invitar-submit:visible', function (e) {
         }
     }, 'json');
 });
-$('.container').on('click', '.btn-invitar-todos', function (e) {
+$('.container').on('click', '.btn-invitar-todos', function(e) {
     e.preventDefault();
     $('div.invitado input:not(".disabled")').attr('checked', 'checked');
 });
-$('.container').on('click', '.btn-invitar-ninguno', function (e) {
+$('.container').on('click', '.btn-invitar-ninguno', function(e) {
     e.preventDefault();
     $('div.invitado input:not(".disabled")').removeAttr('checked');
 });
 // enter
 // - desactivo enter
-$('#principal').on('keypress', 'input', function (e) {
+$('#principal').on('keypress', 'input', function(e) {
     if (e.which === 13) {
         e.preventDefault();
     }
 });
-$('#principal').on('keypress', '#ini-palabras', function (e) {
+$('#principal').on('keypress', '#ini-palabras', function(e) {
     if (e.which === 13) {
         $('#btn-buscar').click();
     }
 });
-$('#principal').on('keypress', '#changuitas-palabras', function (e) {
+$('#principal').on('keypress', '#changuitas-palabras', function(e) {
     if (e.which === 13) {
         $('#btn-buscar-changuitas').click();
     }
 });
-$('#principal').on('click', 'div.changuita, div.destacada', function (e) {
-    if(e.target.className.indexOf('btn-postular') !== -1) {
+$('#principal').on('click', 'div.changuita, div.destacada', function(e) {
+    if (e.target.className.indexOf('btn-postular') !== -1) {
         return;
     }
     var id = $(this).attr('data-changuita-id');
-    $.address.path('/changuita|'+id);
+    $.address.path('/changuita|' + id);
 });
 // inicio
-$(document).ready(function () {
+$(document).ready(function() {
     // - modals
     $('body').off('.modal');
     $('#cargando').modal({
@@ -2292,7 +2322,7 @@ $(document).ready(function () {
     $('#aviso-login').modal({
         show: false
     });
-	$('#aviso-login-changuita-publicated').modal({
+    $('#aviso-login-changuita-publicated').modal({
         show: false
     });
     $('#denunciar').modal({
@@ -2318,7 +2348,7 @@ $(document).ready(function () {
     window.___gcfg = {
         lang: 'es-419'
     };
-    (function () {
+    (function() {
         var po = document.createElement('script');
         po.type = 'text/javascript';
         po.async = true;
@@ -2327,9 +2357,9 @@ $(document).ready(function () {
         s.parentNode.insertBefore(po, s);
     })();
     // twitter
-    ! function (d, s, id) {
+    !function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
-            p = /^http:/.test(d.location) ? 'http' : 'https';
+                p = /^http:/.test(d.location) ? 'http' : 'https';
         if (!d.getElementById(id)) {
             js = d.createElement(s);
             js.id = id;
@@ -2340,25 +2370,25 @@ $(document).ready(function () {
 
     // modal fix [http://decadecity.net/blog/2013/03/25/modal-windows-for-small-screens-using-bootstrap-and-vertical-media-queries]
     var modal_window = $('#modal-window');
-    $('a[rel=modal]').on('click', function (e) {
-    var scroll_position = $(window).scrollTop(), // Where did we start in the window.
-        return_position = false; // Should we return to the start position?
-    e.preventDefault();
-    // Build and show the modal.
-    modal_window.modal({
-      'remote': $(this).attr('href') + ' #modal-target' // Get remote content from the link.
-    }).on('show', function () {
-      if (modal_window.css('position') === 'absolute') {
-        // We will need to return to where we were.
-        return_position = true;
-        // Jump to the top of the modal.
-        $(window).scrollTop(modal_window.offset().top);
-      }
-    }).on('hidden', function () {
-      if (return_position) {
-        // Return to where we were.
-        $(window).scrollTop(scroll_position);
-      }
-    }).modal('show');
+    $('a[rel=modal]').on('click', function(e) {
+        var scroll_position = $(window).scrollTop(), // Where did we start in the window.
+                return_position = false; // Should we return to the start position?
+        e.preventDefault();
+        // Build and show the modal.
+        modal_window.modal({
+            'remote': $(this).attr('href') + ' #modal-target' // Get remote content from the link.
+        }).on('show', function() {
+            if (modal_window.css('position') === 'absolute') {
+                // We will need to return to where we were.
+                return_position = true;
+                // Jump to the top of the modal.
+                $(window).scrollTop(modal_window.offset().top);
+            }
+        }).on('hidden', function() {
+            if (return_position) {
+                // Return to where we were.
+                $(window).scrollTop(scroll_position);
+            }
+        }).modal('show');
     });
 });

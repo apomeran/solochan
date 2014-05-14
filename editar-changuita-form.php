@@ -1,7 +1,6 @@
 <p class="legend2">Como la changuita ya est&aacute; publicada, no pod&eacute;s modificar todos los datos. Solo pod&eacute;s:</p>
 <ul class="legend2">
 <li>Subir el <em>precio</em>, es decir, ofrecer m&aacute;s dinero por la changuita (recomendado si ten&eacute;s pocas postulaciones)</li>
-<li>Cambiar o agregar palabras clave</li>
 <li>Agregar alguna aclaraci&oacute;n en la <em>descripci&oacute;n</em> (recomendado si te hicieron muchas preguntas o te parece que hay algo que no se entiende)</li>
 <li>Contratar un servicio para que tu changuita llegue a m&aacute;s gente</li>
 </ul>

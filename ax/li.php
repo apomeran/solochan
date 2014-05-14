@@ -27,8 +27,21 @@ if($res->num_rows == 1) {
 		$id_to_insert = $fila["id"];
 		$data["id"] = $fila["id"];
 	}
-	else
+	else{
 		$data["estado"] = "error";
+		}
+	if ($data["estado"] != "error") {
+	 		if (isset($_SESSION['PublishedCHwithoutReg']) && $_SESSION['PublishedCHwithoutReg'] == 1){
+		    $_SESSION['PublishedCHwithoutReg'] = 0;
+			$sql_set_user = "UPDATE changuitas SET activo = '1', usuario = " . $fila['id'] . " WHERE activo = '0' AND usuario = 0";
+			$bd->query($sql_set_user);
+			$sql_get_changuita_last_id = "SELECT MAX(id) as chang_id FROM changuitas WHERE activo = '1' AND usuario = " . $fila['id'];
+			$chang_res = $bd->query($sql_get_changuita_last_id);
+			$chang_row = $chang_res->fetch_assoc();
+			$chang_id = $chang_row['chang_id'];
+			$data["estado"] .= "$chang_id";
+		}
+	}
 }
 else {
 	$sql = "select id, dni, activo from usuarios where mail = '$mail' and activo != '0'";
