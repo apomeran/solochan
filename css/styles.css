@@ -408,6 +408,11 @@ input.input-error:focus {
 .navbar button.btn-publicar {
 	margin:0;
 }
+
+.btn-publicar{
+background-image: linear-gradient(to bottom, #75C71D, #75C71D) !important; 
+background-color: #75C71D !important;
+}
 #columna-login,
 #columna-ok {
 	/*background-color: #f5cca0;*/

@@ -49,8 +49,7 @@
 		</div>
 		<img class="comofuncionapic"src="img/comofunciona2.png"></img>
 		</div>
-		<br><br>
-		
+				
 		<div class="container ">
 			
 			<div id="header" class="" style="margin-bottom:35px;" >
