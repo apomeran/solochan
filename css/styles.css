@@ -410,8 +410,8 @@ input.input-error:focus {
 }
 
 .btn-publicar{
-background-image: linear-gradient(to bottom, #75C71D, #75C71D) !important; 
-background-color: #75C71D !important;
+background-image: linear-gradient(to bottom, #61A31B, #61A31B) !important; 
+background-color: #61A31B !important;
 }
 #columna-login,
 #columna-ok {
