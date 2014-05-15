@@ -49,7 +49,7 @@
 		</div>
 		<img class="comofuncionapic"src="img/comofunciona2.png"></img>
 		</div>
-		<hr><hr>
+		<br><br>
 		
 		<div class="container ">
 			
