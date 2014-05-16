@@ -433,7 +433,7 @@ background-color: #61A31B !important;
 	padding: 10px 15px;
 }
 #columna .login {
-	padding: 15px 0;
+	/*padding: 15px 0;*/
 	text-align: center;
 }
 #columna .login:first-child {
