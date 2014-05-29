@@ -293,16 +293,35 @@ class Mails {
         return 1;
     }
 
-    public function changuitaPublicada($changuita, $user) {
-        $categoriaNombre = $changuita["categoria"];
-        $changuitaId = $changuita['id'];
-        $this->mailer->Subject = $user["nombre"] . ", hay una nueva changuita";
-        $this->mailer->Body = $this->bodyIni;
-        $this->mailer->Body .= "Estimado/a " . $user["nombre"] . ":<br/><br/>Acabas de publicar una changuita en la <em>$categoriaNombre</em>. <a href='" . Sitio . "/#/changuita|$changuitaId'>Entrá ahora</a> y fijate si te interesa.";
-        $this->mailer->Body .= "<br/>" . $this->bodyFin;
-        $this->mailer->ClearAddresses();
-        $this->mailer->AddAddress($user["mail"]);
-        $this->mailer->Send();
+    public function changuitaPublicada($changuita) {
+        if (!isset($_SESSION[SesionId])) {
+            return -1;
+        }
+        $sql = "select cat.categoria, ch.subcategoria from changuitas as ch left join categorias as cat on ch.categoria = cat.id where ch.id = $changuita and ch.activo = '1' and ch.vencida = '0' and cat.activo = '1'";
+        $res = $this->bd->query($sql);
+        if ($res->num_rows == 0) {
+            return -1;
+        }
+        $fila = $res->fetch_assoc();
+        $categoriaNombre = $fila["categoria"];
+        $subcategoria = $fila["subcategoria"];
+        $sql = "select usu.nombre, usu.mail from usuarios as usu left join usuarios_categorias as uc on usu.id = uc.usuario where usu.activo = '2' and usu.nivel = '0' and usu.aviso = '1' and uc.categoria = $subcategoria and usu.id = " . $_SESSION[SesionId];
+        $res = $this->bd->query($sql);
+        if ($res->num_rows == 0) {
+            return -1;
+        }
+        $a = 0;
+        while ($fila = $res->fetch_assoc()) {
+            $a++;
+            $this->mailer->Subject = $fila["nombre"] . ", hay una nueva changuita";
+            $this->mailer->Body = $this->bodyIni;
+            $this->mailer->Body .= "Estimado/a " . $fila["nombre"] . ":<br/><br/>Acabas de publicar una changuita en la categoría <em>$categoriaNombre</em>. <a href='" . Sitio . "/#/changuita|$changuita'>Entrá ahora</a> y fijate como la ven otros usuarios.";
+            $this->mailer->Body .= "<br/>" . $this->bodyFin;
+            $this->mailer->ClearAddresses();
+            $this->mailer->AddAddress($fila["mail"]);
+            $this->mailer->Send();
+        }
+        return $a;
     }
 
     public function olvido($usuario) {

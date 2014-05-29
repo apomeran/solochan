@@ -115,7 +115,9 @@ if($id == 0) {
 			include_once("../includes/class.phpmailer.php");
 			include_once("../class/mails.php");
 			$mail = new Mails();
-			$mail->nuevaChanguita($id);
+			$mailResult = $mail->nuevaChanguita($id);
+			$mailResult = $mail->changuitaPublicada($id);
+			
 			include_once("../class/notificaciones.php");
 			$not = new Notificaciones();
 			$not->nuevaChanguita($id);
@@ -149,9 +151,6 @@ if($id == 0) {
 				$data["estado"] = "ok";
 			}
 		}
-		
-
-		
 	}
 	else
 		$data["estado"] = "error";

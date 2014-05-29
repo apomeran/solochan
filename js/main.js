@@ -604,26 +604,26 @@ $('.container').on('click', '.btn-link', function(e) {
 // Login
 window.fbAsyncInit = function() {
     //LOCAL !
-   /* FB.init({
-        appId: '1423275721261751', // App ID
-        channelUrl: 'includes/fb-channel.php', // Channel File
-        status: true, // check login status
-        cookie: true, // enable cookies to allow the server to access the session
-        xfbml: true // parse XFBML
-    });
-*/
-
-    // ONLINE !
-    
-     FB.init({
-     appId: '511297335556303', // App ID
+    /* FB.init({
+     appId: '1423275721261751', // App ID
      channelUrl: 'includes/fb-channel.php', // Channel File
      status: true, // check login status
      cookie: true, // enable cookies to allow the server to access the session
      xfbml: true // parse XFBML
      });
-     
-     
+     */
+
+    // ONLINE !
+
+    FB.init({
+        appId: '511297335556303', // App ID
+        channelUrl: 'includes/fb-channel.php', // Channel File
+        status: true, // check login status
+        cookie: true, // enable cookies to allow the server to access the session
+        xfbml: true // parse XFBML
+    });
+
+
     // Additional initialization code here
 };
 // Load the SDK Asynchronously
@@ -1870,6 +1870,14 @@ $('.container').on('click', '.btn-vista-ver', function(e) {
     $.address.path('changuita|' + idCh);
 });
 var accion, accionId, accionBtn;
+$('.container').on('click', '.btn-finalizar-y-calificar', function(e) {
+    e.preventDefault();
+    accionBtn = $(this);
+    accionId = $(this).attr('data-changuita-id');
+    accion = 'finalizar';
+    $('#confirmar').modal('show');
+});
+
 $('.container').on('click', '.btn-finalizar', function(e) {
     e.preventDefault();
     accionBtn = $(this);

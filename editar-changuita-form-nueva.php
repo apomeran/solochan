@@ -65,9 +65,10 @@ $(function() {
 	</div>
 	<div class="controls" style="margin-left: 11% !important;" id="the-question">
 		<input id="subcat_cat_search" type="text" style="width: 60% !important; margin-top:15px; text-align:center; font-weight: bold; height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
-		<br><a title="Ver categorias y subcategorias"  style="margin-left:11%" onclick="fade_in_cat_subcat()">
-			  Si no lo encontr&aacutes, buscalo en nuestras opciones
+		<br><div style="margin-left: 11%">Si no lo encontr&aacutes,<a title="Ver categorias y subcategorias"  style="font-size: 1.1em" onclick="fade_in_cat_subcat()">
+			   buscalo en nuestras opciones
 		</a>
+		</div>
 	</div>
 </div>
 
@@ -106,7 +107,7 @@ $(function() {
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="titulo">Nombre para la changuita</label>
+	<label class="control-label" for="titulo">T&iacute;tulo para la changuita</label>
 	<div class="controls">
 		<input type="text" id="titulo" name="titulo" value="" maxlength="40" />
 			<a class="ayuda" title="Este campo es obligatorio. Ingres&aacute; un texto breve (menos de 40 caracteres) que identifique r&aacute;pidamente tu changuita (m&aacute;s abajo te vamos a pedir una descripci&oacute;n m&aacute;s detallada). Por ej.: Profesor de historia."><i class="icon-question-sign"></i></a><span class="help-block"></span>
@@ -174,7 +175,7 @@ if(count($barriosIni) > 0) {
 			<a class="ayuda" title="Ingres&aacute; algunas palabras (separadas por comas) para ayudar a los dem&aacute;s a encontrar tu changuita."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</div>
 </div>
-<p class="move-me-left"><b>Horarios </b><p>
+<p class="move-me-left"><b>D&iacute;as y Horarios </b><p>
 <div class="control-group">
 	<label class="control-label" for="cuando">&iquest;Cu&aacute;ndo hay que hacer la changuita?</label>
 	<div class="controls">
@@ -303,7 +304,7 @@ foreach($plan as $k => $v) {
 <p class="vence-default">Todas las changuitas se mantienen publicadas por un mes como m&aacute;ximo. Por lo tanto, si no eleg&iacute;s un postulante antes, vencer&aacute; el <?php echo $unMes ?>.</p>
 <p class="vence-fecha hide">Esta changuita se mantendr&aacute; publicada hasta el d&iacute;a que definiste como el que hay que hacer la changuita. <span id="vence"></span></p>
 <p><strong>Garant&iacute;a de satisfacci&oacute;n</strong>: si elegiste un plan pago y la changuita no se realiza o si vence y no ten&eacute;s ning&uacute;n postulante, el dinero que pagaste al momento de publicar se te devolver&aacute; en forma de cr&eacute;dito para que uses dentro del sitio.</p>
-<p><strong>Importante</strong>: si elegiste un plan pago, al hacer click en el bot&oacute;n <em>Publicar la changuita</em> te vamos a mostrar las opciones de pago. Si no complet&aacute;s el proceso de pago, la changuita se publicar&aacute; igual y el monto a pagar se te computar&aacute; como deuda.</p>
+<p style="display:none"><strong>Importante</strong>: si elegiste un plan pago, al hacer click en el bot&oacute;n <em>Publicar la changuita</em> te vamos a mostrar las opciones de pago. Si no complet&aacute;s el proceso de pago, la changuita se publicar&aacute; igual y el monto a pagar se te computar&aacute; como deuda.</p>
 <div class="form-actions">
 	<button class="btn btn-info btn-large" id="boton-submit-nueva">Publicar la changuita</button>
 	<span class="help-inline text-error" id="validar"></span>
