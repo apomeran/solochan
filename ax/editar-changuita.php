@@ -149,6 +149,9 @@ if($id == 0) {
 				$data["estado"] = "ok";
 			}
 		}
+		
+
+		
 	}
 	else
 		$data["estado"] = "error";
