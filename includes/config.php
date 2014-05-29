@@ -7,7 +7,7 @@ define("Sitio", "http://www.solochanguitas.com.ar");
 define("UsuarioBD", "sc_user");
 define("ClaveBD", "0T90iSpjUU");
 */
-define("Servidor", "127.0.0.1");
+define("Servidor", "127.0.0.1"); 
 define("UsuarioBD", "root");
 define("ClaveBD", "tatateta");
 
