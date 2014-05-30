@@ -1874,7 +1874,7 @@ $('.container').on('click', '.btn-finalizar-y-calificar', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
-    accion = 'finalizar';
+    accion = 'finalizar2';
     $('#confirmar').modal('show');
 });
 
@@ -1903,6 +1903,11 @@ $('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
     e.preventDefault();
     accionBtn.attr('disabled', 'disabled');
     accionBtn.children('.cargando').show();
+    calificacion = false;
+    if (accion == 'finalizar-y-calificar') {
+        accion = 'finalizar';
+        calificacion = true;
+    }
     $.post('ax/' + accion + '.php', {
         id: accionId
     }, function() {

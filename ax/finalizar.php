@@ -46,4 +46,5 @@ if($res && $bd->affected_rows == 1) {
         $m->Send();
     }
 }
+return 1;
 ?>
