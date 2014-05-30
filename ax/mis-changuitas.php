@@ -65,7 +65,7 @@ else {
             case 1:
                 $estado = "Changuita en curso";
                 $classFila = "info";
-                $botFin = "<button class='btn btn-block btn-primary btn-finalizar' data-changuita-id='" . $fila["id"] . "'>Finalizar changuita y calificar al usuario<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button>";
+                $botFin = "<button class='btn btn-block btn-primary btn-finalizar-y-calificar' data-changuita-id='" . $fila["id"] . "'>Finalizar changuita y calificar al usuario<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button>";
                 break;
             case 2:
             case 3:
