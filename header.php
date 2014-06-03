@@ -49,9 +49,6 @@
 		</div>
 		<img class="comofuncionapic"src="img/comofunciona2.png"></img>
 		</div>
-				
-		
-			
 			<div id="header" >
 				<div class="row">
 					<div class="span6">
@@ -115,49 +112,4 @@
         </div>
 
         <div class="container ">
-
-            <div id="header" class="" style="margin-bottom:35px;" >
-                <div class="row">
-                    <div class="span6">
-                        <a href="#/inicio" rel="address:/" class="logo"><img src="img/logo2.png" alt="SoloChanguitas" /></a>
-                        <div class="row">
-                            <div class="span4">
-                                <div class="slogan"><img src="img/slogan.png" alt=""></div>
-                            </div>
-                            <div class="span2">
-                                <div class="social">
-                                    <a href="http://www.facebook.com/solochanguitas" target="_blank"><img src="img/fb.png" alt="facebook" /></a>
-                                    <a href="https://twitter.com/solochanguitas" target="_blank"><img src="img/tw.png" alt="twitter" /></a>
-                                    <a href="#" target="_blank"><img src="img/gp.png" alt="google plus" /></a>
-                                    <a href="#" target="_blank"><img src="img/li.png" alt="linkedin" /></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span6">
-                        <div class="row">
-                            <div class="span2">
-                                <p class="como-f">
-                                    <a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
-                                        &iquest;C&oacute;mo funciona?
-                                    </a>
-                                    <a class="menucontainer" href="#/changuitas" rel="address:/changuitas">
-                                        Ver todas las changuitas
-                                    </a>
-                                </p>
-
-                            </div>
-                            <!--<div class="span4">
-                                    <div class="like">
-                                            <div class="g-plusone" data-size="medium" data-href="http://www.solochanguitas.com.ar"></div>
-                                            <a href="https://twitter.com/solochanguitas" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-lang="es">Seguir a @solochanguitas</a>
-                                            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.solochanguitas.com.ar&amp;send=false&amp;layout=button_count&amp;width=140&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:140px; height:21px;" allowTransparency="true"></iframe>
-                                    </div>
-                            </div>
-                            !-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="row" id="estee">
