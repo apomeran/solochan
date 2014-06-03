@@ -50,12 +50,12 @@
 		<img class="comofuncionapic"src="img/comofunciona2.png"></img>
 		</div>
 				
-		<div class="container ">
+		
 			
-			<div id="header" class="" style="margin-bottom:35px;" >
+			<div id="header" >
 				<div class="row">
 					<div class="span6">
-						<a href="#/inicio" rel="address:/" class="logo"><img src="img/logo2.png" alt="SoloChanguitas" /></a>
+						<a href="#/inicio" rel="address:/" class="logo"><img width=50% src="img/logo2.png" alt="SoloChanguitas" /></a>
 						<div class="row">
 							<div class="span4">
 								<div class="slogan"><img src="img/slogan.png" alt=""></div>
@@ -95,5 +95,5 @@
 					</div>
 				</div>
 			</div>
-			
+			<div class="container">
 			<div class="row" id="estee">

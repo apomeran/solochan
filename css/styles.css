@@ -195,6 +195,8 @@ float:left;
 
 .container{
  /*	margin-top:50px; */
+ padding-left: 5%;
+ padding-right: 5%;
 }
 
 .slogan{
@@ -304,8 +306,9 @@ input.input-error:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
 }
 #header {
+	width: 100% !important;
 	padding: 20px 0 10px;
-	/*background-color: rgba(255, 255, 255, .6);*/
+	background-color: #019cde;
 	/*background: url('../img/header.gif') no-repeat 625px 25px rgba(255, 255, 255, .6);*/
 	margin-bottom: 15px;
 }
