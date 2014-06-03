@@ -1823,7 +1823,9 @@ $('#calificar').on('click', '.btn-calificar-ok', function(e) {
         if (data.estado === 'ok') {
             $.address.update();
             $('#columna').load('columna-ok.php');
-        }
+        }else{
+			alert("Error - No se pudo calificar");
+		}
     }, 'json');
 });
 // - orden
@@ -1874,7 +1876,7 @@ $('.container').on('click', '.btn-finalizar-y-calificar', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
-    accion = 'finalizar2';
+    accion = 'finalizar-y-calificar';
     $('#confirmar').modal('show');
 });
 
@@ -1899,6 +1901,7 @@ $('.container').on('click', '.btn-borrar-ch', function(e) {
     accion = 'borrar';
     $('#confirmar').modal('show');
 });
+
 $('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
     e.preventDefault();
     accionBtn.attr('disabled', 'disabled');
@@ -1910,12 +1913,27 @@ $('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
     }
     $.post('ax/' + accion + '.php', {
         id: accionId
-    }, function() {
-        $('#columna').load('columna-ok.php');
-        accionBtn.removeAttr('disabled');
-        accionBtn.children('.cargando').hide();
-        $.address.update();
+    }, function(data) {
+		if(data !== 'ok'){
+		    alert("No se pudo finalizar la changuita");
+			calificacion = false;
+		}else{
+			$('#columna').load('columna-ok.php');
+			accionBtn.removeAttr('disabled');
+			accionBtn.children('.cargando').hide();
+			$.address.update();
+			if (calificacion == true){
+				e.preventDefault();
+				calificarId = accionId;
+				$('.btn-calificar-realizo').removeAttr('checked');
+				$('.btn-group button').removeClass('disabled active');
+				$('#calificar-comentario').val('');
+				$('#calificar').modal('show');
+				$('.modal-body button').removeClass('active');
+			}
+		}
     });
+
 });
 $('.container').on('click', '.btn-elegir', function(e) {
     e.preventDefault();

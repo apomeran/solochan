@@ -75,6 +75,8 @@ if($res->num_rows == 0) {
             }
         }
 	}
+}else{
+$data["estado"] = "ResNumRows==0";
 }
 $sql = "select id, hecha from calificaciones where changuita = $id and activo = '1'";
 $res = $bd->query($sql);
@@ -109,6 +111,8 @@ if($res->num_rows == 2) {
 else if($res->num_rows == 1) {
     $sql = "update changuitas set estado = '2' where id = $id";
     $bd->query($sql);
+}else{
+	$data["estado"] = "ResNumRows2==0";
 }
 include_once("calificaciones-map.php");
 echo json_encode($data);

@@ -1,14 +1,21 @@
-<div class="alert alert-error">
+<div class="givemefont"><div class="alert alert-error">
 	<p>Tu cuenta a&uacute;n no est&aacute; activa.</p>
 </div>
 <div id="reenviar">
 <p>Te enviamos un e-mail con un link de confirmaci&oacute;n.<br/>Si no lo recibiste, podemos reenvi&aacute;rtelo (no te olvides de revisar el correo no deseado o <em>spam</em>).</p>
 <p><button class="btn btn-primary" id="btn-reenviar">Reenviar e-mail con link de confirmaci&oacute;n</button></p>
+<div style="display:none">
 <p>&iquest;Ya hiciste click en el link que te lleg&oacute; por e-mail y no pas&oacute; nada?</p>
 <p><a class="btn btn-success" href="index.php">S&iacute;, ya activ&eacute; mi cuenta</a></p>
 </div>
+<br>
+<p sytle="font-size:1.3em">
+Si ya activaste tu cuenta, ya pod&eacute;s iniciar sesi&oacute;n.
+</p>
+</div>
 <div id="reenviado" class="hide">
 <p>El e-mail fue reenviado.</p>
+</div>
 </div>
 <script>
 $(document).ready(function() {

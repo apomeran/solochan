@@ -12,6 +12,7 @@ $bd = conectar();
 $id = $bd->real_escape_string($_POST["id"]);
 $sql = "update changuitas set estado = '2', fecha_fin = '".date("Y-m-d H:i:s")."' where id = $id and activo = '1' and estado = '1'";
 $res = $bd->query($sql);
+$data = array();
 if($res && $bd->affected_rows == 1) {
 	$sql = "select usuario, contratado, titulo from changuitas where id = $id";
 	$res = $bd->query($sql);
@@ -45,6 +46,10 @@ if($res && $bd->affected_rows == 1) {
         $m->AddAddress($k);
         $m->Send();
     }
+	$data["estado"] = 'ok';
+}else{
+	$data["estado"] = 'error';
+
 }
-return 1;
+echo $data["estado"];
 ?>
