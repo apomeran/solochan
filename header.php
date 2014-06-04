@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="span6" style="margin-left: 15%; margin-top: -40px;">
+                <div class="span6" style="position: absolute; right: 0px; margin-top: -40px;">
                     <p class="como-f">
                         <a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
                             Inici&aacute; sesi&oacute;n
