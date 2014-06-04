@@ -19,8 +19,8 @@
         <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-ipad3.png" />
         <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css' />
         <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>	
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>	
             <!--[if lt IE 9]>
                     <script src="js/respond.min.js"></script>
                     <script src="js/html5shiv.js"></script>
@@ -28,74 +28,67 @@
     </head>
     <script>
 
-	function scroll(element,parent){
-		 $(parent).animate({ scrollTop: $(parent).scrollTop() + $(element).offset().top - $(parent).offset().top }, { duration: 'slow', easing: 'swing'});
-		$('html,body').animate({ scrollTop: $(parent).offset().top }, { duration: 1000, easing: 'swing'});
-	}
-	
-	</script>
-	<body class="body-bg fadein">
-		
-			<div id="header" >
-				<div class="row">
-					<div class="span6">
-						<a href="#/inicio" rel="address:/" class="logo"><img width=30% src="img/logo1.png" alt="SoloChanguitas" /></a>
-						<div class="row">
-							<div class="span5">
-								<div class="slogan givemefont">Trabajos por los que and&aacute;s preguntando</div>
-							</div>
-							<div class="span1">
-								
-							</div>
-						</div>
-					</div>
-					<div class="span6">
-					<div class="social">
-									<a href="http://www.facebook.com/solochanguitas" target="_blank"><img width=10% src="img/social/fb.png" alt="facebook" /></a>
-									<a href="https://twitter.com/solochanguitas" target="_blank"><img  width=10% src="img/social/tw.png" alt="twitter" /></a>
-									<a href="#" target="_blank"><img width=10% src="img/social/g+.png" alt="google plus" /></a>
-									<a href="#" target="_blank"><img width=10% src="img/social/li.png" alt="linkedin" /></a>
-								</div>
-					</div>
-					<div class="span6">
-								<p class="como-f">
-									<a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
-										&iquest;C&oacute;mo funciona?
-									</a>
-									<a class="menucontainer" href="#/changuitas" rel="address:/changuitas">
-										Ver todas las changuitas
-									</a>
-								</p>
-									
-							<!--<div class="span4">
-								<div class="like">
-									<div class="g-plusone" data-size="medium" data-href="http://www.solochanguitas.com.ar"></div>
-									<a href="https://twitter.com/solochanguitas" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-lang="es">Seguir a @solochanguitas</a>
-									<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.solochanguitas.com.ar&amp;send=false&amp;layout=button_count&amp;width=140&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:140px; height:21px;" allowTransparency="true"></iframe>
-								</div>
-							</div>
-							!-->
-					</div>
-				</div>
-			</div>
-			<div class="container">
-			<div class="row" id="estee">
+        function scroll(element, parent) {
+            $(parent).animate({scrollTop: $(parent).scrollTop() + $(element).offset().top - $(parent).offset().top}, {duration: 'slow', easing: 'swing'});
+            $('html,body').animate({scrollTop: $(parent).offset().top}, {duration: 1000, easing: 'swing'});
+        }
+
     </script>
     <body class="body-bg fadein">
-        <div style="display:none">
-            <div class="fancyheader">
-                <div class="twocol">
 
-                </div>
-                <div class="eightcol ">
-                    <h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"> </a><img src="img/logo2.png" alt="SoloChanguitas" /></div> <br>Trabajos por los que andas preguntando</h1>
-                    <p class="subheader"><em>Encontra u ofrece trabajo desde la comodidad tu casa, de manera segura y rapida</em>.</p>
-                    <a title="Ver mas" class="button-link" id="another-one" onClick="scroll('#estee', '.container')">Ver mas <i class="icon-header icon-arrow-down"></i></a>
+        <div id="header" >
+            <div class="row">
+                <div class="span6">
+                    <div class="row">
+                        <div class="span6">
+                            <a href="#/inicio" rel="address:/" class="logo"><img width=30% src="img/logo1.png" alt="SoloChanguitas" /></a>
+
+                            <div class="slogan givemefont">
+
+                                <div class="social" style="">
+                                    Trabajos por los que and&aacute;s preguntando
+
+                                    <a href="http://www.facebook.com/solochanguitas" style="margin-left:3px;" target="_blank"><img width=6% src="img/social/fb.png" alt="facebook" /></a>
+                                    <a href="https://twitter.com/solochanguitas" target="_blank"><img  width=6% src="img/social/tw.png" alt="twitter" /></a>
+                                    <a href="#" target="_blank"><img width=6% src="img/social/g+.png" alt="google plus" /></a>
+                                    <a href="#" target="_blank"><img width=6% src="img/social/li.png" alt="linkedin" /></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
+                <div class="span6" style="margin-left: 15%; margin-top: -40px;">
+                    <p class="como-f">
+                        <a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
+                            Inici&aacute; sesi&oacute;n
+                        </a>
+                        <a class="menucontainer" href="#/changuitas" rel="address:/changuitas">
+                            Ver todas las changuitas
+                        </a>
+                    </p>
+                </div>
             </div>
-            <img class="comofuncionapic"src="img/comofunciona2.png"></img>
         </div>
-
-        <div class="container ">
+        <div class="container">
             <div class="row" id="estee">
+                </script>
+                <body class="body-bg fadein">
+                    <div style="display:none">
+                        <div class="fancyheader">
+                            <div class="twocol">
+
+                            </div>
+                            <div class="eightcol ">
+                                <h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"> </a><img src="img/logo2.png" alt="SoloChanguitas" /></div> <br>Trabajos por los que andas preguntando</h1>
+                                <p class="subheader"><em>Encontra u ofrece trabajo desde la comodidad tu casa, de manera segura y rapida</em>.</p>
+                                <a title="Ver mas" class="button-link" id="another-one" onClick="scroll('#estee', '.container')">Ver mas <i class="icon-header icon-arrow-down"></i></a>
+                            </div>
+
+                        </div>
+                        <img class="comofuncionapic"src="img/comofunciona2.png"></img>
+                    </div>
+
+                    <div class="container ">
+                        <div class="row" id="estee">

@@ -201,7 +201,8 @@ float:left;
 
 .slogan{
 	font-size: 20px;
-	margin-left:20%;
+	margin-top: -2%;
+	margin-left: 3%;
 }
 
 .logosolochang{
@@ -308,7 +309,7 @@ input.input-error:focus {
 }
 #header {
 	width: 100% !important;
-	background-color: #019cde;
+	/*background-color: #019cde;*/
 	/*background: url('../img/header.gif') no-repeat 625px 25px rgba(255, 255, 255, .6);*/
 	margin-bottom: 15px;
 }
