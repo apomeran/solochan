@@ -35,41 +35,29 @@
 	
 	</script>
 	<body class="body-bg fadein">
-		<div style="display:none">
-		<div class="fancyheader">
-				<div class="twocol">
-					
-				</div>
-				<div class="eightcol ">
-					<h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"> </a><img src="img/logo2.png" alt="SoloChanguitas" /></div> <br>Trabajos por los que andas preguntando</h1>
-					<p class="subheader"><em>Encontra u ofrece trabajo desde la comodidad tu casa, de manera segura y rapida</em>.</p>
-					<a title="Ver mas" class="button-link" id="another-one" onClick="scroll('#estee', '.container')">Ver mas <i class="icon-header icon-arrow-down"></i></a>
-				</div>
-				
-		</div>
-		<img class="comofuncionapic"src="img/comofunciona2.png"></img>
-		</div>
+		
 			<div id="header" >
 				<div class="row">
 					<div class="span6">
-						<a href="#/inicio" rel="address:/" class="logo"><img width=50% src="img/logo2.png" alt="SoloChanguitas" /></a>
+						<a href="#/inicio" rel="address:/" class="logo"><img width=30% src="img/logo1.png" alt="SoloChanguitas" /></a>
 						<div class="row">
-							<div class="span4">
-								<div class="slogan"><img src="img/slogan.png" alt=""></div>
+							<div class="span5">
+								<div class="slogan givemefont">Trabajos por los que and&aacute;s preguntando</div>
 							</div>
-							<div class="span2">
-								<div class="social">
-									<a href="http://www.facebook.com/solochanguitas" target="_blank"><img src="img/fb.png" alt="facebook" /></a>
-									<a href="https://twitter.com/solochanguitas" target="_blank"><img src="img/tw.png" alt="twitter" /></a>
-									<a href="#" target="_blank"><img src="img/gp.png" alt="google plus" /></a>
-									<a href="#" target="_blank"><img src="img/li.png" alt="linkedin" /></a>
-								</div>
+							<div class="span1">
+								
 							</div>
 						</div>
 					</div>
 					<div class="span6">
-						<div class="row">
-							<div class="span2">
+					<div class="social">
+									<a href="http://www.facebook.com/solochanguitas" target="_blank"><img width=10% src="img/social/fb.png" alt="facebook" /></a>
+									<a href="https://twitter.com/solochanguitas" target="_blank"><img  width=10% src="img/social/tw.png" alt="twitter" /></a>
+									<a href="#" target="_blank"><img width=10% src="img/social/g+.png" alt="google plus" /></a>
+									<a href="#" target="_blank"><img width=10% src="img/social/li.png" alt="linkedin" /></a>
+								</div>
+					</div>
+					<div class="span6">
 								<p class="como-f">
 									<a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
 										&iquest;C&oacute;mo funciona?
@@ -79,7 +67,6 @@
 									</a>
 								</p>
 									
-							</div>
 							<!--<div class="span4">
 								<div class="like">
 									<div class="g-plusone" data-size="medium" data-href="http://www.solochanguitas.com.ar"></div>
@@ -88,7 +75,6 @@
 								</div>
 							</div>
 							!-->
-						</div>
 					</div>
 				</div>
 			</div>

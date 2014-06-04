@@ -200,7 +200,8 @@ float:left;
 }
 
 .slogan{
-	margin-left:20px;
+	font-size: 20px;
+	margin-left:20%;
 }
 
 .logosolochang{
@@ -307,7 +308,6 @@ input.input-error:focus {
 }
 #header {
 	width: 100% !important;
-	padding: 20px 0 10px;
 	background-color: #019cde;
 	/*background: url('../img/header.gif') no-repeat 625px 25px rgba(255, 255, 255, .6);*/
 	margin-bottom: 15px;
@@ -321,9 +321,9 @@ input.input-error:focus {
 	padding-left: 244px;
 }
 #header .social {
+	padding-left:10%;
 }
 #header .slogan {
-	padding: 10px 0 0 20px;
 }
 #header .img-der {
 	text-align: center;
@@ -1743,7 +1743,7 @@ div.notificacion p small {
 		padding-left: 0;
 	}
 	#header .social img {
-		width: 30px;
+		width: 30px !important;
 	}
 }
 @media (min-width: 979px) and (max-width: 1200px) {
