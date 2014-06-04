@@ -38,7 +38,7 @@
 
         <div id="header" >
             <div class="row">
-                <div class="span6">
+                <div class="span6" style="margin-left:10%">
                     <div class="row">
                         <div class="span6">
                             <a href="#/inicio" rel="address:/" class="logo"><img width=30% src="img/logo1.png" alt="SoloChanguitas" /></a>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <div class="span6" style="position: absolute; right: 0px; margin-top: -40px;">
+                <div class="span6" style="position: absolute; right: 5%; margin-top: -40px;">
                     <p class="como-f">
                         <a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
                             Inici&aacute; sesi&oacute;n
