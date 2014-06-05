@@ -61,12 +61,17 @@
 
                 <div class="span6" style="position: absolute; right: 5%; margin-top: -40px;">
                     <p class="como-f">
-                        <a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
-                            Inici&aacute; sesi&oacute;n
-                        </a>
-                        <a class="menucontainer" href="#/changuitas" rel="address:/changuitas">
+						<a class="menucontainer" href="#/changuitas" rel="address:/changuitas">
                             Ver todas las changuitas
                         </a>
+						<?php
+						if(!isset($_SESSION[SesionId]) || $_SESSION[SesionId] == 0)
+							include("panel-login.php");
+						else
+							include("panel-logged.php");
+						?>
+							
+						
                     </p>
                 </div>
             </div>
