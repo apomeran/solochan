@@ -48,13 +48,13 @@
 </div>
 <div id="panel-login-register" class="modal hide fade" tabindex="-1">
     <div class="modal-header">
-        <h3>&iexcl;Bienvenido!</h3>
+        <h3>Iniciar Sesi&oacuten</h3>
     </div>
-    <div class="modal-body">
-        <p>Ten&eacute;s que iniciar sesi&oacute;n para publicar o postularte a una changuita. Si todav&iacute;a no ten&eacute;s una cuenta, cre&aacute; una en menos de 1 minuto</p>
+    <div class="modal-body" id="columna">
+        <?php include("login-container.php")?>
     </div>
     <div class="modal-footer">
-        <a href="#/editar-usuario" rel="address:/editar-usuario" class="btn btn-success aviso-login-cerrar" data-dismiss="modal">Registrate</a> &nbsp; &nbsp; <button class="btn btn-primary" data-dismiss="modal" id="btn-modal-login">Inici&aacute; sesi&oacute;n</button> &nbsp; &nbsp; <button class="btn btn-link" data-dismiss="modal">Cerrar</button>
+		<button class="btn btn-link" data-dismiss="modal">Cerrar</button>
     </div>
 </div>
 <div id="aviso-login-changuita-publicated" class="modal hide fade" tabindex="-1">

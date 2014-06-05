@@ -8,6 +8,16 @@
             animation: fadein 1s;
 }
 
+.login-social{
+	margin-top: 2% !important;
+}
+.login-not-social{
+	margin-top: 2%;
+	width: 45% !important;
+	margin-left: 27%;
+	margin-bottom: 1%;
+}
+
 ul.ui-autocomplete {
     list-style: none;
 }

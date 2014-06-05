@@ -5,6 +5,8 @@ $.ajaxSetup({
 });
 // Funciones
 // - validacion general
+
+var isLocal = true;
 function esMail(txt) {
     var mail = $.trim(txt);
     if (mail === '') {
@@ -389,11 +391,13 @@ function FBok(userid) {
 function FBlogin() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
+			$('#panel-login-register').modal('hide');
             FBok(response.authResponse.userID);
         } else {
 
             FB.login(function(response) {
                 if (response.authResponse && response.status === 'connected') {
+					$('#panel-login-register').modal('hide');
                     FBok(response.authResponse.userID);
                 }
             }, {
@@ -449,6 +453,7 @@ function LIok(n) {
 
 function LIlogin() {
     if (IN.User.isAuthorized()) {
+	    $('#panel-login-register').modal('hide');
         LIok();
     } else {
         IN.User.authorize(function() {
@@ -604,25 +609,25 @@ $('.container').on('click', '.btn-link', function(e) {
 // Login
 window.fbAsyncInit = function() {
     //LOCAL !
-    /* FB.init({
+	
+	if (isLocal){
+     FB.init({
      appId: '1423275721261751', // App ID
      channelUrl: 'includes/fb-channel.php', // Channel File
      status: true, // check login status
      cookie: true, // enable cookies to allow the server to access the session
      xfbml: true // parse XFBML
      });
-     */
-
-    // ONLINE !
-
-    FB.init({
-        appId: '511297335556303', // App ID
-        channelUrl: 'includes/fb-channel.php', // Channel File
-        status: true, // check login status
-        cookie: true, // enable cookies to allow the server to access the session
-        xfbml: true // parse XFBML
-    });
-
+	 } else {
+		// ONLINE !
+		FB.init({
+			appId: '511297335556303', // App ID
+			channelUrl: 'includes/fb-channel.php', // Channel File
+			status: true, // check login status
+			cookie: true, // enable cookies to allow the server to access the session
+			xfbml: true // parse XFBML
+		});
+	}
 
     // Additional initialization code here
 };
@@ -676,6 +681,7 @@ $('#columna').on('submit', '#form-login', function(e) {
             data.estado = 'ok';
         }
         if (data.estado === 'ok') {
+			$('#panel-login-register').modal('hide');
             $.address.update();
             $('#columna').load('columna-ok.php');
             if ($('#datos-usuarios').size()) {
@@ -2222,7 +2228,7 @@ function makeApiCall(authResult) {
 
 
 // function getFriendsFB() {
-//     FB.api('/me/friends', function (response) {
+//     FBFB.api('/me/friends', function (response) {
 //         $('#procesando').modal('show');
 //         $.post('ax/invitar-fb.php?' + Math.random(), {friends: response.data}, function (data) {
 //             $('#procesando').modal('hide');
