@@ -702,6 +702,10 @@ $('#columna').on('click', '#olvido', function() {
     $('#form-login').hide('clip');
     $('#form-olvido').show('clip');
 });
+$('#login-button').on('click', function() {
+$('#panel-login-register').modal('show');
+});
+
 $('#columna').on('click', '#iniciar', function() {
     $('#form-login-mensaje').html('').hide('clip');
     $('#login-usuario').removeClass('input-error').val('');

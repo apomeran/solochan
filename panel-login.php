@@ -1,3 +1,3 @@
-<a class="menucontainer" href="#/como-funciona" rel="address:/como-funciona">
+<a class="menucontainer" id="login-button">
 								Inici&aacute; sesi&oacute;n
 </a>
