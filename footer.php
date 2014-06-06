@@ -1,8 +1,10 @@
 </div>
-
-<div id="footer" class="givemefont" style="font-size:1.15em;margin-top:0px">
+</div>
+</div>
+</div> 
+<div id="footer" class="givemefont" style="box-shadow: inset 0 4px 0 0 #0088cc; background-color: #e6e6e6; font-size:1.15em;margin-top:0px">
     <div class="row">
-        <div class="span12">
+        <div class="" style="padding-left: 12%; padding-top: 0.5%; padding-right: 8%;">
             <div class="navbar">
                 <div class="navbar-inner">
                     <p class="navbar-text pull-left">&copy; <?php echo date("Y") ?> Todos los derechos reservados</p>
@@ -17,7 +19,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 <div id="cargando" class="modal hide fade" data-backdrop="static" data-keyboard="false" tabindex="-1">
     <div class="modal-header">
