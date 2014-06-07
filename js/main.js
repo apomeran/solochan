@@ -603,7 +603,7 @@ function actualizaColumna() {
 }
 // General
 // - button
-$('.container').on('click', '.btn-link', function(e) {
+$('.container-div').on('click', '.btn-link', function(e) {
     e.preventDefault();
 });
 // Login
@@ -707,6 +707,16 @@ $('#columna').on('click', '#olvido', function() {
     $('#olvido-usuario').removeClass('input-error').val('');
     $('#form-login').hide('clip');
     $('#form-olvido').show('clip');
+});
+
+$('.container-div').on('click', '.btn-search-changuita', function(e) {
+
+$('#search-changuita-button').fadeOut('fast', function() {
+   $('#search-changuita-container').fadeIn('slow', function() {
+	});
+});
+
+
 });
 $('#login-button').on('click', function() {
 $('#panel-login-register').modal('show');
@@ -1458,7 +1468,7 @@ $('#principal').on('click', '#btn-ver-todas', function(e) {
     });
 });
 // - publicar
-$('.container').on('click', '.btn-publicar', function(e) {
+$('.container-div').on('click', '.btn-publicar', function(e) {
     e.preventDefault();
     //$('#procesando').modal('show');
     $.address.path('/changuita-nueva'); //ALAN CHANGE - Publish without loggin
@@ -1852,37 +1862,37 @@ $('#principal').on('change', '#orden', function() {
     }, 'json');
 });
 // postulaciones / mis-changuitas / preguntas / calificaciones
-$('.container').on('click', '#postulaciones-filtros button', function(e) {
+$('.container-div').on('click', '#postulaciones-filtros button', function(e) {
     e.preventDefault();
     $('#postulaciones-filtros button').removeClass('active');
     $(this).addClass('active');
     postulaciones();
 });
-$('.container').on('click', '#mis-changuitas-filtros button', function(e) {
+$('.container-div').on('click', '#mis-changuitas-filtros button', function(e) {
     e.preventDefault();
     $('#mis-changuitas-filtros button').removeClass('active');
     $(this).addClass('active');
     misChanguitas();
 });
-$('.container').on('click', '#preguntas-filtros button', function(e) {
+$('.container-div').on('click', '#preguntas-filtros button', function(e) {
     e.preventDefault();
     $('#preguntas-filtros button').removeClass('active');
     $(this).addClass('active');
     preguntas();
 });
-$('.container').on('click', '#calificaciones-filtros button', function(e) {
+$('.container-div').on('click', '#calificaciones-filtros button', function(e) {
     e.preventDefault();
     $('#calificaciones-filtros button').removeClass('active');
     $(this).addClass('active');
     calificaciones();
 });
-$('.container').on('click', '.btn-vista-ver', function(e) {
+$('.container-div').on('click', '.btn-vista-ver', function(e) {
     e.preventDefault();
     var idCh = $(this).attr('data-changuita-id');
     $.address.path('changuita|' + idCh);
 });
 var accion, accionId, accionBtn;
-$('.container').on('click', '.btn-finalizar-y-calificar', function(e) {
+$('.container-div').on('click', '.btn-finalizar-y-calificar', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
@@ -1890,21 +1900,21 @@ $('.container').on('click', '.btn-finalizar-y-calificar', function(e) {
     $('#confirmar').modal('show');
 });
 
-$('.container').on('click', '.btn-finalizar', function(e) {
+$('.container-div').on('click', '.btn-finalizar', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
     accion = 'finalizar';
     $('#confirmar').modal('show');
 });
-$('.container').on('click', '.btn-anular-postulacion', function(e) {
+$('.container-div').on('click', '.btn-anular-postulacion', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
     accion = 'despostular';
     $('#confirmar').modal('show');
 });
-$('.container').on('click', '.btn-borrar-ch', function(e) {
+$('.container-div').on('click', '.btn-borrar-ch', function(e) {
     e.preventDefault();
     accionBtn = $(this);
     accionId = $(this).attr('data-changuita-id');
@@ -1945,7 +1955,7 @@ $('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
     });
 
 });
-$('.container').on('click', '.btn-elegir', function(e) {
+$('.container-div').on('click', '.btn-elegir', function(e) {
     e.preventDefault();
     var idCh = $(this).attr('data-changuita-id');
     $(this).attr('disabled', 'disabled');
@@ -2103,7 +2113,7 @@ $('#columna').on('click', '.btn-notificaciones-todas', function() {
  });
  });*/
 // pagar deuda
-$('.container').on('click', '.btn-pagar-deuda', function(e) {
+$('.container-div').on('click', '.btn-pagar-deuda', function(e) {
     e.preventDefault();
     var ch = [],
             fee = [],
@@ -2160,7 +2170,7 @@ $('.container').on('click', '.btn-pagar-deuda', function(e) {
 });
 // invitar
 // - beta
-$('.container').on('click', '.btn-invitar-fbx, .btn-invitar-lix, .btn-invitar-gmx, .btn-invitar-hmx', function(e) {
+$('.container-div').on('click', '.btn-invitar-fbx, .btn-invitar-lix, .btn-invitar-gmx, .btn-invitar-hmx', function(e) {
     e.preventDefault();
     $('.ul-invitar li').removeClass('invitar-li-ok');
     $('p.invitar-li-ok').removeClass('invitar-li-ok');
@@ -2171,7 +2181,7 @@ $('.container').on('click', '.btn-invitar-fbx, .btn-invitar-lix, .btn-invitar-gm
 });
 // ********
 
-$('.container').on('click', '.btn-invitar-gm', function(e) {
+$('.container-div').on('click', '.btn-invitar-gm', function(e) {
     e.preventDefault();
     $('#invitar-res').hide();
     handleClientLoad();
@@ -2241,7 +2251,7 @@ function makeApiCall(authResult) {
 //         }, 'json');
 //     });
 // }
-// $('.container').on('click', '.btn-invitar-fb', function (e) {
+// $('.container-div').on('click', '.btn-invitar-fb', function (e) {
 //     e.preventDefault();
 //     $('.ul-invitar li').removeClass('invitar-li-ok');
 //     $('p.invitar-li-ok').removeClass('invitar-li-ok');
@@ -2260,7 +2270,7 @@ function makeApiCall(authResult) {
 //         }
 //     });
 // });
-$('.container').on('click', '.btn-invitar-manual', function(e) {
+$('.container-div').on('click', '.btn-invitar-manual', function(e) {
     e.preventDefault();
     $('#invitar-res').hide();
     $('.ul-invitar li').removeClass('invitar-li-ok');
@@ -2273,7 +2283,7 @@ $('.container').on('click', '.btn-invitar-manual', function(e) {
         $('#form-invitar').html(data.html);
     }, 'json');
 });
-$('.container').on('click', '.btn-invitar-submit:visible', function(e) {
+$('.container-div').on('click', '.btn-invitar-submit:visible', function(e) {
     e.preventDefault();
     // valida
     if ($('input[name="source"]').val() === 'manual') {
@@ -2318,11 +2328,11 @@ $('.container').on('click', '.btn-invitar-submit:visible', function(e) {
         }
     }, 'json');
 });
-$('.container').on('click', '.btn-invitar-todos', function(e) {
+$('.container-div').on('click', '.btn-invitar-todos', function(e) {
     e.preventDefault();
     $('div.invitado input:not(".disabled")').attr('checked', 'checked');
 });
-$('.container').on('click', '.btn-invitar-ninguno', function(e) {
+$('.container-div').on('click', '.btn-invitar-ninguno', function(e) {
     e.preventDefault();
     $('div.invitado input:not(".disabled")').removeAttr('checked');
 });

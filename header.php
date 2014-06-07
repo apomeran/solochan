@@ -61,7 +61,7 @@
 
                 <div class="span6" style="position: absolute; right: 5%; margin-top: -40px;">
                     <p class="como-f">
-						<a class="menucontainer" href="#/changuitas" rel="address:/changuitas">
+						<a class="menucontainer"  style="color: #000000; " href="#/changuitas" rel="address:/changuitas">
                             Ver todas las changuitas
                         </a>
 						<?php
@@ -76,24 +76,19 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row" id="estee">
-                </script>
-                <body class="body-bg fadein">
-                    <div style="display:none">
-                        <div class="fancyheader">
-                            <div class="twocol">
-
-                            </div>
-                            <div class="eightcol ">
-                                <h1 class="h1header"><div style="font-size: 1.5em; "><a href="http://solochanguitas.com" title="Ir al Home" class="logosolochang"> </a><img src="img/logo2.png" alt="SoloChanguitas" /></div> <br>Trabajos por los que andas preguntando</h1>
-                                <p class="subheader"><em>Encontra u ofrece trabajo desde la comodidad tu casa, de manera segura y rapida</em>.</p>
-                                <a title="Ver mas" class="button-link" id="another-one" onClick="scroll('#estee', '.container')">Ver mas <i class="icon-header icon-arrow-down"></i></a>
-                            </div>
-
-                        </div>
-                        <img class="comofuncionapic"src="img/comofunciona2.png"></img>
-                    </div>
-
-                    <div class="container ">
-                        <div class="row" id="estee">
+		<!--<script type="text/javascript">//<![CDATA[
+		$(function(){
+			$('#slider div:gt(0)').hide();
+			setInterval(function(){
+			  $('#slider div:first-child').fadeOut(0)
+				 .next('div').fadeIn(1300)
+				 .end().appendTo('#slider');}, 8000);
+		});
+		//]]></script>!-->
+		<div id="slider" class="slider">
+			<div class="slider-pic">
+				<img src="img/slider/1.png"/>
+			</div>
+		</div>
+        <div class="container-div" >
+            

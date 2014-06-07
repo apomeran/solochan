@@ -46,23 +46,30 @@ while($fila = $res->fetch_assoc())
 // 	}
 // }
 ?>
-<div class="row inicio givemefont">
-	<div class="span9 ">
-		<div class="hero-unit givemeback" id="hero-der">
+<div class="inicio givemefont">
+	<div class="three-column-container">
+		<div id="destacadas-inicio" style="display:inline-block; float:left;margin-left:3.5%;width:19%;margin-top:2.5%">
+		</div>
+		<div class="hero-unit givemeback pub-task" style="margin-left:2%;margin-right:0%; display:inline-block;  float:center; width:45%" id="hero-der">
 			<h2 class="givemefont">Busco Ayuda</h2>
 			<p style="font-size:1.5em">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
 			<h4 class="givemefont" style="font-size:3.5em">&iexcl;Es GRATIS!</h4>
 			<button class="btn btn-info btn-large btn-publicar givemefont">Publicar una changuita</button>
 		</div>
-		<div class="hero-unit givemeback">
+		<div class="hero-unit givemeback search-task" style="display:inline-block; float:right; margin-left:1%; margin-right:1%;  width:20%">
 			<h2 class="givemefont">Quiero trabajar</h2>
-			<br>
+			<br><br>
+     		<p style="font-size:1.5em">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
+				<br><br>	<br><br>
+			<button class="btn btn-info btn-large btn-search-changuita givemefont" id="search-changuita-button">Buscar una changuita</button>
+			 <div id="search-changuita-container" style="display:none">
 			<form name="buscar" id="ini-buscar">
 			<input type="hidden" name="categoria" value="0">
 			<input type="hidden" name="subcategoria" value="0">
 			<input type="hidden" name="localidad" value="0">
 			<input type="hidden" name="barrio" value="0">
-		    <div class="btn-group">
+		   
+			<div class="btn-group">
 				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-categoria">
 					<p><span class="txt ">Eleg&iacute; una Categor&iacute;a</span></p>
 				</a>
@@ -124,11 +131,14 @@ foreach($localidad as $k => $v) {
 			</div>
 			<button class="btn btn-large givemefont" style="margin-top:-7px !important;" id="btn-buscar">Buscar una changuita</button>
 			</form>
-			<button class="btn btn-link givemefont"  id="btn-ver-todas">Ver todas las changuitas</button>
+			</div>
+			<div style="margin-top:15px;">o sino pod&eacute;s</div>
+			<button class="btn btn-link givemefont" style="font-size:22px;" id="btn-ver-todas">Ver todas las changuitas</button>
 		</div>
+		
+
 	</div>
 </div>
-<div id="destacadas-inicio"></div>
 <script>
 $(document).ready(function() {
 	$('#destacadas-inicio').load('ax/destacadas.php', {p:3});

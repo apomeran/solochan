@@ -19,7 +19,7 @@ class Destacadas {
 			$fila = $res->fetch_assoc();
 			$titCat = " en <em>".$fila["categoria"]."</em>";
 		}
-		$html = "<h4 class='inicio-destacadas'>Changuitas destacadas$titCat<span class='inicio-destacadas'><a class='ayuda' title='Cuando public&aacute;s una changuita, pod&eacute;s contratar el servicio ".strtoupper($titPlan)." para que aparezca ac&aacute;. Si ya la publicaste, pod&eacute;s editarla y agregarle este servicio.'>&iquest;C&oacute;mo hago para que mi changuita aparezca ac&aacute;?</a></span></h4>";
+		$html = "<h4 class='inicio-destacadas'><span>Changuitas destacadas$titCat</span><span class='inicio-destacadas'><a class='ayuda' title='Cuando public&aacute;s una changuita, pod&eacute;s contratar el servicio ".strtoupper($titPlan)." para que aparezca ac&aacute;. Si ya la publicaste, pod&eacute;s editarla y agregarle este servicio.'><br>&iquest;C&oacute;mo hago para que mi changuita aparezca ac&aacute;?</a></span></h4>";
 		$filtroCat = "";
 		if($cat > 0)
 			$filtroCat = "and ch.categoria = $cat";
@@ -33,17 +33,18 @@ class Destacadas {
 				$categoria = "<h6>".$fila["categoria"]." &gt ".$fila["subcategoria"]."</h6>";
 			else
 				$categoria = "<h6>".$fila["subcategoria"]."</h6>";
-			$html .= "<div class='destacada' data-changuita-id='".$fila["id"]."'>$categoria<h5>".$fila["titulo"]."</h5><span class='precio'>$".$fila["precio"]."</span><a class='btn ver-mas btn-info givemefont' href='#/changuita|".$fila["id"]."' rel='address:/changuita|".$fila["id"]."' data-changuita-id='".$fila["id"]."' data-changuita-plan='$plan'>Ver m&aacute;s</a></div>";
+			$html .= "<div class='destacada' data-changuita-id='".$fila["id"]."'>$categoria<h5 style='margin-left:10px'>".$fila["titulo"]." </h5><span class='precio'>$".$fila["precio"]."</span><a class='btn ver-mas btn-info givemefont' href='#/changuita|".$fila["id"]."' rel='address:/changuita|".$fila["id"]."' data-changuita-id='".$fila["id"]."' data-changuita-plan='$plan'>Ver m&aacute;s</a></div>";
 		}
 		$html .= "</div><button class='carousel-prev' id='carousel-prev-$plan-$cat'></button><button class='carousel-next' id='carousel-next-$plan-$cat'></button></div>
 <script>
 
 $('#d$plan-$cat').carouFredSel({
 	width: '100%',
+	height: '80%',
 	responsive: true,
 	items: {
-		visible: 3,
-		minimum: 4
+		visible: 2,
+		minimum: 2
 	},
 	scroll: {
 		items: 1,
