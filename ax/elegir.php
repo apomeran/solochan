@@ -52,9 +52,12 @@ else {
 			if ($fila["fb_id"] != 0){
 				//$mutualFriends = $facebook->api('/me/mutualfriends/' . $fila["fb_id"] , 'GET');
 				$mutualFriends = 0;
+                               // $userName = explode("/", $fila["fb_id"])[1];
 				$data["html"] .= "<p><img src='https://graph.facebook.com/".$fila["fb_id"]."/picture' alt='facebook' /> <a href='https://facebook.com/".$fila["perfil_fb"]."' target='_blank'>Ver perfil</a><small> (" . count($mutualFriends['data']) . " amigos en comun)</small></p>";
 			} else{
-				$data["html"] .= "<p><img src='https://graph.facebook.com/".$fila["perfil_fb"]."/picture' alt='facebook' /> <a href='https://facebook.com/".$fila["perfil_fb"]."' target='_blank'>Ver perfil</a></p>";
+                                $fb_path = explode("/", $fila["perfil_fb"]);
+                                $userName = $fb_path[1];
+				$data["html"] .= "<p><img src='https://graph.facebook.com/".$userName."/picture' alt='facebook' /> <a href='https://facebook.com/".$userName."' target='_blank'>Ver perfil</a></p>";
 			}
 		}
 		if($fila["perfil_li"] != "")
