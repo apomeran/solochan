@@ -18,9 +18,9 @@
 }
 
 .slider-pic{
-width: 80% !important;
-padding-right: 10%;
-padding-left: 10%;
+    width: 80% !important;
+    padding-right: 10%;
+    padding-left: 10%;
 }
 
 .login-social{
@@ -215,16 +215,17 @@ ul.ui-autocomplete {
 }
 
 #header .menucontainer{
-    margin-right:30px;
-	color:#000000;
-	font-size: 17px ;
+    margin-left:8px;
+    border-right: 1px solid #000000;
+    color:#000000;
+    font-size: 17px ;
 }
 h4{
-	color: rgb(14, 171, 237) !important;
+    color: rgb(14, 171, 237) !important;
 }
 
 h2{
-	color: rgb(21, 67, 87) !important;
+    color: rgb(21, 67, 87) !important;
 }
 
 .container{

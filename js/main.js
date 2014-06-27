@@ -391,13 +391,13 @@ function FBok(userid) {
 function FBlogin() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-			$('#panel-login-register').modal('hide');
+            $('#panel-login-register').modal('hide');
             FBok(response.authResponse.userID);
         } else {
 
             FB.login(function(response) {
                 if (response.authResponse && response.status === 'connected') {
-					$('#panel-login-register').modal('hide');
+                    $('#panel-login-register').modal('hide');
                     FBok(response.authResponse.userID);
                 }
             }, {
@@ -453,7 +453,7 @@ function LIok(n) {
 
 function LIlogin() {
     if (IN.User.isAuthorized()) {
-	    $('#panel-login-register').modal('hide');
+        $('#panel-login-register').modal('hide');
         LIok();
     } else {
         IN.User.authorize(function() {
@@ -609,25 +609,25 @@ $('.container-div').on('click', '.btn-link', function(e) {
 // Login
 window.fbAsyncInit = function() {
     //LOCAL !
-	
-	if (isLocal){
-     FB.init({
-     appId: '1423275721261751', // App ID
-     channelUrl: 'includes/fb-channel.php', // Channel File
-     status: true, // check login status
-     cookie: true, // enable cookies to allow the server to access the session
-     xfbml: true // parse XFBML
-     });
-	 } else {
-		// ONLINE !
-		FB.init({
-			appId: '511297335556303', // App ID
-			channelUrl: 'includes/fb-channel.php', // Channel File
-			status: true, // check login status
-			cookie: true, // enable cookies to allow the server to access the session
-			xfbml: true // parse XFBML
-		});
-	}
+
+    if (isLocal) {
+        FB.init({
+            appId: '1423275721261751', // App ID
+            channelUrl: 'includes/fb-channel.php', // Channel File
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true // parse XFBML
+        });
+    } else {
+        // ONLINE !
+        FB.init({
+            appId: '511297335556303', // App ID
+            channelUrl: 'includes/fb-channel.php', // Channel File
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true // parse XFBML
+        });
+    }
 
     // Additional initialization code here
 };
@@ -681,9 +681,10 @@ $('#columna').on('submit', '#form-login', function(e) {
             data.estado = 'ok';
         }
         if (data.estado === 'ok') {
-			$('#panel-login-register').modal('hide');
+            $('#panel-login-register').modal('hide');
             $.address.update();
-            $('#columna').load('columna-ok.php');
+//            $('#userPanel').load('columna-ok.php'); //CHANGED
+            $('#userPanel').load('panel-logged.php');
             if ($('#datos-usuarios').size()) {
                 $.address.path('/inicio');
             }
@@ -711,15 +712,15 @@ $('#columna').on('click', '#olvido', function() {
 
 $('.container-div').on('click', '.btn-search-changuita', function(e) {
 
-$('#search-changuita-button').fadeOut('fast', function() {
-   $('#search-changuita-container').fadeIn('slow', function() {
-	});
-});
+    $('#search-changuita-button').fadeOut('fast', function() {
+        $('#search-changuita-container').fadeIn('slow', function() {
+        });
+    });
 
 
 });
 $('#login-button').on('click', function() {
-$('#panel-login-register').modal('show');
+    $('#panel-login-register').modal('show');
 });
 
 $('#columna').on('click', '#iniciar', function() {
@@ -1843,9 +1844,9 @@ $('#calificar').on('click', '.btn-calificar-ok', function(e) {
         if (data.estado === 'ok') {
             $.address.update();
             $('#columna').load('columna-ok.php');
-        }else{
-			alert("Error - No se pudo calificar");
-		}
+        } else {
+            alert("Error - No se pudo calificar");
+        }
     }, 'json');
 });
 // - orden
@@ -1934,24 +1935,24 @@ $('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
     $.post('ax/' + accion + '.php', {
         id: accionId
     }, function(data) {
-		if(data !== 'ok'){
-		    alert("No se pudo finalizar la changuita");
-			calificacion = false;
-		}else{
-			$('#columna').load('columna-ok.php');
-			accionBtn.removeAttr('disabled');
-			accionBtn.children('.cargando').hide();
-			$.address.update();
-			if (calificacion == true){
-				e.preventDefault();
-				calificarId = accionId;
-				$('.btn-calificar-realizo').removeAttr('checked');
-				$('.btn-group button').removeClass('disabled active');
-				$('#calificar-comentario').val('');
-				$('#calificar').modal('show');
-				$('.modal-body button').removeClass('active');
-			}
-		}
+        if (data !== 'ok') {
+            alert("No se pudo finalizar la changuita");
+            calificacion = false;
+        } else {
+            $('#columna').load('columna-ok.php');
+            accionBtn.removeAttr('disabled');
+            accionBtn.children('.cargando').hide();
+            $.address.update();
+            if (calificacion == true) {
+                e.preventDefault();
+                calificarId = accionId;
+                $('.btn-calificar-realizo').removeAttr('checked');
+                $('.btn-group button').removeClass('disabled active');
+                $('#calificar-comentario').val('');
+                $('#calificar').modal('show');
+                $('.modal-body button').removeClass('active');
+            }
+        }
     });
 
 });
