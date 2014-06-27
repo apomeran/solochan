@@ -56,10 +56,13 @@
                     </div>
                 </div>
 
-                <div class="span6" style="position: absolute; right: 2%; margin-top: -56px;">
+                <div class="span6" style="position: absolute; right: 5%; margin-top: -56px;">
                     <p class="como-f">
                         <a class="menucontainer"  href="#/changuitas" rel="address:/changuitas">
                             Ver todas las changuitas
+                        </a>
+                        <a class="menucontainer"  href="#/changuita-nueva" rel="address:/changuita-nueva">
+                            Publicar changuita
                         </a>
                         <?php
                         if (!isset($_SESSION[SesionId]) || $_SESSION[SesionId] == 0)
