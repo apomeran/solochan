@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-
+<div class="content">
         <div id="slider" class="slider">
             <div class="slider-pic">
                 <img src="img/slider/1.png"/>
@@ -102,5 +102,6 @@
             </div>
 
         </div>
+
         <div class="container-div" >
 

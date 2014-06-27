@@ -1,4 +1,5 @@
 </div>
+</div>
 <div id="footer" class="givemefont" style="box-shadow: inset 0 4px 0 0 #0088cc; background-color: #e6e6e6; font-size:1.15em;margin-top:0px">
     <div class="">
         <div class="" style="padding-left: 12%; padding-top: 0.5%; padding-right: 8%;">

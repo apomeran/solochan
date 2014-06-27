@@ -47,16 +47,16 @@ while($fila = $res->fetch_assoc())
 // }
 ?>
 <div class="inicio givemefont">
-	<div class="three-column-container">
-		<div id="destacadas-inicio" style="display:inline-block; float:left;margin-left:3.5%;width:19%;margin-top:2.5%">
+	<div class="three-column-container " style="margin-left:9%;margin-right:9%;">
+		<div class="hero-unit givemeback pub-task" style="margin-left:1%; display:inline-block; float:left; width:65%" id="hero-der">
+			<h2 class="givemefont" style="margin-bottom: 5px; float: left;">Empez&aacute; a liberarte de tus pendientes</h2>
+			<p style="font-size:1.3em; margin: 0 0 -60px 0; float: left;">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
+			<h4 class="givemefont" style="margin: 50px 0 0 0; font-size:3.5em; float: left;">&iexcl;Es GRATIS!</h4>
+			<div style="float:left;margin:105px; left: 0%; width:35%">
+				<button class="btn btn-info btn-large btn-publicar givemefont" >Publicar una changuita</button>
+			</div>
 		</div>
-		<div class="hero-unit givemeback pub-task" style="margin-left:2%;margin-right:0%; display:inline-block;  float:center; width:45%" id="hero-der">
-			<h2 class="givemefont">Busco Ayuda</h2>
-			<p style="font-size:1.5em">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
-			<h4 class="givemefont" style="font-size:3.5em">&iexcl;Es GRATIS!</h4>
-			<button class="btn btn-info btn-large btn-publicar givemefont">Publicar una changuita</button>
-		</div>
-		<div class="hero-unit givemeback search-task" style="display:inline-block; float:right; margin-left:1%; margin-right:1%;  width:20%">
+		<div class="hero-unit givemeback search-task" style="display:inline-block; float:center; margin-left:1%; margin-right:1%;  width:20%">
 			<h2 class="givemefont">Quiero trabajar</h2>
 			<br><br>
      		<p style="font-size:1.5em">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
@@ -134,6 +134,8 @@ foreach($localidad as $k => $v) {
 			</div>
 			<div style="margin-top:15px;">o sino pod&eacute;s</div>
 			<button class="btn btn-link givemefont" style="font-size:22px;" id="btn-ver-todas">Ver todas las changuitas</button>
+		<div id="destacadas-inicio" style="display:inline-block; background-color:black;float:right;width:19%;margin-top:2.5%">
+		</div>
 		</div>
 		
 
