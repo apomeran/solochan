@@ -20,7 +20,7 @@ class Destacadas {
             $fila = $res->fetch_assoc();
             $titCat = " en <em>" . $fila["categoria"] . "</em>";
         }
-        $html = "<h4 class='inicio-destacadas'><span>Changuitas destacadas$titCat</span><span class='inicio-destacadas'><a class='ayuda' title='Cuando public&aacute;s una changuita, pod&eacute;s contratar el servicio " . strtoupper($titPlan) . " para que aparezca ac&aacute;. Si ya la publicaste, pod&eacute;s editarla y agregarle este servicio.'><br>&iquest;C&oacute;mo hago para que mi changuita aparezca ac&aacute;?</a></span></h4>";
+        $html = "<h4 class='inicio-destacadas'><span>Changuitas destacadas$titCat</span></h4>";
         $filtroCat = "";
         if ($cat > 0)
             $filtroCat = "and ch.categoria = $cat";
@@ -71,6 +71,13 @@ function updateDestSize() {
 }
 
 </script>";
+		$html .= "<span class='inicio-destacadas'>
+		<a class='ayuda' title='Cuando public&aacute;s una changuita, pod&eacute;s contratar el servicio " 
+		. strtoupper($titPlan) . " para que aparezca ac&aacute;. 
+		Si ya la publicaste, pod&eacute;s editarla y agregarle este servicio.'>
+		<br>
+		&iquest;C&oacute;mo hago para que mi changuita aparezca ac&aacute;?
+		</a></span>";
         return $html;
     }
 
