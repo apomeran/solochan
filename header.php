@@ -34,7 +34,7 @@
         }
 
     </script>
-    <body class="body-bg fadein">
+    <body class="body-bg fadein" style="background-color: rgb(237, 241, 240);">
 
         <div id="header" >
             <div class="row">
@@ -42,12 +42,9 @@
                     <div class="row">
                         <div class="span6">
                             <a href="#/inicio" rel="address:/" class="logo"><img width=43% src="img/logo2c.png" alt="SoloChanguitas" /></a>
-
                             <div class="slogan givemefont">
-
                                 <div class="social" style="">
                                     Trabajos por los que and&aacute;s preguntando
-
                                     <a href="http://www.facebook.com/solochanguitas" style="margin-left:3px;" target="_blank"><img width=6% src="img/social/fb.png" alt="facebook" /></a>
                                     <a href="https://twitter.com/solochanguitas" target="_blank"><img  width=6% src="img/social/tw.png" alt="twitter" /></a>
                                     <a href="#" target="_blank"><img width=6% src="img/social/g+.png" alt="google plus" /></a>
@@ -76,32 +73,32 @@
                 </div>
             </div>
         </div>
-<div class="content">
-        <div id="slider" class="slider">
-            <div class="slider-pic">
-                <img src="img/slider/1.png"/>
-                <div style="margin: 0 auto;
-                     background-color: rgba(0,0,0,0.5);
-                     height: 90px; position: absolute;
-                     z-index: 1;
-                     bottom: 0;
-                     width: 80%;">
-                    <div class="givemefont" style="margin: 0 auto;
-                         float: none;
-                         font-size: 23px;
-                         font-weight: 1500;
-                         color: #FFFFFF;
-                         width: 100%;
-                         padding-top: 10px; text-align:center">
+        <div class="content">
+            <div id="slider" class="slider">
+                <div class="slider-pic">
+                    <img src="img/slider/1.png"/>
+                    <div style="margin: 0 auto;
+                         background-color: rgba(0,0,0,0.5);
+                         height: 90px; position: absolute;
+                         z-index: 1;
+                         bottom: 0;
+                         width: 80%;">
+                        <div class="givemefont" style="margin: 0 auto;
+                             float: none;
+                             font-size: 23px;
+                             font-weight: 1500;
+                             color: #FFFFFF;
+                             width: 100%;
+                             padding-top: 10px; text-align:center">
 
-                        <p>Public&aacute; ese trabajo por el que and&aacute;s preguntando,</p><p>&iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
-                        
+                            <p>Public&aacute; ese trabajo por el que and&aacute;s preguntando,</p><p>&iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
+
+                        </div>
+
                     </div>
-
                 </div>
+
             </div>
 
-        </div>
-
-        <div class="container-div" >
+            <div class="container-div" >
 
