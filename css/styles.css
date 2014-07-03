@@ -98,6 +98,7 @@ ul.ui-autocomplete {
     font-size: 1.7em;
 }
 
+
 /*
  HEADER STYLE
 */
@@ -635,13 +636,14 @@ a.ayuda:hover {
 #columna button.btn-link {
     color:#000;
 }
-#columna-ok .btn-columna-pagar {
+.btn-columna-pagar {
     color: #fff;
+	width: 42px;
     padding: 0 10px;
     font-size: .9em;
     margin-top: -1px;
 }
-#columna-ok li.balance {
+.balance {
     padding: 3px;
     margin-bottom: 10px;
     background-color: rgba(255, 255, 255, .2);
@@ -1230,11 +1232,20 @@ p.ventana-planes {
     color: #0A738C;
     padding-right: 10px;
 }
-#columna li span.notificacion {
+
+.num {
     float: right;
-    margin-top: -18px;
+    font-family: 'Varela Round', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0A738C;
+    padding-right: 10px;
 }
-#columna li span.notificacion button.btn-notificaciones {
+span.notificacion {
+   /* float: right;
+    margin-top: -18px;*/
+}
+span.notificacion button.btn-notificaciones {
     border: none;
     background: none;
     color: #fff;
@@ -1243,45 +1254,45 @@ p.ventana-planes {
     line-height: 14px;
     font-weight: bold;
 }
-#columna-ok div.pre-progress {
+div.pre-progress {
     clear: both;
 }
-#columna-ok div.progress {
+div.progress {
     margin-bottom: 0px;
     width: 168px;
     float: left;
     height: 15px;
 }
-#columna-ok .progress-percent {
+.progress-percent {
     float: right;
     width: 70px;
     text-align: right;
     margin: 0;
 }
-#columna-ok li .num2 {
+.num2 {
     padding: 0;
     margin: 0;
     line-height: 15px;
 }
-#columna-ok li .num3 {
+.num3 {
     line-height: 20px;
 }
-#columna-ok li.li-deuda {
+.li-deuda {
     padding: 5px;
     background-color: #F2DEDE;
     color: #B94A48;
     margin: 5px 0 15px;
 }
-#columna-ok li .num-deuda {
+.num-deuda {
     color: #B94A48;
 }
-#columna-ok li .num-credito {
+.num-credito {
     color: #3B773B;
 }
-#columna-ok li .progress-percent i {
+.progress-percent i {
     padding: 0;
 }
-#columna li span.notificacion .popover {
+span.notificacion .popover {
     color: #000;
     text-shadow: none;
     line-height: 20px;
@@ -1290,14 +1301,14 @@ p.ventana-planes {
     width: 300px;
     white-space: normal;
 }
-#columna li span.notificacion .popover-title {
+span.notificacion .popover-title {
     text-align: right;
 }
-#columna li span.notificacion .popover-content {
+span.notificacion .popover-content {
     max-height: 420px;
     overflow-y: auto;
 }
-#columna li span.notificacion .popover-content div.notif {
+span.notificacion .popover-content div.notif {
     border-bottom: 1px dashed #ccc;
     padding: 2px 0;
     clear: both;
@@ -1306,7 +1317,7 @@ p.ventana-planes {
         float: left;
         width: 220px;
 }*/
-#columna li span.notificacion .popover-content div button.btn-notificacion-leer {
+span.notificacion .popover-content div button.btn-notificacion-leer {
     float: right;
     background-color: #ccc;
     padding-left: 3px;
@@ -1315,23 +1326,23 @@ p.ventana-planes {
     -moz-border-radius: 8px;
     border-radius: 8px;
 }
-#columna li span.notificacion button.btn-notificaciones-cerrar,
-#columna li span.notificacion .popover-content button {
+span.notificacion button.btn-notificaciones-cerrar,
+span.notificacion .popover-content button {
     font-weight: normal;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #0088CC;
 }
-#columna li span.notificacion button.btn-notificaciones-cerrar {
+span.notificacion button.btn-notificaciones-cerrar {
     font-size: 0.9em;
 }
-#columna li span.notificacion button.btn-notificaciones-cerrar:hover {
+span.notificacion button.btn-notificaciones-cerrar:hover {
     text-decoration: underline;
     color: #005580;
 }
-#columna li span.notificacion button.btn-notificaciones img {
+span.notificacion button.btn-notificaciones img {
     height: 14px;
 }
-#columna li span.notificacion button.btn-notificacion-ver {
+span.notificacion button.btn-notificacion-ver {
     color: #fff;
     font-size: 1em;
     margin: 5px 0;

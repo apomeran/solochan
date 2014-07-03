@@ -684,7 +684,9 @@ $('#columna').on('submit', '#form-login', function(e) {
             $('#panel-login-register').modal('hide');
             $.address.update();
 //            $('#userPanel').load('columna-ok.php'); //CHANGED
-            $('#userPanel').load('panel-logged.php');
+            $('#userPanel').load('panel-logged.php', function(){
+				
+			});
             if ($('#datos-usuarios').size()) {
                 $.address.path('/inicio');
             }
@@ -2065,7 +2067,7 @@ $('#principal').on('click', '.ver-mas', function() {
     });
 });
 // columna
-$('#columna').on('click', '.btn-notificaciones:not(".disabled")', function() {
+$('#notificacionN').on('click', '.btn-notificaciones:not(".disabled")', function() {
     $(this).attr('disabled', 'disabled').addClass('disabled');
     $('.btn-notificaciones').popover({
         title: '<button class="btn-link btn-notificaciones-cerrar">Cerrar</button>',
@@ -2076,16 +2078,17 @@ $('#columna').on('click', '.btn-notificaciones:not(".disabled")', function() {
     $.post('ax/notificaciones.php', function(data) {
         if (data.estado === 'ok') {
             $('.btn-notificaciones').popover('show');
-            $('#columna-ok .popover-content').html(data.html);
+            $('#notificacionN .popover-content').html(data.html);
         } else {
             $('.btn-notificaciones').popover('hide');
         }
     }, 'json');
 });
-$('#columna').on('click', '.btn-notificaciones-cerrar', function() {
+
+$('#notificacionN').on('click', '.btn-notificaciones-cerrar', function() {
     cerrarNotificaciones();
 });
-$('#columna').on('click', '.btn-notificaciones-todas', function() {
+$('#notificacionN').on('click', '.btn-notificaciones-todas', function() {
     cerrarNotificaciones();
     $.address.path('/notificaciones');
 });

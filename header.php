@@ -58,12 +58,7 @@
 
                 <div class="span6" style="position: absolute; right: 5.5%; margin-top: -56px;">
                     <p class="como-f">
-                        <a class="menucontainer"  href="#/changuitas" rel="address:/changuitas">
-                            <img width="25" src="img/icons/listtask.png"/> Ver todas
-                        </a>
-                        <a class="menucontainer"  href="#/changuita-nueva" rel="address:/changuita-nueva">
-                            <img width="30" src="img/icons/addtask.png"/> Publicar
-                        </a>
+                       
                         <span id="userPanel">
                             <?php
                             if (!isset($_SESSION[SesionId]) || $_SESSION[SesionId] == 0)
