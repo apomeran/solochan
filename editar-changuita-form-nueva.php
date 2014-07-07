@@ -13,7 +13,9 @@ $("#form-changuita-title").text("Nueva Changuita");
 		 }); 
  }
  
-
+</script>
+<script>
+	fadeOut();
 </script>
 
 <script type="text/javascript">

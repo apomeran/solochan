@@ -1,3 +1,6 @@
+<script>
+$(".slider-pic").fadeIn(1000);
+</script>
 <?php
 include_once("includes/config.php");
 if (isset($_SESSION[SesionTmp])) {
@@ -46,6 +49,7 @@ while ($fila = $res->fetch_assoc())
 // 	}
 // }
 ?>
+
 <div class="inicio givemefont">
     <div class="three-column-container " >
         <div class="hero-unit givemeback pub-task" style="margin-left:1%; height:100%; margin-top:1%; display:inline-block; float:left; width:65%" id="hero-der">

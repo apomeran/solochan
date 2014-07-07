@@ -580,6 +580,10 @@ function calificaciones() {
 }
 // - columna
 
+function fadeOut(){
+$(".slider-pic").fadeOut(400);
+}
+
 function cerrarNotificaciones() {
     $('.btn-notificaciones').popover('hide');
     $('.btn-notificaciones').removeAttr('disabled').removeClass('disabled');

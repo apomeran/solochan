@@ -1,3 +1,6 @@
+<script>
+	fadeOut();
+</script>
 <?php
 include_once("includes/config.php");
 $bd = conectar();
