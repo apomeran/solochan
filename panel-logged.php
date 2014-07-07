@@ -74,46 +74,8 @@ else if ($fila["sexo"] == 2)
     });
 </script>
 
-
-<style>
-.navbar-login
-    {
-        width: 250px;
-		margin-left:45px;
-		margin-right:15px;
-		font-size: 14px;
-		font-family: Amaranth;
-		list-style: none;
-		
-	}
-	.navbar-login-session
-    {
-		margin-left:45px;
-		margin-right:15px;
-		font-size: 14px;
-		font-family: Amaranth;
-		list-style: none;
-    }
-    .icon-size
-    {
-        font-size: 87px;
-    }
-	span.notificacion button.btn-notificaciones{
-		display: inline-block;
-		border: none;
-		background: none;
-		color: #fff;
-		padding: 0;
-		font-family: 'Varela Round', "Helvetica Neue", Helvetica, Arial, sans-serif;
-		line-height: 14px;
-		font-weight: bold;
-	}
-	
-	.label, .badge {
-		margin-left:6px;
-		background-color: #005E75;
-}
-</style>
+<link rel="stylesheet" href="css/panelstyles.css"/>
+<link rel="stylesheet" href="css/styles.css"/>
 <div class="givemefont">
 	 <a class="menucontainer"  href="#/changuitas" rel="address:/changuitas">
 		<img width="25" src="img/icons/listtask.png"/> Ver todas
@@ -148,7 +110,7 @@ else if ($fila["sexo"] == 2)
 						<?php
 						if($_SESSION[SesionNivel] > 0) {
 						?>
-								<p class="text-left"><div>
+								<p class="text-left"><div class="justify-left">
 								<strong><i class="icon-briefcase text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" href="admin">Panel de control</a>
 								</strong></div>
@@ -190,23 +152,22 @@ else if ($fila["sexo"] == 2)
 							}
 							?>
 						</div>
-						<p>Calificaciones <?php echo $calificacionTxt ?><span class="indicador"><?php echo $f->indicador($calificacion, "calificacion") ?></span></p>
-						<p>Contactos en la red<span class="indicador"><?php echo $f->indicador($confianza, "confianza") ?></span><span class="num"><?php echo $confianza ?></span></p>
-						<p>Changuitas<span class="indicador"><?php echo $f->indicador($nChanguitas+$nPublicadas, "changuitas") ?></span><span class="num"><?php echo $nChanguitas+$nPublicadas ?></span></p>
-						<p>
+						<p><div class="justify-left indicators">Calificaciones <?php echo $calificacionTxt ?></div> <span class="indicador"><?php echo $f->indicador($calificacion, "calificacion") ?></span></p>
+						<p><div class="justify-left indicators">Contactos en la red</div><span class="indicador"><?php echo $f->indicador($confianza, "confianza") ?></span><span class="num"><?php echo $confianza ?></span></p>
+						<p><div class="justify-left indicators">Changuitas</div><span class="indicador"><?php echo $f->indicador($nChanguitas+$nPublicadas, "changuitas") ?></span><span class="num"><?php echo $nChanguitas+$nPublicadas ?></span></p>
 							<div class="pre-progress">
-								Datos personales<br/>
+								<div class="justify-left">Datos personales</div><br/>
 								<div class="progress progress-striped">
 									<div class="bar bar-success" style="width: <?php echo $perfilx100 ?>%;"></div>
 									<div class="bar bar-gris" style="width: <?php echo 100-$perfilx100 ?>%;"></div>
 								</div>
-								<p class="progress-percent num num2"><?php echo $perfilx100 ?>% <a class="ayuda" title="Cuantos m&aacute;s datos pon&eacute;s, m&aacute;s f&aacute;cil va a ser que encuentres lo que busc&aacute;s. Entr&aacute; a MI PERFIL y edit&aacute; tus datos."><i class="icon-question-sign"></i></a></p>
+								<div><p class="progress-percent num num2"><?php echo $perfilx100 ?>% <a class="ayuda" title="Cuantos m&aacute;s datos pon&eacute;s, m&aacute;s f&aacute;cil va a ser que encuentres lo que busc&aacute;s. Entr&aacute; a MI PERFIL y edit&aacute; tus datos."><i class="icon-question-sign"></i></a></p>
+								</div>
 								<div class="clearfix"></div>
 							</div>
-						</p>
-						<p>
+						
 							<div class="pre-progress">
-								Presentaci&oacute;n<br/>
+								<div class="justify-left">Presentaci&oacute;n</div><br/>
 								<div class="progress progress-striped">
 									<div class="bar bar-success" style="width: <?php echo $presentacionx100 ?>%;"></div>
 									<div class="bar bar-gris" style="width: <?php echo 100-$presentacionx100 ?>%;"></div>
@@ -214,50 +175,43 @@ else if ($fila["sexo"] == 2)
 								<p class="progress-percent num num2"><?php echo $presentacionx100 ?>% <a class="ayuda" title="Entr&aacute; a MI PERFIL y complet&aacute; o modific&aacute; tu carta de presentaci&oacute;n."><i class="icon-question-sign"></i></a></p>
 								<div class="clearfix"></div>
 							</div>
-						</p>
-						<p class="titulo">Quiero trabajar</p>
-						<p class="text-left"><div>
+						
+						<div class="justify-left">Quiero trabajar</div>
+						<div class="justify-left">
 								<strong><i class="icon-wrench text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/postulaciones" href="#/postulaciones">Mis postulaciones</a>
 								</strong></div>
-						</p>
-						<p class="text-left"><div>
+						<div class="justify-left">
 								<strong><i class="icon-comment text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/preguntas2" href="#/preguntas2">Preguntas</a>
 								</strong></div>
-						</p>
-						<p class="titulo">Quiero contratar</p>
-						<p class="text-left"><div>
+						
+						<div class="justify-left">Quiero contratar</div>
+						<div class="justify-left">
 								<strong><i class="icon-list text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/mis-changuitas" href="#/mis-changuitas">Mis changuitas</a>
 								</strong></div>
-						</p>
-						<p class="text-left"><div>
+						<div class="justify-left">
 								<strong><i class="icon-comment text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/preguntas" href="#/preguntas">Preguntas</a>
 								</strong></div>
-						</p>
-						<p class="titulo">Herramientas</p>
-						<p class="text-left"><div>
+						<div class="justify-left">Herramientas</div>
+						<div class="justify-left">
 								<strong><i class="icon-user text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" href="#/mi-perfil|<?php echo $_SESSION[SesionId] ?>" rel="address:/mi-perfil|<?php echo $_SESSION[SesionId]?>">Mi perfil</a>
 								</strong></div>
-						</p>
-						<p class="text-left"><div>
+						<div class="justify-left">
 								<strong><i class="icon-thumbs-up text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/calificaciones" href="#/calificaciones">Mis calificaciones</a>
 								</strong></div>
-						</p>
-						<p class="text-left"><div>
+						<div class="justify-left">
 								<strong><i class="icon-star text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/invitar" href="#/invitar">Contactos en la red</a>
 								</strong></div>
-						</p>
-							<p class="text-left"><div>
+						<div class="justify-left">
 								<strong><i class="icon-off text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" href="logout.php">Cerrar sesi&oacute;n</a>
 								</strong></div>
-						</p>
                     </div>
                 </div>
             </div>
@@ -268,3 +222,6 @@ else if ($fila["sexo"] == 2)
 
 
 </div>
+<script>
+$('.dropdown-menu').removeClass('dropdown-menu').addClass('dropdown-menu');
+</script>

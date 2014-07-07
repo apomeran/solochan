@@ -369,7 +369,9 @@ function FBok(userid) {
 
         }
         if (data.estado === 'ok') {
-            $('#columna').load('columna-ok.php');
+             $('#userPanel').load('panel-logged.php', function(){
+			 location.reload();
+								});
             if ($('#datos-usuarios').size()) {
                 $.address.path('/inicio');
             }
@@ -428,7 +430,9 @@ function LIok(n) {
 
                     $('#cargando').modal('hide');
                     if (data.estado === 'ok') {
-                        $('#columna').load('columna-ok.php');
+                         $('#userPanel').load('panel-logged.php', function(){
+							location.reload();
+								});
                         if ($('#datos-usuarios').size()) {
                             $.address.path('/inicio');
                         }
@@ -601,9 +605,8 @@ function actualizarNotificaciones() {
 }
 
 function actualizaColumna() {
-    if ($('#columna-ok').size()) {
-        $('#columna').load('columna-ok.php');
-    }
+            $('#userPanel').load('panel-logged.php', function(){
+			});;
 }
 // General
 // - button
@@ -688,16 +691,18 @@ $('#columna').on('submit', '#form-login', function(e) {
             $('#panel-login-register').modal('hide');
             $.address.update();
 //            $('#userPanel').load('columna-ok.php'); //CHANGED
+			if (chang_id !== undefined && chang_id !== "") {
+                $('#changuita-publicada').modal('show');
+                $.address.path('/changuita|' + chang_id);
+            }
             $('#userPanel').load('panel-logged.php', function(){
-				
+                location.reload();
+
 			});
             if ($('#datos-usuarios').size()) {
                 $.address.path('/inicio');
             }
-            if (chang_id !== undefined && chang_id !== "") {
-                $('#changuita-publicada').modal('show');
-                $.address.path('/changuita|' + chang_id);
-            }
+           
         } else {
             $('#login-usuario').addClass('input-error').val('');
             $('#login-clave').addClass('input-error').val('');
@@ -797,7 +802,10 @@ $('#principal').on('submit', '#contrasena-nueva', function(e) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $.address.update();
-            $('#columna').load('columna-ok.php');
+            $('#userPanel').load('panel-logged.php', function(){
+                location.reload();
+
+			});
         } else {
             $('#nueva-clave').addClass('input-error').val('');
             $('#contrasena-nueva-mensaje').show('clip').html('Error al conectarse con la base de datos. Intent&aacute; m&aacute;s tarde o contact&aacute; al administrador del sistema.');
@@ -1005,7 +1013,9 @@ $('#principal').on('click', '#datos-usuarios #boton-submit', function(e) {
                 $.address.path('/inicio');
                 actualizaColumna();
                 if (data.col) {
-                    $('#columna').load('columna-ok.php');
+                    $('#userPanel').load('panel-logged.php', function(){
+						location.reload();
+					});
                 }
                 if (chang_id !== undefined && chang_id !== "") {
                     $('#changuita-publicada').modal('show');
@@ -1135,7 +1145,9 @@ $('#principal').on('click', '#editar-changuita #boton-submit', function(e) {
         $.post('ax/editar-changuita.php', $('#editar-changuita').serialize(), function(data) {
             if (data.estado === 'ok') {
                 $.address.path('/changuita|' + data.id);
-                $('#columna').load('columna-ok.php');
+                 $('#userPanel').load('panel-logged.php', function(){
+					location.reload();
+				});
             } else if (data.estado === 'pagar') {
                 // PAGO
                 $.post('ax/pagar.php', {
@@ -1158,13 +1170,16 @@ $('#principal').on('click', '#editar-changuita #boton-submit', function(e) {
                                     status = 3;
                                 }
                                 $.address.path('/changuita|' + data.id + '|' + status);
-                                $('#columna').load('columna-ok.php');
+								 $('#userPanel').load('panel-logged.php', function(){
+								});	
+
                             }
                         });
                     } else {
                         status = 3;
                         $.address.path('/changuita|' + data.id + '|' + status);
-                        $('#columna').load('columna-ok.php');
+                         $('#userPanel').load('panel-logged.php', function(){
+							});
                     }
                     $('#editar-changuita #boton-submit').removeAttr('disabled').removeClass('disabled');
                 }, 'json');
@@ -1197,7 +1212,10 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function(e)
                     //$('#procesando').modal('hide');
                     if (data2.estado === 'ok') {          //ALAN CHANGE . CHANGUITA PUBLISHED. REGISTERED!
                         $.address.path('/changuita|' + data.id);
-                        $('#columna').load('columna-ok.php');
+                        
+						$('#userPanel').load('panel-logged.php', function(){
+
+						});
                     } else if (data2.estado === 'bloqueado') {
                         $('#aviso-bloqueado').modal('show');//ALAN CHANGE . CHANGUITA PUBLISHED. NOW REGISTER!
                     } else {
@@ -1229,13 +1247,16 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function(e)
                                     status = 3;
                                 }
                                 $.address.path('/changuita|' + data.id + '|' + status);
-                                $('#columna').load('columna-ok.php');
+                                 $('#userPanel').load('panel-logged.php', function(){
+								});
+           
                             }
                         });
                     } else {
                         status = 3;
                         $.address.path('/changuita|' + data.id + '|' + status);
-                        $('#columna').load('columna-ok.php');
+                         $('#userPanel').load('panel-logged.php', function(){
+								});
                     }
                     $('#boton-submit-nueva').removeAttr('disabled', 'disabled').removeClass('disabled');
                 }, 'json');
@@ -1849,7 +1870,8 @@ $('#calificar').on('click', '.btn-calificar-ok', function(e) {
         $('.btn-calificar').children('.cargando').hide();
         if (data.estado === 'ok') {
             $.address.update();
-            $('#columna').load('columna-ok.php');
+             $('#userPanel').load('panel-logged.php', function(){
+								});
         } else {
             alert("Error - No se pudo calificar");
         }
@@ -1945,7 +1967,8 @@ $('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
             alert("No se pudo finalizar la changuita");
             calificacion = false;
         } else {
-            $('#columna').load('columna-ok.php');
+             $('#userPanel').load('panel-logged.php', function(){
+								});
             accionBtn.removeAttr('disabled');
             accionBtn.children('.cargando').hide();
             $.address.update();
@@ -2154,7 +2177,8 @@ $('.container-div').on('click', '.btn-pagar-deuda', function(e) {
                         respuesta = 'El pago fue aprobado.';
                         clase = 'success';
                         $('#pagar-deuda-container').hide();
-                        $('#columna').load('columna-ok.php');
+                         $('#userPanel').load('panel-logged.php', function(){
+								});
                     } else if (dataMP.collection_status === 'in_process' || dataMP.collection_status === 'pending') {
                         respuesta = 'El pago qued&oacute; pendiente. Cuando se acredite te avisaremos.';
                         clase = 'info';
@@ -2330,7 +2354,8 @@ $('.container-div').on('click', '.btn-invitar-submit:visible', function(e) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $.address.path('/invitar-ok');
-            $('#columna').load('columna-ok.php');
+             $('#userPanel').load('panel-logged.php', function(){
+								});
         } else {
             $('#form-invitar-mensaje').show('clip').html('Ocurrió un error');
         }
