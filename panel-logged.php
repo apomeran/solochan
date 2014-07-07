@@ -155,28 +155,8 @@ else if ($fila["sexo"] == 2)
 						<p><div class="justify-left indicators">Calificaciones <?php echo $calificacionTxt ?></div> <span class="indicador"><?php echo $f->indicador($calificacion, "calificacion") ?></span></p>
 						<p><div class="justify-left indicators">Contactos en la red</div><span class="indicador"><?php echo $f->indicador($confianza, "confianza") ?></span><span class="num"><?php echo $confianza ?></span></p>
 						<p><div class="justify-left indicators">Changuitas</div><span class="indicador"><?php echo $f->indicador($nChanguitas+$nPublicadas, "changuitas") ?></span><span class="num"><?php echo $nChanguitas+$nPublicadas ?></span></p>
-							<div class="pre-progress">
-								<div class="justify-left">Datos personales</div><br/>
-								<div class="progress progress-striped">
-									<div class="bar bar-success" style="width: <?php echo $perfilx100 ?>%;"></div>
-									<div class="bar bar-gris" style="width: <?php echo 100-$perfilx100 ?>%;"></div>
-								</div>
-								<div><p class="progress-percent num num2"><?php echo $perfilx100 ?>% <a class="ayuda" title="Cuantos m&aacute;s datos pon&eacute;s, m&aacute;s f&aacute;cil va a ser que encuentres lo que busc&aacute;s. Entr&aacute; a MI PERFIL y edit&aacute; tus datos."><i class="icon-question-sign"></i></a></p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						
-							<div class="pre-progress">
-								<div class="justify-left">Presentaci&oacute;n</div><br/>
-								<div class="progress progress-striped">
-									<div class="bar bar-success" style="width: <?php echo $presentacionx100 ?>%;"></div>
-									<div class="bar bar-gris" style="width: <?php echo 100-$presentacionx100 ?>%;"></div>
-								</div>
-								<p class="progress-percent num num2"><?php echo $presentacionx100 ?>% <a class="ayuda" title="Entr&aacute; a MI PERFIL y complet&aacute; o modific&aacute; tu carta de presentaci&oacute;n."><i class="icon-question-sign"></i></a></p>
-								<div class="clearfix"></div>
-							</div>
-						
-						<div class="justify-left">Quiero trabajar</div>
+							
+						<div class="justify-left"><u>Quiero trabajar</u></div>
 						<div class="justify-left">
 								<strong><i class="icon-wrench text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/postulaciones" href="#/postulaciones">Mis postulaciones</a>
@@ -186,7 +166,7 @@ else if ($fila["sexo"] == 2)
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/preguntas2" href="#/preguntas2">Preguntas</a>
 								</strong></div>
 						
-						<div class="justify-left">Quiero contratar</div>
+						<div class="justify-left"><u>Quiero contratar</u></div>
 						<div class="justify-left">
 								<strong><i class="icon-list text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/mis-changuitas" href="#/mis-changuitas">Mis changuitas</a>
@@ -195,7 +175,7 @@ else if ($fila["sexo"] == 2)
 								<strong><i class="icon-comment text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/preguntas" href="#/preguntas">Preguntas</a>
 								</strong></div>
-						<div class="justify-left">Herramientas</div>
+						<div class="justify-left"><u>Herramientas</u></div>
 						<div class="justify-left">
 								<strong><i class="icon-user text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" href="#/mi-perfil|<?php echo $_SESSION[SesionId] ?>" rel="address:/mi-perfil|<?php echo $_SESSION[SesionId]?>">Mi perfil</a>
