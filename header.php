@@ -36,7 +36,7 @@
     </script>
     <body class="body-bg fadein" style="background-color: rgb(237, 241, 240);">
 
-        <div id="header" style="position:fixed; z-index:30">
+        <div id="header">
             <div class="row">
                 <div class="span6" style="margin-left:9%">
                     <div class="row">

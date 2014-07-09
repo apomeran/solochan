@@ -353,7 +353,12 @@ input.input-error:focus {
     background: rgb(14, 171, 237);
     margin-bottom: 17px;
     padding-bottom: 10px;
-
+	border-style: solid;
+	border-top: thick;
+	border-left: thick;
+	border-right: thick;
+	position:fixed; 
+	z-index:30;
 }
 #header h6 {
     color: #179ED5;
