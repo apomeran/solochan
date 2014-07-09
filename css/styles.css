@@ -8,6 +8,10 @@
     animation: fadein 1s;
 }
 
+.content{
+	display: inline-block;
+}
+
 .slider{
     position: relative;
     overflow: hidden;
