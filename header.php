@@ -36,7 +36,7 @@
     </script>
     <body class="body-bg fadein" style="background-color: rgb(237, 241, 240);">
 
-        <div id="header" >
+        <div id="header" style="position:fixed; z-index:30">
             <div class="row">
                 <div class="span6" style="margin-left:9%">
                     <div class="row">
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        <div class="content">
+        <div class="content" style="margin-top:10%;">
             <div id="slider" class="slider">
                 <div class="slider-pic">
                     <img src="img/slider/1.png"/>
