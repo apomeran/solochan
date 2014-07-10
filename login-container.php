@@ -36,7 +36,7 @@ include_once("includes/config.php");
             <div style="font-size: 12px;">
                 &iquest;No ten&eacute;s una cuenta? 
             </div>
-            <a class="btn btn-link givemefont" rel="address:/usuario-nuevo" href="#/editar-usuario"><b>Registrate GRATIS</b></a>
+            <a class="btn btn-link givemefont" rel="address:/usuario-nuevo" href="#/editar-usuario" data-dismiss="modal"><b>Registrate GRATIS</b></a>
         </div>	
     </div>
 

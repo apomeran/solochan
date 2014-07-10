@@ -17,10 +17,9 @@ margin: 8px 0 !important;
 
 }
 
-
-
 .content{
 	display: inline-block;
+	margin-top:11%;
 }
 
 .slider{
@@ -619,7 +618,7 @@ ul.legend2 li {
 }
 #datos-usuarios #presentacion,
 #editar-changuita #descripcion {
-    height: 200px;
+    height: 90px;
     width: 625px;
 }
 #datos-usuarios #presentacion {
@@ -1662,6 +1661,10 @@ table td.deuda-total {
 #contacto #contacto-ok {
     padding-bottom:	10px;
 }
+.dropdown-menu{
+margin-left: 35% !important;
+}
+
 .hero-unit .dropdown-toggle {
     width: 100%;
     margin-bottom: 5px;

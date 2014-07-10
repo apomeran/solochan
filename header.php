@@ -62,16 +62,16 @@
                         <span id="userPanel">
                             <?php
                             if (!isset($_SESSION[SesionId]) || $_SESSION[SesionId] == 0)
-                                include("panel-login.php");
+                                include_once("panel-login.php");
                             else
-                                include("panel-logged.php");
+                                include_once("panel-logged.php");
                             ?>
                         </span>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="content" style="margin-top:10%;">
+        <div class="content">
             <div id="slider" class="slider">
                 <div class="slider-pic">
                     <img src="img/slider/1.png"/>

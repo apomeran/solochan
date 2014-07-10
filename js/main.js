@@ -369,6 +369,7 @@ function FBok(userid) {
 
         }
         if (data.estado === 'ok') {
+			 $('#userPanel').empty();
              $('#userPanel').load('panel-logged.php', function(){
 			 location.reload();
 								});
@@ -430,6 +431,7 @@ function LIok(n) {
 
                     $('#cargando').modal('hide');
                     if (data.estado === 'ok') {
+						 $('#userPanel').empty();
                          $('#userPanel').load('panel-logged.php', function(){
 							location.reload();
 								});
@@ -605,7 +607,8 @@ function actualizarNotificaciones() {
 }
 
 function actualizaColumna() {
-            $('#userPanel').load('panel-logged.php', function(){
+            $('#userPanel').empty();
+			$('#userPanel').load('panel-logged.php', function(){
 			});;
 }
 // General
@@ -695,6 +698,7 @@ $('#columna').on('submit', '#form-login', function(e) {
                 $('#changuita-publicada').modal('show');
                 $.address.path('/changuita|' + chang_id);
             }
+			$('#userPanel').empty();
             $('#userPanel').load('panel-logged.php', function(){
                 location.reload();
 
@@ -802,7 +806,8 @@ $('#principal').on('submit', '#contrasena-nueva', function(e) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $.address.update();
-            $('#userPanel').load('panel-logged.php', function(){
+             $('#userPanel').empty();
+			$('#userPanel').load('panel-logged.php', function(){
                 location.reload();
 
 			});
@@ -1013,7 +1018,8 @@ $('#principal').on('click', '#datos-usuarios #boton-submit', function(e) {
                 $.address.path('/inicio');
                 actualizaColumna();
                 if (data.col) {
-                    $('#userPanel').load('panel-logged.php', function(){
+                    $('#userPanel').empty();
+					$('#userPanel').load('panel-logged.php', function(){
 						location.reload();
 					});
                 }
@@ -1145,7 +1151,8 @@ $('#principal').on('click', '#editar-changuita #boton-submit', function(e) {
         $.post('ax/editar-changuita.php', $('#editar-changuita').serialize(), function(data) {
             if (data.estado === 'ok') {
                 $.address.path('/changuita|' + data.id);
-                 $('#userPanel').load('panel-logged.php', function(){
+                  $('#userPanel').empty();
+				 $('#userPanel').load('panel-logged.php', function(){
 					location.reload();
 				});
             } else if (data.estado === 'pagar') {
@@ -1170,6 +1177,7 @@ $('#principal').on('click', '#editar-changuita #boton-submit', function(e) {
                                     status = 3;
                                 }
                                 $.address.path('/changuita|' + data.id + '|' + status);
+								 $('#userPanel').empty();
 								 $('#userPanel').load('panel-logged.php', function(){
 								});	
 
@@ -1178,7 +1186,8 @@ $('#principal').on('click', '#editar-changuita #boton-submit', function(e) {
                     } else {
                         status = 3;
                         $.address.path('/changuita|' + data.id + '|' + status);
-                         $('#userPanel').load('panel-logged.php', function(){
+                        $('#userPanel').empty();
+						$('#userPanel').load('panel-logged.php', function(){
 							});
                     }
                     $('#editar-changuita #boton-submit').removeAttr('disabled').removeClass('disabled');
@@ -1212,7 +1221,7 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function(e)
                     //$('#procesando').modal('hide');
                     if (data2.estado === 'ok') {          //ALAN CHANGE . CHANGUITA PUBLISHED. REGISTERED!
                         $.address.path('/changuita|' + data.id);
-                        
+                         $('#userPanel').empty();
 						$('#userPanel').load('panel-logged.php', function(){
 
 						});
@@ -1247,7 +1256,8 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function(e)
                                     status = 3;
                                 }
                                 $.address.path('/changuita|' + data.id + '|' + status);
-                                 $('#userPanel').load('panel-logged.php', function(){
+                                  $('#userPanel').empty();
+								 $('#userPanel').load('panel-logged.php', function(){
 								});
            
                             }
@@ -1255,7 +1265,8 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function(e)
                     } else {
                         status = 3;
                         $.address.path('/changuita|' + data.id + '|' + status);
-                         $('#userPanel').load('panel-logged.php', function(){
+                        $('#userPanel').empty();
+						$('#userPanel').load('panel-logged.php', function(){
 								});
                     }
                     $('#boton-submit-nueva').removeAttr('disabled', 'disabled').removeClass('disabled');
@@ -1870,7 +1881,8 @@ $('#calificar').on('click', '.btn-calificar-ok', function(e) {
         $('.btn-calificar').children('.cargando').hide();
         if (data.estado === 'ok') {
             $.address.update();
-             $('#userPanel').load('panel-logged.php', function(){
+              $('#userPanel').empty();
+			 $('#userPanel').load('panel-logged.php', function(){
 								});
         } else {
             alert("Error - No se pudo calificar");
@@ -1967,7 +1979,8 @@ $('#confirmar').on('click', '.btn-confirmar-ok', function(e) {
             alert("No se pudo finalizar la changuita");
             calificacion = false;
         } else {
-             $('#userPanel').load('panel-logged.php', function(){
+            $('#userPanel').empty();
+			$('#userPanel').load('panel-logged.php', function(){
 								});
             accionBtn.removeAttr('disabled');
             accionBtn.children('.cargando').hide();
@@ -2177,7 +2190,8 @@ $('.container-div').on('click', '.btn-pagar-deuda', function(e) {
                         respuesta = 'El pago fue aprobado.';
                         clase = 'success';
                         $('#pagar-deuda-container').hide();
-                         $('#userPanel').load('panel-logged.php', function(){
+                        $('#userPanel').empty();
+						$('#userPanel').load('panel-logged.php', function(){
 								});
                     } else if (dataMP.collection_status === 'in_process' || dataMP.collection_status === 'pending') {
                         respuesta = 'El pago qued&oacute; pendiente. Cuando se acredite te avisaremos.';
@@ -2354,7 +2368,8 @@ $('.container-div').on('click', '.btn-invitar-submit:visible', function(e) {
         $('#procesando').modal('hide');
         if (data.estado === 'ok') {
             $.address.path('/invitar-ok');
-             $('#userPanel').load('panel-logged.php', function(){
+             $('#userPanel').empty();
+			 $('#userPanel').load('panel-logged.php', function(){
 								});
         } else {
             $('#form-invitar-mensaje').show('clip').html('Ocurrió un error');

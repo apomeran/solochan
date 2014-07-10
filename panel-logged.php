@@ -1,6 +1,13 @@
+<link rel="stylesheet" href="css/panelstyles.css"/>
+<link rel="stylesheet" href="css/styles.css"/>
+<script>
+ //$("#userPanel").empty();
+</script>
 <?php
+
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
+header('Expires: 1');
 include_once("includes/config.php");
 include_once("class/seguridad.php");
 $s = new Seguridad();
@@ -74,8 +81,7 @@ else if ($fila["sexo"] == 2)
     });
 </script>
 
-<link rel="stylesheet" href="css/panelstyles.css"/>
-<link rel="stylesheet" href="css/styles.css"/>
+
 <div class="givemefont">
 	 <a class="menucontainer"  href="#/changuitas" rel="address:/changuitas">
 		<img width="25" src="img/icons/listtask.png"/> Ver todas
@@ -101,25 +107,21 @@ else if ($fila["sexo"] == 2)
         <li>
             <div class="navbar-login">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <p class="text-center">
-                            <span class="glyphicon glyphicon-user icon-size"></span>
-                        </p>
-                    </div>
+                   
                     <div class="col-lg-8">
 						<?php
 						if($_SESSION[SesionNivel] > 0) {
 						?>
-								<p class="text-left"><div class="justify-left">
+								<div class="justify-left">
 								<strong><i class="icon-briefcase text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" href="admin">Panel de control</a>
 								</strong></div>
-								</p>
+								
 						<?php
 						}
 						?>
-						<p class="text-left titulo">Mi estado</p>
-						<div style="width:100%">
+						<span class="text-left titulo">Mi estado</span>
+						<div style="width:100%; display:inline">
 							<?php
 							if($fila["balance"] < 0) {
 							?>
@@ -187,11 +189,15 @@ else if ($fila["sexo"] == 2)
 						<div class="justify-left">
 								<strong><i class="icon-star text-left"></i>
 									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" rel="address:/invitar" href="#/invitar">Contactos en la red</a>
-								</strong></div>
+								</strong>
+						_____________________		
+						</div>
+								
 						<div class="justify-left">
-								<strong><i class="icon-off text-left"></i>
-									<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" href="logout.php">Cerrar sesi&oacute;n</a>
-								</strong></div>
+						
+						<strong><i class="icon-off text-left"></i>
+							<a style="display: inline-block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;" class="text-left" href="logout.php">Cerrar sesi&oacute;n</a>
+						</strong></div>
                     </div>
                 </div>
             </div>
