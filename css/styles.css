@@ -8,6 +8,17 @@
     animation: fadein 1s;
 }
 
+#login-container{
+line-height: 17px !important;
+}
+
+#login-container hr{
+margin: 8px 0 !important;
+
+}
+
+
+
 .content{
 	display: inline-block;
 }
@@ -28,8 +39,14 @@
 }
 
 .login-social{
-    margin-top: 2% !important;
+	display:inline-block;
+    margin-top: 3% !important;
+	
 }
+.login-button{
+	width: 60%;
+}
+
 .login-not-social{
     margin-top: 2%;
     width: 45% !important;
@@ -488,10 +505,10 @@ input.input-error:focus {
     text-align: center;
 }
 #columna .login:first-child {
-    padding: 0 0 15px;
+    padding: 0 0 0px;
 }
 #columna .login:last-child {
-    padding: 15px 0 0;
+    padding: 0px 0 0;
 }
 #columna .login input {
     width: 176px;
