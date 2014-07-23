@@ -1,6 +1,3 @@
-<script>
-$(".slider-pic").fadeIn(1000);
-</script>
 <?php
 include_once("includes/config.php");
 if (isset($_SESSION[SesionTmp])) {
@@ -49,8 +46,15 @@ while ($fila = $res->fetch_assoc())
 // 	}
 // }
 ?>
-
-<div class="inicio givemefont">
+<div class="tabulated-content">
+    <div class="home-caption">
+        <span class="highlight">Conectate</span> con alguien que te pueda <span class="highlight">ayudar</span> en las tareas m&aacute;s simples o en las m&aacute;s complicadas..
+    </div>
+    <div style="margin-top: 2%; left: 0%; ">
+        <button class="btn btn-info btn-large btn-publicar givemefont" style="font-size: 40px;  margin-left: 2%;" >Public&aacute; una changuita</button>
+    </div>
+</div>
+<div style="display:none" class="inicio givemefont">
     <div class="three-column-container " >
         <div class="hero-unit givemeback pub-task" style="margin-left:1%; height:100%; margin-top:1%; display:inline-block; float:left; width:65%" id="hero-der">
             <h2 class="givemefont" style="margin-bottom: 5px; float: left;">Empez&aacute; a liberarte de tus pendientes</h2>

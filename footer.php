@@ -1,19 +1,17 @@
 </div>
 </div>
-<div id="footer" class="givemefont" style="box-shadow: inset 0 4px 0 0 #0088cc; background-color: #e6e6e6; font-size:1.15em;margin-top:0px">
-    <div class="">
-        <div class="" style="padding-left: 4%; padding-top: 0.5%; padding-right: 4%;">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <p class="navbar-text pull-left">&copy; <?php echo date("Y") ?> Todos los derechos reservados</p>
-                    <ul class="nav pull-right">
-                        <li><a href="#/quienes" rel="address:/quienes">Qui&eacute;nes somos</a></li>
-                        <li><a href="#/faq" rel="address:/faq">Preguntas frecuentes</a></li>
-                        <li><a href="#/condiciones" rel="address:/condiciones">T&eacute;rminos y condiciones de uso</a></li>
-                        <li><a href="#/privacidad" rel="address:/privacidad">Pol&iacute;tica de privacidad</a></li>
-                        <li><a href="#/contacto" rel="address:/contacto">Contacto</a></li>
-                    </ul>
-                </div>
+<div id="footer" class="givemefont">
+    <div class="footer-tab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <p class="navbar-text pull-left">&copy; <?php echo date("Y") ?> Todos los derechos reservados</p>
+                <ul class="nav pull-right">
+                    <li><a href="#/quienes" rel="address:/quienes">Qui&eacute;nes somos</a></li>
+                    <li><a href="#/faq" rel="address:/faq">Preguntas frecuentes</a></li>
+                    <li><a href="#/condiciones" rel="address:/condiciones">T&eacute;rminos y condiciones de uso</a></li>
+                    <li><a href="#/privacidad" rel="address:/privacidad">Pol&iacute;tica de privacidad</a></li>
+                    <li><a href="#/contacto" rel="address:/contacto">Contacto</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -50,10 +48,10 @@
         <h3>Iniciar Sesi&oacuten</h3>
     </div>
     <div class="modal-body" id="columna">
-        <?php include("login-container.php")?>
+        <?php include("login-container.php") ?>
     </div>
     <div class="modal-footer">
-		<button class="btn btn-link" data-dismiss="modal">Cerrar</button>
+        <button class="btn btn-link" data-dismiss="modal">Cerrar</button>
     </div>
 </div>
 <div id="aviso-login-changuita-publicated" class="modal hide fade" tabindex="-1">

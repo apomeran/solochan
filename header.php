@@ -22,10 +22,7 @@
         <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>	
-            <!--[if lt IE 9]>
-                    <script src="js/respond.min.js"></script>
-                    <script src="js/html5shiv.js"></script>
-            <![endif]-->
+
     </head>
     <script>
         function scroll(element, parent) {
@@ -33,8 +30,8 @@
             $('html,body').animate({scrollTop: $(parent).offset().top}, {duration: 1000, easing: 'swing'});
         }
     </script>
-    <body class="body-bg fadein" style="background-color: rgb(237, 241, 240);">
-        <div id="header">
+    <body class="body-bg fadein" style="background: url(img/home/1.jpg) no-repeat top center fixed;">
+        <div id="header" class="tabulated-content">
             <div class="logo">
                 <a href="#/inicio" rel="address:/" class="bw">
                     <img width=55% src="img/logo2.png" alt="SoloChanguitas" />
