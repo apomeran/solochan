@@ -9,17 +9,17 @@
 }
 
 #login-container{
-line-height: 17px !important;
+    line-height: 17px !important;
 }
 
 #login-container hr{
-margin: 8px 0 !important;
+    margin: 8px 0 !important;
 
 }
 
 .content{
-	display: inline-block;
-	margin-top:11%;
+    display: inline-block;
+    margin-top:4%;
 }
 
 .slider{
@@ -38,12 +38,12 @@ margin: 8px 0 !important;
 }
 
 .login-social{
-	display:inline-block;
+    display:inline-block;
     margin-top: 3% !important;
-	
+
 }
 .login-button{
-	width: 60%;
+    width: 60%;
 }
 
 .login-not-social{
@@ -59,32 +59,32 @@ ul.ui-autocomplete {
 
 @keyframes fadein {
     from { opacity: 0; }
-    to   { opacity: 1; }
+to   { opacity: 1; }
 }
 
 /* Firefox */
 @-moz-keyframes fadein {
     from { opacity: 0; }
-    to   { opacity: 1; }
+to   { opacity: 1; }
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes fadein {
     from { opacity: 0; }
-    to   { opacity: 1; }
+to   { opacity: 1; }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
     from { opacity: 0; }
-    to   { opacity: 1; }
-}?
+to   { opacity: 1; }
+}
 
 /* Opera */
 @-o-keyframes fadein {
     from { opacity: 0; }
-    to   { opacity: 1; }
-}?
+to   { opacity: 1; }
+}
 
 .move-me-left{
     margin-left: -10px;
@@ -110,13 +110,7 @@ ul.ui-autocomplete {
     box-shadow: 0 20px 30px 3px rgba(0,0,0,0.2);
 }
 
-#header .como-f {
-    font-family: Amaranth;
-    width: 550px;
-    text-align: center;
-    margin-top:145px;
-    font-size: 1.7em;
-}
+
 
 
 /*
@@ -236,10 +230,10 @@ ul.ui-autocomplete {
 }
 
 #header .menucontainer{
-    margin-left:8px;
+    margin-left:12px;
     border-right: 1px solid #000000;
     color:#000000;
-    font-size: 17px ;
+    font-size: 15px ;
 }
 h4{
     color: rgb(14, 171, 237) !important;
@@ -259,10 +253,6 @@ h2{
     font-size: 17px;
     margin-top: -2%;
     margin-left: 3%;
-}
-
-.logosolochang{
-
 }
 
 /*FIN ALAN AGREGADO*/
@@ -344,8 +334,10 @@ h3 small {
     text-decoration: none;
     color: inherit;
 }
-a.logo {
-    padding-left: 20px;
+.logo {
+    position: absolute;
+    left: 15%;
+    top: 2.25%;
 }
 span.indicador {
     float:right;
@@ -364,17 +356,22 @@ input.input-error:focus {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
 }
 #header {
+    width: 75%;
+    margin-right: 12.5%;
+    margin-left: 12.5%;
+    background: #f2f2f1;
+    border-radius: 5px;
+    box-shadow: 0px 10px 5px #B8B8B8;
+}
 
-    width: 100%;
-    background: rgb(14, 171, 237);
-    margin-bottom: 17px;
-    padding-bottom: 10px;
-	border-style: solid;
-	border-top: thick;
-	border-left: thick;
-	border-right: thick;
-	position:fixed; 
-	z-index:30;
+#header .como-f {
+    font-family: Amaranth;
+    text-align: right;
+    margin-right: 2%;
+    padding-top: 2.8%;
+    padding-bottom: 0.25%;
+    font-size: 1.3em;
+    right: 10px;
 }
 #header h6 {
     color: #179ED5;
@@ -398,7 +395,6 @@ input.input-error:focus {
 }
 #header .like .twitter-follow-button {
     margin-right: 30px;
-    vertical-align: top;
 }
 #header .como-f {
 
@@ -663,7 +659,7 @@ a.ayuda:hover {
 }
 .btn-columna-pagar {
     color: #fff;
-	width: 42px;
+    width: 42px;
     padding: 0 10px;
     font-size: .9em;
     margin-top: -1px;
@@ -1267,8 +1263,8 @@ p.ventana-planes {
     padding-right: 10px;
 }
 span.notificacion {
-   /* float: right;
-    margin-top: -18px;*/
+    /* float: right;
+     margin-top: -18px;*/
 }
 span.notificacion button.btn-notificaciones {
     border: none;
@@ -1662,7 +1658,7 @@ table td.deuda-total {
     padding-bottom:	10px;
 }
 .dropdown-menu{
-margin-left: 35% !important;
+    margin-left: 35% !important;
 }
 
 .hero-unit .dropdown-toggle {
@@ -1848,16 +1844,7 @@ div.notificacion p small {
     #changuitas-filtros a.span3 {
         width: 100%;
     }
-    #header .img-der {
-        display: none;
-    }
-    #header .social {
-        text-align: left;
-        padding: 10px 0 0 20px;
-    }
-    #header .social img {
-        width: 30px;
-    }
+
     .inicio #hero-der {
         margin-left: 0;
     }
