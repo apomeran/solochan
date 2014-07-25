@@ -51,110 +51,96 @@ while ($fila = $res->fetch_assoc())
         <span class="highlight">Conectate</span> con alguien que te pueda <span class="highlight">ayudar</span> en las tareas m&aacute;s simples o en las m&aacute;s complicadas..
     </div>
     <div style="margin-top: 2%; left: 0%; ">
-        <button class="btn btn-info btn-large btn-publicar givemefont" style="font-size: 40px;  margin-left: 2%;" >Public&aacute; una changuita</button>
+        <button class="btn btn-info btn-large btn-publicar givemefont" >Public&aacute; una changuita</button>
     </div>
 </div>
-<div style="display:none" class="inicio givemefont">
-    <div class="three-column-container " >
-        <div class="hero-unit givemeback pub-task" style="margin-left:1%; height:100%; margin-top:1%; display:inline-block; float:left; width:65%" id="hero-der">
-            <h2 class="givemefont" style="margin-bottom: 5px; float: left;">Empez&aacute; a liberarte de tus pendientes</h2>
-            <p style="font-size:1.2em; margin: 0 0 -60px 0; float: left;">Poste&aacute; ese trabajo por el que and&aacute;s preguntando, &iexcl;vas a tener postulados en cuesti&oacute;n de horas!</p>
-            <h4 class="givemefont" style="margin: 50px 0 0 0; font-size:3.5em; float: left;">&iexcl;Es GRATIS!</h4>
-            <br>
-            <div style="margin-top: 150px; left: 0%; width:35%">
-                <button class="btn btn-info btn-large btn-publicar givemefont" >Publicar una changuita</button>
-            </div>
-            <br><br><br>
-            <div>
-                <img src="img/comofunciona2.png"/>
+<div class="tabulated-content">
+    <div class="como-funciona-caption">&iquest;C&oacute;mo funciona?</div>
+    <div>
+        <div class="como-funciona-container">
+            <img src="img/comofunc/img.png">
+            </img>
+
+        </div>
+        <div class="destacadas-container">
+            <div id="destacadas-inicio" style="display:inline-block; height: 100%; margin-top:-8.5%">
             </div>
         </div>
-
-
-        <div class="hero-unit givemeback search-task" style="display:inline-block; margin-top:1%; float:center; margin-left:0.5%; margin-right:0%;  width:23%">
-            <div style="margin-bottom: 0.5%;">
-                <h2 class="givemefont">Quiero trabajar</h2>
-                <button class="btn btn-info btn-large btn-search-changuita givemefont" id="search-changuita-button">Buscar una changuita</button>
-                <div id="search-changuita-container" style="display:none">
-                    <form name="buscar" id="ini-buscar">
-                        <input type="hidden" name="categoria" value="0">
-                        <input type="hidden" name="subcategoria" value="0">
-                        <input type="hidden" name="localidad" value="0">
-                        <input type="hidden" name="barrio" value="0">
-
-                        <div class="btn-group">
-                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-categoria">
-                                <p><span class="txt ">Eleg&iacute; una Categor&iacute;a</span></p>
-                            </a>
-                            <div class="dropdown-menu">
-                                <div id="drop-categoria">
-                                    <?php
-                                    foreach ($categoria as $k => $v) {
-                                        ?>
-                                        <a data-cat-id="<?php echo $k ?>" href="#"><?php echo $v ?></a>
-                                        <?php
-                                    }
-                                    ?>
-                                    <a href="#" class="sugerir" data-cat-id="-1"><em>&iquest;No encontr&aacute;s lo que busc&aacute;s?</em></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="ini-div-sugerir" class="hide">
-                            <input type="text" name="sugerir" id="ini-sugerir" value="" placeholder="Sugerinos la categor&iacute;a que falta" maxlength="100" />
-                            <button class="btn btn-primary" id="btn-sugerir">Sugerir</button>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn dropdown-toggle disabled" data-toggle="dropdown" href="#" id="btn-drop-subcategoria" disabled>
-                                <p><span class="txt">Eleg&iacute; una Subcategor&iacute;a</span></p>
-                            </a>
-                            <div class="dropdown-menu">
-                                <div id="drop-subcategoria">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-localidad">
-                                <p class="txt">Eleg&iacute; una Zona</p>
-                            </a>
-                            <div class="dropdown-menu">
-                                <div id="drop-localidad">
-                                    <?php
-                                    foreach ($localidad as $k => $v) {
-                                        ?>
-                                        <a data-loc-id="<?php echo $k ?>" href="#"><?php echo $v ?></a>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn dropdown-toggle disabled" disabled="disabled" data-toggle="dropdown" href="#" id="btn-drop-barrio">
-                                <p class="txt">Eleg&iacute; localidades o barrios</p>
-                            </a>
-                            <div class="dropdown-menu">
-                                <div id="drop-barrio">
-                                </div>
-                            </div>
-                        </div>
-                        <div style="visibility:hidden;">
-                            <label for="ini-palabras">Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
-                            <input type="text" name="palabras" id="ini-palabras" value="" placeholder="Opcional" class="auto-palabras" />
-                        </div>
-                        <button class="btn btn-large givemefont" style="margin-top:-7px !important;" id="btn-buscar">Buscar una changuita</button>
-                    </form>
-                </div>
-                <div style="margin-top:15px;">o sino pod&eacute;s</div>
-                <button class="btn btn-link givemefont" style="font-size:22px;" id="btn-ver-todas">Ver todas las changuitas</button>
-            </div>
-            <hr>
-            <div id="destacadas-inicio" style="display:inline-block; height: 100%; margin-top:2.5%">
-            </div>
-        </div>
-
-
     </div>
+</div>
+<div class="tabulated-content">
+    <button class="btn btn-info btn-large btn-search-changuita givemefont" id="search-changuita-button">Buscar una changuita</button>
+    <div id="search-changuita-container" style="display:none">
+        <form name="buscar" id="ini-buscar">
+            <input type="hidden" name="categoria" value="0">
+            <input type="hidden" name="subcategoria" value="0">
+            <input type="hidden" name="localidad" value="0">
+            <input type="hidden" name="barrio" value="0">
+
+            <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-categoria">
+                    <p><span class="txt ">Eleg&iacute; una Categor&iacute;a</span></p>
+                </a>
+                <div class="dropdown-menu">
+                    <div id="drop-categoria">
+                        <?php
+                        foreach ($categoria as $k => $v) {
+                            ?>
+                            <a data-cat-id="<?php echo $k ?>" href="#"><?php echo $v ?></a>
+                            <?php
+                        }
+                        ?>
+                        <a href="#" class="sugerir" data-cat-id="-1"><em>&iquest;No encontr&aacute;s lo que busc&aacute;s?</em></a>
+                    </div>
+                </div>
+            </div>
+            <div id="ini-div-sugerir" class="hide">
+                <input type="text" name="sugerir" id="ini-sugerir" value="" placeholder="Sugerinos la categor&iacute;a que falta" maxlength="100" />
+                <button class="btn btn-primary" id="btn-sugerir">Sugerir</button>
+                <div class="clearfix"></div>
+            </div>
+            <div class="btn-group">
+                <a class="btn dropdown-toggle disabled" data-toggle="dropdown" href="#" id="btn-drop-subcategoria" disabled>
+                    <p><span class="txt">Eleg&iacute; una Subcategor&iacute;a</span></p>
+                </a>
+                <div class="dropdown-menu">
+                    <div id="drop-subcategoria">
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-localidad">
+                    <p class="txt">Eleg&iacute; una Zona</p>
+                </a>
+                <div class="dropdown-menu">
+                    <div id="drop-localidad">
+                        <?php
+                        foreach ($localidad as $k => $v) {
+                            ?>
+                            <a data-loc-id="<?php echo $k ?>" href="#"><?php echo $v ?></a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a class="btn dropdown-toggle disabled" disabled="disabled" data-toggle="dropdown" href="#" id="btn-drop-barrio">
+                    <p class="txt">Eleg&iacute; localidades o barrios</p>
+                </a>
+                <div class="dropdown-menu">
+                    <div id="drop-barrio">
+                    </div>
+                </div>
+            </div>
+            <div style="visibility:hidden;">
+                <label for="ini-palabras">Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
+                <input type="text" name="palabras" id="ini-palabras" value="" placeholder="Opcional" class="auto-palabras" />
+            </div>
+            <button class="btn btn-large givemefont" style="margin-top:-7px !important;" id="btn-buscar">Buscar una changuita</button>
+        </form>
+    </div>
+    <button class="btn btn-link givemefont" style="font-size:22px;" id="btn-ver-todas">Ver todas las changuitas</button>
 </div>
 <script>
     $(document).ready(function() {
