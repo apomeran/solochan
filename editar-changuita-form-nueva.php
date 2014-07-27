@@ -14,9 +14,7 @@ $("#form-changuita-title").text("Nueva Changuita");
  }
  
 </script>
-<script>
-	fadeOut();
-</script>
+
 
 <script type="text/javascript">
 $(function() {
@@ -265,6 +263,7 @@ for($i=0;$i<6;$i++) {
 	</div>
 </div>
 <p class="move-me-left"><b>Publicaci&oacute;n </b><p>
+
 <div class="control-group">
 	<label class="control-label control-label-sin-margen">Servicio<br /><small>Eleg&iacute; qu&eacute; servicio de SoloChanguitas quer&eacute;s contratar</small></label>
 	<div class="controls">

@@ -46,9 +46,11 @@ $barrios = array();
 while($fila = $res->fetch_assoc())
 	$barrios[$fila["id"]] = $fila["barrio"];
 ?>
-<div class="row givemefont">
-	<div class="span9 givemefont">
-		<h3 class="givemefont">Buscador de changuitas</h3>
+<div class="tabulated-content">
+<div style="float:center;">
+
+	<div class="givemefont">
+		<h2 class="givemefancy" style="text-align:center; font-size:47px">Buscador de changuitas</h2>
 		<div id="changuitas-filtros">
 			<form name="buscar" id="changuitas-buscar">
 			<div class="row">
@@ -161,9 +163,11 @@ foreach($barrios as $k => $v) {
 			</div>
 			</form>
 		</div>
-		<div id="changuitas-resultados" class="hide"></div>
+		<div id="changuitas-resultados" style="width:63.5%;" class="hide"></div>
 		<div class="resultados-cargando hide"><img src="img/cargando2.gif" alt="cargando" /></div>
 	</div>
+
+</div>
 </div>
 <script>
 $(document).ready(function() {

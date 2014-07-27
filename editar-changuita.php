@@ -83,7 +83,8 @@ else {
 	// $gratis = $fila["gratis"];
 }
 ?>
-<h3 id="form-changuita-title">Changuita</h3>
+<div class="tabulated-content">
+<h2 id="form-changuita-title" class="givemefancy" style="font-size:57px;text-align:center;">Changuita</h2>
 <form class="form-horizontal givemefont givemeback" id="editar-changuita">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
@@ -103,3 +104,4 @@ else
 ?>
 	</fieldset>
 </form>
+</div>
