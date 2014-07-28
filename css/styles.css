@@ -1759,7 +1759,10 @@ table td.deuda-total {
     padding-bottom:	10px;
 }
 .dropdown-menu{
-    margin-left: 35% !important;
+	text-align: left;
+    margin-left: 70% !important;
+	left: 0px !important;
+	top: 10% !important;
 }
 
 .hero-unit .dropdown-toggle {

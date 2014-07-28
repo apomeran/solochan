@@ -154,9 +154,9 @@ else if ($fila["sexo"] == 2)
 							}
 							?>
 						</div>
-						<p><div class="justify-left indicators">Calificaciones <?php echo $calificacionTxt ?></div> <span class="indicador"><?php echo $f->indicador($calificacion, "calificacion") ?></span></p>
-						<p><div class="justify-left indicators">Contactos en la red</div><span class="indicador"><?php echo $f->indicador($confianza, "confianza") ?></span><span class="num"><?php echo $confianza ?></span></p>
-						<p><div class="justify-left indicators">Changuitas</div><span class="indicador"><?php echo $f->indicador($nChanguitas+$nPublicadas, "changuitas") ?></span><span class="num"><?php echo $nChanguitas+$nPublicadas ?></span></p>
+						<p><div class="justify-left indicators">- Calificaciones: <?php echo $calificacionTxt ?></div> <br></p>
+						<p><div class="justify-left indicators">- Contactos en la red: <?php echo $confianza ?></div><br></p>
+						<p><div class="justify-left indicators">- Changuitas: <?php echo $nChanguitas+$nPublicadas ?></div><br></p>
 							
 						<div class="justify-left"><u>Quiero trabajar</u></div>
 						<div class="justify-left">
