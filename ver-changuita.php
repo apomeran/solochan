@@ -21,7 +21,7 @@ $calificaciones = array("Negativo", "Neutro", "Positivo");
 if(isset($_GET["s"]) && in_array($_GET["s"], $statusPagoValidos))
 	$statusPago = $bd->real_escape_string($_GET["s"]);
 ?>
-<div class="row ver-changuita givemefont">
+<div class="tabulated-content ver-changuita givemefont">
 	<div class="span6">
 <?php
 // datos de la changuita
@@ -84,7 +84,7 @@ if($fila["estado"] == 0) {
 			$postulados = "";
 		}
 	}
-	$datos = "<p class='center'>Publicada el ".$f->convertirMuestra($fila["fecha"], "fecha")."<br /> (hace ".$f->convertirMuestra($fila["fecha"], "hace").")</p>";
+	$datos = "<p class='center box-shadow-container'>Publicada el ".$f->convertirMuestra($fila["fecha"], "fecha")."<br /> (hace ".$f->convertirMuestra($fila["fecha"], "hace").")</p>";
 	$datos .= "<div class='datos-usuario'><h4 class='center'>Datos del usuario</h4>";
 	$datos .= "<p class='nombre'>".$fila["nombre"]." ".substr($fila["apellido"], 0, 1).".</p>";
 	// calificacion
@@ -329,7 +329,7 @@ else if($fila["estado"] == 0 && !isset($_SESSION[SesionId]) && $vencida == 0) {
 	</div>
 	</div>
 	<div class="span3 columna givemefont" > 
-		<p class="center"><?php echo $postulados ?></p>
+		<p class="center box-shadow-container"><?php echo $postulados ?></p>
 		<?php echo $botPost ?>
 		<p class="precio">$<?php echo $fila["precio"] ?>
 			<br/>

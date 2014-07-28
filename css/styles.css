@@ -1167,8 +1167,18 @@ span.inicio-destacadas {
     color: #888;
     font-style: italic;
 }
+.ver-changuita .box-shadow-container{
+background: rgba(255, 255, 255, 0.79);
+border-radius: 5px;
+box-shadow: 0px 5px 5px #B8B8B8;
+padding: 1px 10px 1px 8px;
+}
 .ver-changuita .datos-usuario {
     text-align: left;
+	background: rgba(255, 255, 255, 0.79);
+	border-radius: 5px;
+	box-shadow: 0px 5px 5px #B8B8B8;
+	padding: 1px 10px 1px 8px;
 }
 .ver-changuita .nombre {
     font-weight: bold;
