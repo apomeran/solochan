@@ -46,7 +46,7 @@ if($buscar != "") {
 	if(count($filtroPalabras) > 0)
 		$filtros[] = "(".implode(" or ", $filtroPalabras).")";
 }
-$data["html"] = "<div class='resultados-tit'><h4 class='inicio-destacadas'>Resultados de la b&uacute;squeda</h4>";
+$data["html"] = "<div class='resultados-tit'><h4 class='inicio-destacadas' style='padding: 5px 0px 5px 4px'>Resultados de la b&uacute;squeda</h4>";
 $opOrden = array("Destacadas", "M&aacute;s reciente", "M&aacute;s antigua", "Mayor precio", "Menor precio");
 $orden = 0;
 if(isset($_POST["orden"]))

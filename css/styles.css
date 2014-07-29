@@ -1051,7 +1051,7 @@ span.inicio-destacadas {
     text-align: center;
     font-size: 12px;
     padding: 10px 0 0;
-    border-top: 1px dashed #ccc;
+    border-top: 1px solid #ccc;
 }
 .pag button {
     margin-top: -3px;
@@ -1063,7 +1063,7 @@ span.inicio-destacadas {
 .changuita {
     padding: 10px;
     border-top: 1px dashed #ccc;
-    background-color: rgba(255, 255, 255, .4);
+    background-color: rgba(255, 255, 255, .65);
 }
 .changuita:hover {
     background-color: #FDF59A;
