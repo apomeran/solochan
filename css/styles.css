@@ -823,12 +823,18 @@ a.ayuda:hover {
     margin: 63px 0;
 }
 h4.inicio-destacadas {
-    color:#000000 !important;
-    margin-bottom: 0;
-    text-align: center;
-    text-shadow: 0px 0px 0px white;
-    font-family: Freestyle;
-    font-size: 38px;
+    color: #000000 !important;
+	margin-bottom: 0;
+	text-align: center;
+	text-shadow: 0px 0px 0px white;
+	font-family: Freestyle;
+	font-size: 26px;
+	letter-spacing: 4px;
+	background: rgba(255, 255, 255, 0.79);
+	margin-left: -14px;
+	border-radius: 7px;
+	box-shadow: 0px 3px 5px #B8B8B8;
+	padding: 5px 0px 5px 0px;
 }
 p.inicio-destacadas {
     margin: 0;
@@ -851,7 +857,7 @@ span.inicio-destacadas {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, .4);
+    background-color: rgba(255, 255, 255, .85);
 }
 .destacadas div.destacada:hover {
     background-color: #fff;

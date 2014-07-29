@@ -11,6 +11,10 @@ header('Expires: 1');
 include_once("includes/config.php");
 include_once("class/seguridad.php");
 $s = new Seguridad();
+if(!isset($_SESSION[SesionId]) || $_SESSION[SesionId] == 0) {
+	include_once("panel-login.php");
+	die;
+}
 $s->permitir(0);
 include_once("class/funciones.php");
 $f = new Funciones();
