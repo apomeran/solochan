@@ -1,3 +1,5 @@
+<div class="givemefont tabulated-content a-box-shadow-container" style="padding: 15px 15px 15px 15px">
+
 <h3>Preguntas frecuentes</h3>
 <h4>&iquest;Qu&eacute; es Solochanguitas?</h4>
 <p>SoloChanguitas es una red de servicios que contacta a quienes necesitan contratar personas para trabajos de corta duraci&oacute;n con aquellos que cuentan con las capacidades y el tiempo para realizarlos a trav&eacute;s de un formato m&aacute;s pr&aacute;ctico que el boca en boca.</p>
@@ -23,3 +25,4 @@
 <p>Adem&aacute;s del sistema tradicional de calificaciones y recomendaciones ofrecemos el dato de la cantidad de personas a los que cada usuario est&aacute; linkeado en la red. Para sumar usuarios linkeados a tu usuario tenes que importar tus contactos de e-mail, Facebook y Linkedin. Cuando se registren en SoloChanguitas, se te sumar&aacute;n como contactos.</p>
 <p>Mientras m&aacute;s conocidos tengas en la red, m&aacute;s confiable te ver&aacute;n el resto de los usuarios, por lo que tus posibilidades de ser contratado aumentar&aacute;n significativamente. Por otro lado, que un usuario posea m&aacute;s de 10 usuarios linkeados lo vuelve rastreable, esto te asegura que se trata de una persona real, incrementando la seguridad del intercambio.</p>
 <p>Muchos usuarios acceden a la red a trav&eacute;s de Facebook, Linked In o Google +. Esto te va a permitir investigar, o &ldquo;facestokear&rdquo;, para que vos mismo puedas determinar si la persona es de confianza. </p>
+</div>

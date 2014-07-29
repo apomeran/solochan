@@ -1,4 +1,5 @@
-<div class="tyc">
+<div class="tyc givemefont tabulated-content a-box-shadow-container" style="padding: 15px 15px 15px 15px">
+
 <h3>T&eacute;rminos y condiciones de uso del Sitio</h3>
 <p>Este contrato describe los t&eacute;rminos y condiciones generales (los "<strong>T&eacute;rminos y Condiciones Generales</strong>") aplicables al uso de los servicios ofrecidos por <strong>SoloChanguitas SRL</strong>, CUIT 23-32952457-4. Cualquier persona (en adelante "Usuario" o en plural "Usuarios") que desee acceder y/o usar el sitio o los Servicios podr&aacute; hacerlo sujet&aacute;ndose a los T&eacute;rminos y Condiciones Generales respectivos, junto con todas las dem&aacute;s pol&iacute;ticas y principios que rigen <strong>SoloChanguitas.com</strong> y que son incorporados al presente.</p>
 <p class="tyc-lead">CUALQUIER PERSONA QUE NO ACEPTE ESTOS T&Eacute;RMINOS Y CONDICIONES GENERALES, LOS CUALES TIENEN UN CAR&Aacute;CTER OBLIGATORIO Y VINCULANTE, DEBER&Aacute; ABSTENERSE DE UTILIZAR EL SITIO Y/O LOS SERVICIOS.</p>
