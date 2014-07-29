@@ -30,7 +30,7 @@
             $('html,body').animate({scrollTop: $(parent).offset().top}, {duration: 1000, easing: 'swing'});
         }
     </script>
-    <body class="body-bg fadein" style="background: url(img/home/1.jpg) no-repeat top center fixed;">
+    <body class="body-bg fadein" style="background: url(img/home/1.jpg) no-repeat top center fixed; background-size: 100%;">
         <div id="header" class="tabulated-content">
             <div class="logo">
                 <a href="#/inicio" rel="address:/" class="bw">

@@ -48,7 +48,7 @@ while ($fila = $res->fetch_assoc())
 ?>
 <div class="tabulated-content">
     <div class="home-caption">
-        <span class="highlight">Conectate</span> con alguien que te pueda <span class="highlight">ayudar</span> en las tareas m&aacute;s simples o en las m&aacute;s complicadas..
+        <span class="highlight">Conectate</span> con alguien que te pueda <span class="highlight">ayudar</span> en tus tareas m&aacute;s simples o complicadas <span class="highlight">GRATIS!</span>.. 
     </div>
     <div style="margin-top: 2%; left: 0%; ">
         <button class="btn btn-info btn-large btn-publicar givemefont" >Public&aacute; una changuita</button>
