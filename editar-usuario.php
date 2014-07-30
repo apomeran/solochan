@@ -112,7 +112,10 @@ $subcategoria = array();
 while($fila = $res->fetch_assoc())
 	$subcategoria[$fila["categoria"]][$fila["id"]] = $fila["subcategoria"];
 ?>
-<h3 class="givemefont">Cuenta</h3>
+
+<div class="tabulated-content">
+
+<h2 class="givemefont">Cuenta</h2>
 <form class="form-horizontal givemefont" id="datos-usuarios">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
@@ -578,3 +581,4 @@ $(document).ready(function() {
 	});
 });
 </script>
+</div>

@@ -525,15 +525,15 @@ function activaBuscarCh() {
 }
 
 function postulaciones() {
-    $('#postulaciones-tabla').html('').hide('clip');
-    $('.resultados-cargando').show('clip');
+    $('#postulaciones-tabla').html('').hide();
+    $('.resultados-cargando').show();
     var tipo = 0;
     tipo = $('#postulaciones-filtros button.active').val();
     $.post('ax/postulaciones.php', {
         tipo: tipo
     }, function(data) {
-        $('#postulaciones-tabla').html(data.html).show('clip');
-        $('.resultados-cargando').hide('clip');
+        $('#postulaciones-tabla').html(data.html).show();
+        $('.resultados-cargando').hide();
     }, 'json');
 }
 

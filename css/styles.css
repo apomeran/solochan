@@ -5,6 +5,10 @@
     src: url(../fonts/freestyle.ttf);
 }
 
+
+.pad-me{
+ padding: 15px 15px 15px 15px;
+}
 .fadein {
     -webkit-animation: fadein 1.5s; /* Safari and Chrome */
     -moz-animation: fadein 1.5s; /* Firefox */

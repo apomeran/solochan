@@ -6,9 +6,9 @@ if(isset($_SESSION["calificaciones-filtros"])) {
 	$js .= "$('#calificaciones-filtros .btn[value=".$_SESSION["calificaciones-filtros"]."]').addClass('active');";
 }
 ?>
-<div class="row">
-	<div class="span9">
-		<h3>Mis calificaciones</h3>
+<div class="givemefont tabulated-content">
+	<div class="givemefont" style="width: 100%">
+		<h2 class="givemefont">Mis calificaciones</h2>
 		<div id="calificaciones-filtros" class="btn-group vista-filtros" data-toggle="buttons-radio">
 			<button class="btn btn-info active" name="tipo" value="1">Calificaciones pendientes</button>
 			<button class="btn btn-info" name="tipo" value="2">Calificaciones recibidas</button>
