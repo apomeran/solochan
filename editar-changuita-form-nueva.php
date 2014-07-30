@@ -60,17 +60,24 @@ $(function() {
 </script>
 
 <div class="control-group fadein-2" id="cat-question" style="margin-bottom:50px; margin-top:30px;">
+	<div class="" style="  width: 180px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 15px;">
+			<img style="" src="img/icons/13194.png" />
+	</div>
 	<div class="" >
 		<label class=""  style="text-align:center; font-size:45px;">&iquest;Qu&eacute; necesit&aacute;s hoy?</label>
 	</div>
 	<div class="" style="" id="the-question">
-		<input id="subcat_cat_search" type="text" style="margin-left: 25%; width: 50% !important; margin-top:25px; text-align:center; font-weight: bold;  height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
-		<br>
-		<div style="text-align:center">Si no lo encontr&aacutes,<a title="Ver categorias y subcategorias"  style="font-size: 1.1em" onclick="fade_in_cat_subcat()">
-			   buscalo en nuestras opciones
-		</a>
+		<div>
+			<input id="subcat_cat_search" type="text" style="margin-left: 25%; width: 50% !important; margin-top:25px; text-align:center; font-weight: bold;  height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
+			<br>
+			<div style="text-align:center">Si no lo encontr&aacutes,<a title="Ver categorias y subcategorias"  style="font-size: 1.1em" onclick="fade_in_cat_subcat()">
+				   buscalo en nuestras opciones
+			</a>
+			</div>
 		</div>
+		
 	</div>
+	
 </div>
 
 <div id="category-subcategory-container" style="display:none;">
