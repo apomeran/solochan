@@ -59,7 +59,7 @@ $(function() {
 });
 </script>
 
-<div class="control-group" id="cat-question" style="margin-bottom:50px; margin-top:30px;">
+<div class="control-group fadein-2" id="cat-question" style="margin-bottom:50px; margin-top:30px;">
 	<div class="" >
 		<label class=""  style="text-align:center; font-size:45px;">&iquest;Qu&eacute; necesit&aacute;s hoy?</label>
 	</div>
@@ -106,16 +106,25 @@ $(function() {
 		</div>
 	</div>
 </div>
+<p class="move-me-left ch-form-subtitle"><b>Informaci&oacute;n  </b><p>
 
 <div class="control-group">
 	<label class="control-label" for="titulo">T&iacute;tulo para la changuita</label>
 	<div class="controls">
-		<input type="text" id="titulo" name="titulo" value="" maxlength="40" />
+		<input type="text" id="titulo" placeholder="Ej: Profesor de historia" name="titulo" value="" maxlength="40" />
 			<a class="ayuda" title="Este campo es obligatorio. Ingres&aacute; un texto breve (menos de 40 caracteres) que identifique r&aacute;pidamente tu changuita (m&aacute;s abajo te vamos a pedir una descripci&oacute;n m&aacute;s detallada). Por ej.: Profesor de historia."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</div>
 </div>
 <br>
-<p class="move-me-left"><b>Ubicaci&oacute;n  </b><p>
+<div class="control-group">
+	<label class="control-label" for="descripcion">Descripci&oacute;n de la changuita</label>
+	<div class="controls">
+		<textarea id="descripcion" name="descripcion" maxlength="1000"></textarea><br/>
+		<a class="ayuda" title="Este campo es obligatorio. M&aacute;ximo 1000 caracteres."><i class="icon-question-sign"></i></a><span class="help-block"></span>
+	</div>
+</div>
+<br>
+<p class="move-me-left ch-form-subtitle"><b>Ubicaci&oacute;n  </b><p>
 <div class="control-group">
 	<label class="control-label">Provincia/Zona </label>
 	<div class="controls">
@@ -162,13 +171,7 @@ if(count($barriosIni) > 0) {
 		<a class="ayuda" title="Este campo es obligatorio. Primero ten&eacute;s que elegir una opci&oacute;n en el campo anterior."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</div>
 </div>
-<div class="control-group">
-	<label class="control-label" for="descripcion">Descripci&oacute;n de la changuita</label>
-	<div class="controls">
-		<textarea id="descripcion" name="descripcion" maxlength="1000"></textarea><br/>
-		<a class="ayuda" title="Este campo es obligatorio. M&aacute;ximo 1000 caracteres."><i class="icon-question-sign"></i></a><span class="help-block"></span>
-	</div>
-</div>
+
 <div class="control-group" style="display:none;">
 	<label class="control-label" for="palabras">Palabras clave</label>
 	<div class="controls">
@@ -176,7 +179,7 @@ if(count($barriosIni) > 0) {
 			<a class="ayuda" title="Ingres&aacute; algunas palabras (separadas por comas) para ayudar a los dem&aacute;s a encontrar tu changuita."><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</div>
 </div>
-<p class="move-me-left"><b>D&iacute;as y Horarios </b><p>
+<p class="move-me-left ch-form-subtitle"><b>D&iacute;as y Horarios </b><p>
 <div class="control-group">
 	<label class="control-label" for="cuando">&iquest;Cu&aacute;ndo hay que hacer la changuita?</label>
 	<div class="controls">
@@ -253,7 +256,7 @@ for($i=0;$i<6;$i++) {
 		<span class="help-block"></span>
 	</div>
 </div>
-<p class="move-me-left"><b>Precio </b><p>
+<p class="move-me-left ch-form-subtitle"><b>Precio </b><p>
 <div class="control-group">
 	<label class="control-label" for="precio">&iquest;Cu&aacute;nto quer&eacute;s pagar por la changuita?<br /><small>En pesos argentinos</small></label>
 	<div class="controls">
@@ -263,10 +266,10 @@ for($i=0;$i<6;$i++) {
 		<a class="ayuda" title="Este campo es obligatorio. Ingres&aacute; un n&uacute;mero entero, sin centavos. No uses punto, coma ni el signo de pesos. Por ej.: 1234."><i class="icon-question-sign"></i></a><p id="precio-sugerido"></p><span class="help-block"></span>
 	</div>
 </div>
-<p class="move-me-left"><b>Publicaci&oacute;n </b><p>
+<p class="move-me-left ch-form-subtitle"><b>Servicio </b><p>
 
 <div class="control-group">
-	<label class="control-label control-label-sin-margen">Servicio<br /><small>Eleg&iacute; qu&eacute; servicio de SoloChanguitas quer&eacute;s contratar</small></label>
+	<label class="control-label control-label-sin-margen"><small>Eleg&iacute; qu&eacute; servicio de SoloChanguitas quer&eacute;s contratar</small></label>
 	<div class="controls">
 <?php
 if($balance > 0) {

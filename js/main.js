@@ -484,9 +484,9 @@ function cargar(valor, container) {
     }
     //
     //console.log(valor, url);
-    container.hide('clip');
+    container.hide();
     container.load(url, function() {
-        container.show('clip');
+        container.show("slow");
     });
 }
 
@@ -497,9 +497,9 @@ function cargar2(url, container) {
     if (!url) {
         url = 'inicio.php';
     }
-    container.hide('clip');
+    container.hide();
     container.load(url, function() {
-        container.show('clip');
+        container.show("slow");
     });
 }
 // - vistas
@@ -1511,7 +1511,6 @@ $('.container-div').on('click', '.btn-publicar', function(e) {
     e.preventDefault();
     //$('#procesando').modal('show');
     $.address.path('/changuita-nueva'); //ALAN CHANGE - Publish without loggin
-    return;
     $.post('ax/logged.php', {
         bloqueado: 1
     }, function(data) {

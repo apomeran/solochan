@@ -13,6 +13,14 @@
     animation: fadein 1.5s;
 }
 
+.fadein-2 {
+    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+    -moz-animation: fadein 2.5s; /* Firefox */
+    -ms-animation: fadein 2.5s; /* Internet Explorer */
+    -o-animation: fadein 2.5s; /* Opera */
+    animation: fadein 2.5s;
+}
+
 .home-caption{
     font-size: 30px;
     letter-spacing: 2px;
@@ -119,6 +127,14 @@ to   { opacity: 1; }
 @-o-keyframes fadein {
     from { opacity: 0; }
 to   { opacity: 1; }
+}
+
+.ch-form-subtitle{
+font-family: Freestyle;
+font-size: 30px;
+font-variant: small-caps;
+color: rgb(90, 15, 15);
+
 }
 
 .move-me-left{
@@ -943,7 +959,7 @@ span.inicio-destacadas {
 }
 .plan-nombre {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
     display: inline;
 }
 .plan-descripcion {
