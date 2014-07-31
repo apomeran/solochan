@@ -137,7 +137,7 @@ if(isset($_SESSION[SesionExterno]) && $_SESSION[SesionExterno] == 1) {
     <?php if($id == 0 || $externo == 1) { ?>
 	<div class="a-box-shadow-container" style="margin-left: auto;text-align: center;margin-right: auto;">
 	    <br>
-		<img  width=15% src="img/icons/new_user2.png"> </img>
+		<img  width=200px src="img/icons/new_user2.png"> </img>
 		<div  style="font-size: 20px;">Podes registrarte con tus redes sociales en un solo click!</div>
 		<br>
 		<p class="move-me-left" style="font-size: 36px;"><b>Conectate con tu red social favorita  </b><p>
