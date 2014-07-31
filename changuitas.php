@@ -51,10 +51,11 @@ while($fila = $res->fetch_assoc())
 
 	<div class="givemefont">
 		<h2 class="givemefancy" style="text-align:center; font-size:67px">Buscador de changuitas</h2>
-		<div >
+		
+		<div id="changuitas-filtros">
+		<div class="center-me fadein-2" >
 		<img class="center-me" style="margin-bottom:20px;" width=220px src="img/icons/search.png"> </img>
 		</div>
-		<div id="changuitas-filtros">
 			<form name="buscar" id="changuitas-buscar">
 			<div class="row">
 				<div class="span3">
