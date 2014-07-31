@@ -9,7 +9,7 @@ include_once("includes/config.php");
         <div id="fb-root">
         </div>
         <div>
-            <div class="login-social bw"><button class="btn btn-link" id="login-fb-btn"><img width="70%" src="img/social/fb2.png" alt="Iniciar sesi&oacute;n con Facebook"/></button></div>
+            <div class="login-social bw"><button class="btn btn-link login-fb-btn"><img width="70%" src="img/social/fb2.png" alt="Iniciar sesi&oacute;n con Facebook"/></button></div>
             <div class="login-social bw"><button class="btn btn-link" id="login-li-btn"><img width="70%" src="img/social/li2.png" alt="Iniciar sesi&oacute;n con LinkedIn"/></button></div>
         </div>
     </div>

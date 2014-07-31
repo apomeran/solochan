@@ -655,7 +655,7 @@ window.fbAsyncInit = function() {
     ref.parentNode.insertBefore(js, ref);
 }(document));
 
-$('#columna').on('click', '#login-fb-btn', function() {
+$('#columna').on('click', '.login-fb-btn', function() {
     FBlogin();
 });
 $('#columna').on('click', '#login-li-btn', function() {
@@ -1511,6 +1511,7 @@ $('.container-div').on('click', '.btn-publicar', function(e) {
     e.preventDefault();
     //$('#procesando').modal('show');
     $.address.path('/changuita-nueva'); //ALAN CHANGE - Publish without loggin
+	return;
     $.post('ax/logged.php', {
         bloqueado: 1
     }, function(data) {
@@ -1821,10 +1822,11 @@ $('#denunciar').on('click', '.btn-denunciar-ok', function(e) {
     });
 });
 $('#principal').on('click', '.btn-iniciar-sesion', function() {
-    $('html:not(:animated), body:not(:animated)').animate({
-        scrollTop: 0
-    }, 750);
-    $('#login-usuario').focus();
+	$('#panel-login-register').modal('show');
+    // $('html:not(:animated), body:not(:animated)').animate({
+        // scrollTop: 0
+    // }, 750);
+    // $('#login-usuario').focus();
 });
 $('#principal, #elegir').on('click', '.btn-detalle-calificaciones', function(e) {
     e.preventDefault();

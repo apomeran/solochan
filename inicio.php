@@ -75,78 +75,7 @@ while ($fila = $res->fetch_assoc())
 </div>
 <div class="tabulated-content" style="float:left;">
 	  <div class="busqueda-container"> 
-	  <button class="btn btn-info btn-large btn-search-changuita givemefont" id="search-changuita-button">Buscar una changuita</button>
-		<div id="search-changuita-container" style="display:none">
-			<form name="buscar" id="ini-buscar">
-				<input type="hidden" name="categoria" value="0">
-				<input type="hidden" name="subcategoria" value="0">
-				<input type="hidden" name="localidad" value="0">
-				<input type="hidden" name="barrio" value="0">
-
-				<div class="btn-group">
-					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-categoria">
-						<p><span class="txt ">Eleg&iacute; una Categor&iacute;a</span></p>
-					</a>
-					<div class="dropdown-menu">
-						<div id="drop-categoria">
-							<?php
-							foreach ($categoria as $k => $v) {
-								?>
-								<a data-cat-id="<?php echo $k ?>" href="#"><?php echo $v ?></a>
-								<?php
-							}
-							?>
-							<a href="#" class="sugerir" data-cat-id="-1"><em>&iquest;No encontr&aacute;s lo que busc&aacute;s?</em></a>
-						</div>
-					</div>
-				</div>
-				<div id="ini-div-sugerir" class="hide">
-					<input type="text" name="sugerir" id="ini-sugerir" value="" placeholder="Sugerinos la categor&iacute;a que falta" maxlength="100" />
-					<button class="btn btn-primary" id="btn-sugerir">Sugerir</button>
-					<div class="clearfix"></div>
-				</div>
-				<div class="btn-group">
-					<a class="btn dropdown-toggle disabled" data-toggle="dropdown" href="#" id="btn-drop-subcategoria" disabled>
-						<p><span class="txt">Eleg&iacute; una Subcategor&iacute;a</span></p>
-					</a>
-					<div class="dropdown-menu">
-						<div id="drop-subcategoria">
-						</div>
-					</div>
-				</div>
-				<div class="btn-group">
-					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="btn-drop-localidad">
-						<p class="txt">Eleg&iacute; una Zona</p>
-					</a>
-					<div class="dropdown-menu">
-						<div id="drop-localidad">
-							<?php
-							foreach ($localidad as $k => $v) {
-								?>
-								<a data-loc-id="<?php echo $k ?>" href="#"><?php echo $v ?></a>
-								<?php
-							}
-							?>
-						</div>
-					</div>
-				</div>
-				<div class="btn-group">
-					<a class="btn dropdown-toggle disabled" disabled="disabled" data-toggle="dropdown" href="#" id="btn-drop-barrio">
-						<p class="txt">Eleg&iacute; localidades o barrios</p>
-					</a>
-					<div class="dropdown-menu">
-						<div id="drop-barrio">
-						</div>
-					</div>
-				</div>
-				<div style="visibility:hidden;">
-					<label for="ini-palabras">Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
-					<input type="text" name="palabras" id="ini-palabras" value="" placeholder="Opcional" class="auto-palabras" />
-				</div>
-				<button class="btn btn-large givemefont" style="margin-top:-7px !important;" id="btn-buscar">Buscar una changuita</button>
-			</form>
-		</div>
-		<button class="btn btn-link givemefont" style="font-size:22px;" id="btn-ver-todas">Ver todas las changuitas</button>
+	  <a href="#/changuitas" rel="address:/changuitas" address="true"><button class="btn btn-link givemefont" style="font-size:26px;" id="btn-ver-todas">VER TODAS LAS CHANGUITAS</button></a>
 	</div>
 </div>
 <script>

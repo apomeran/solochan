@@ -13,7 +13,7 @@ class Seguridad {
 		$ahora = time();
 		if(!isset($_SESSION[SesionId]) || $_SESSION[SesionId] == 0) {
 			$ok = 0;
-			$this->error = "<div class='alert alert-error'><p>No tiene autorizaci&oacute;n para acceder a esta p&aacute;gina-1</p></div>";
+			$this->error = "<div class='alert alert-error'><p>No tiene autorizaci&oacute;n para acceder a esta p&aacute;gina</p></div>";
 		}
 		else if($_SESSION[SesionTime] + $this->caducarSesion < $ahora) {
 			$ok = 0;
@@ -21,7 +21,7 @@ class Seguridad {
 		}
 		else if($_SESSION[SesionNivel] < $nivel) {
 			$ok = 0;
-			$this->error = "<div class='alert alert-error'><p>No tiene autorizaci&oacute;n para acceder a esta p&aacute;gina-2</p></div>";
+			$this->error = "<div class='alert alert-error'><p>No tiene autorizaci&oacute;n para acceder a esta p&aacute;gina</p></div>";
 		}
 		if($ok == 0)
 			$this->salir(1);
@@ -29,7 +29,7 @@ class Seguridad {
 	public function salir($errorSalir = 0) {
 		//session_destroy();
 		if($errorSalir == 0)
-			echo "<div class='alert alert-error'><p>No tiene autorizaci&oacute;n para acceder a esta p&aacute;gina-3</p></div>";
+			echo "<div class='alert alert-error'><p>No tiene autorizaci&oacute;n para acceder a esta p&aacute;gina</p></div>";
 		else
 			echo $this->error;
 		exit;

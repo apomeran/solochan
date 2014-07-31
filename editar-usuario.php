@@ -114,12 +114,15 @@ while($fila = $res->fetch_assoc())
 ?>
 
 <div class="tabulated-content">
-
-<h2 class="givemefont">Cuenta</h2>
+   <?php if($id == 0 || $externo == 1) { ?>
+<h2 class="givemefont">Nueva Cuenta</h2>
+<?php }else{ ?>
+<h2 class="givemefont">Editar Perfil</h2>
+<?php } ?>
 <form class="form-horizontal givemefont" id="datos-usuarios">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
-	<p class="legend2">Complet&aacute; esta informaci&oacute;n para luego encontrar las changuitas que necesit&aacute;s con mayor facilidad, sin tener que seleccionar de nuevo, por ejemplo, el barrio en el que te encontr&aacute;s. <br> <br><b>-Cuantos m&aacute;s datos completes, m&aacute;s f&aacute;cil ser&aacute; que encuentres lo que busc&aacute;s-</b></p>
+	<p class="legend2"><b>Cuantos m&aacute;s datos completes, m&aacute;s f&aacute;cil ser&aacute; que encuentres lo que busc&aacute;s</b></p>
 <?php
 $mailClass = "";
 $mailAttr = "";
@@ -131,7 +134,30 @@ if(isset($_SESSION[SesionExterno]) && $_SESSION[SesionExterno] == 1) {
 <?php
 }
 ?>
-	<p class="move-me-left"><b>Datos de la cuenta </b><p>
+    <?php if($id == 0 || $externo == 1) { ?>
+	<div class="a-box-shadow-container" style="margin-left: auto;text-align: center;margin-right: auto;">
+	    <br>
+		<img  width=15% src="img/icons/new_user2.png"> </img>
+		<div  style="font-size: 20px;">Podes registrarte con tus redes sociales en un solo click!</div>
+		<br>
+		<p class="move-me-left" style="font-size: 36px;"><b>Conectate con tu red social favorita  </b><p>
+		 <div class="login">
+			<div>
+				<div class="login-social bw"><button class="btn btn-link login-fb-btn"><img width="70%" src="img/social/fb2.png" alt="Iniciar sesi&oacute;n con Facebook"/></button></div>
+				<div class="login-social bw"><button class="btn btn-link" id="login-li-btn"><img width="70%" src="img/social/li2.png" alt="Iniciar sesi&oacute;n con LinkedIn"/></button></div>
+			</div>
+		 </div>
+		 <br><br><br>
+		 <p class="move-me-left" style="font-size: 20px;font-variant: small-caps;text-decoration: overline;"><b>Sino podes registrarte completando los siguientes datos </b><p>
+		 <br>
+	 </div>
+	 <br><br>
+	<?php
+	}
+	?>
+	
+
+	<p class="move-me-left ch-form-subtitle"><b>Datos de la cuenta </b><p>
 	<div class="control-group">
 		<label class="control-label" for="nombre">* Nombre Completo</label>
 		<div class="controls">
@@ -180,7 +206,7 @@ if(!isset($_SESSION[SesionExterno]) || $_SESSION[SesionExterno] == 0) {
 <?php
 }
 ?>
-	<p class="move-me-left"><b>Datos personales </b><p>
+	<p class="move-me-left ch-form-subtitle"><b>Datos personales </b><p>
 
 	<div class="control-group" style="display:none;">
 		<label class="control-label" for="apellido">* Apellido</label>
@@ -229,7 +255,7 @@ foreach($sexo as $k => $v) {
 			<span class="help-block"></span>
 		</div>
 	</div>
-	<p class="move-me-left"><b>Redes Sociales </b><p>
+	<p class="move-me-left ch-form-subtitle"><b>Redes Sociales </b><p>
 	<div id="social-registry" style="display:none">	
 		<div class="control-group">
 			<label class="control-label" for="perfil_fb">Perfil de Facebook <br /></label>
@@ -281,7 +307,7 @@ foreach($sexo as $k => $v) {
 	  Agregar redes sociales  <a class="ayuda move-me-right" title="De esta manera sera mucho mas facil que te contraten. Nunca vamos a publicar nada en tu nombre"><i class="icon-question-sign"></i></a><span class="help-block"></span>
 	</a>
 </div>	
-<p class="move-me-left"><b>Datos extra</b><p>
+<p class="move-me-left ch-form-subtitle"><b>Datos extra</b><p>
 <div id="extra-registry" style="display:none">	
 	<div class="control-group">
 		<label class="control-label" for="localidad">Provincia/Zona</label>
@@ -466,7 +492,7 @@ foreach($localidad as $k => $v) {
 
 </a>
 </div>
-<p class="move-me-left"><b>Notificaciones</b><p>
+<p class="move-me-left ch-form-subtitle"><b>Notificaciones</b><p>
 	<div class="control-group">
 	
 		<label class="control-label control-label-sin-margen">E-mails con changuitas nuevas<br /><small>Eleg&iacute; cada cu&aacute;nto quer&eacute;s recibir e-mails con las nuevas changuitas publicadas en las categor&iacute;as que elegiste</small></label>
