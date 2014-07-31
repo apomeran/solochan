@@ -84,7 +84,7 @@ else {
 }
 ?>
 <div class="tabulated-content">
-<h2 id="form-changuita-title" class="givemefancy" style="font-size:57px;text-align:center;">Changuita</h2>
+<h2 id="form-changuita-title" class="givemefancy" style="font-size:67px;text-align:center;">Changuita</h2>
 <form class="form-horizontal givemefont givemeback" style="padding: 0px 0px 0px 15px !important" id="editar-changuita">
 	<fieldset>
 	<input type="hidden" name="id" value="<?php echo $id ?>" />
