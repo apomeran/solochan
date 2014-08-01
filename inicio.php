@@ -54,7 +54,7 @@ while ($fila = $res->fetch_assoc())
         <button class="btn btn-info btn-large btn-publicar givemefont" >Public&aacute; una changuita</button>
     </div>
 </div>
-<div class="tabulated-content">
+<div class="tabulated-content" style="margin-top: 6%;">
     <div class="como-funciona-caption">&iquest;C&oacute;mo funciona?</div>
     <div>
 		<div class="arrow-container">
@@ -67,7 +67,7 @@ while ($fila = $res->fetch_assoc())
             </img>
 
         </div>
-        <div class="destacadas-container">
+        <div class="destacadas-container" style=" margin-top: 3%; ">
             <div id="destacadas-inicio" style="display:inline-block; height: 100%; margin-top:-8.5%">
             </div>
         </div>
@@ -75,7 +75,7 @@ while ($fila = $res->fetch_assoc())
 </div>
 <div class="tabulated-content" style="float:left;">
 	  <div class="busqueda-container"> 
-	  <a href="#/changuitas" rel="address:/changuitas" address="true"><button class="btn btn-link givemefont" style="font-size:26px;" id="btn-ver-todas">VER TODAS LAS CHANGUITAS</button></a>
+	  <a href="#/changuitas" rel="address:/changuitas" address="true"><button class="btn btn-link givemefont" style="font-size:28px;" id="btn-ver-todas">VER TODAS LAS CHANGUITAS</button></a>
 	</div>
 </div>
 <script>
