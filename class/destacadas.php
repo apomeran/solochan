@@ -71,8 +71,8 @@ function updateDestSize() {
 }
 
 </script>";
-		$html .= "<span class='inicio-destacadas'>
-		<a class='ayuda' title='Cuando public&aacute;s una changuita, pod&eacute;s contratar el servicio " 
+		$html .= "<span class='inicio-destacadas' style='font-family: Calibri;'>
+		<a class='ayuda' style='color: white; font-size:20px; text-shadow: 2px 2px #000000; font-weight: bold;' title='Cuando public&aacute;s una changuita, pod&eacute;s contratar el servicio " 
 		. strtoupper($titPlan) . " para que aparezca ac&aacute;. 
 		Si ya la publicaste, pod&eacute;s editarla y agregarle este servicio.'>
 		

@@ -34,7 +34,7 @@
         <div id="header" class="tabulated-content">
             <div class="logo">
                 <a href="#/inicio" rel="address:/" class="bw">
-                    <img width=55% src="img/logo2.png" alt="SoloChanguitas" />
+                    <img width=45% src="img/logo2.png" alt="SoloChanguitas" />
                 </a>
             </div>
             <div class="como-f">
