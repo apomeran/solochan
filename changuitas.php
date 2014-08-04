@@ -60,7 +60,7 @@ while($fila = $res->fetch_assoc())
 			<div class="row">
 				<div class="span3">
 					<label>Categor&iacute;a</label>
-					<select name="categoria" id="changuitas-categoria" class="span3">
+					<select class="givemefont" name="categoria" id="changuitas-categoria" class="span3">
 						<option value="0">Todas</option>
 <?php
 foreach($categoria as $k => $v) {
@@ -90,7 +90,7 @@ if($cat == 0) {
 	$subcatAttr = "disabled='disabled'";
 }
 ?>
-					<select name="subcategoria" id="changuitas-subcategoria" class="span3 <?php echo $subcatClass ?>" <?php echo $subcatAttr ?>>
+					<select class="givemefont" name="subcategoria" id="changuitas-subcategoria" class="span3 <?php echo $subcatClass ?>" <?php echo $subcatAttr ?>>
 						<option value="0">--- elegir ---</option>
 <?php
 foreach($subcategoria as $k => $v) {
@@ -106,7 +106,7 @@ foreach($subcategoria as $k => $v) {
 				</div>
 				<div class="span3">
 					<label>Localidad/Zona</label>
-					<select name="localidad" id="changuitas-localidad" class="span3">
+					<select class="givemefont" name="localidad" id="changuitas-localidad" class="span3">
 						<option value="0">Todas</option>
 <?php
 foreach($localidad as $k => $v) {
@@ -138,16 +138,16 @@ if($loc == 0) {
 						</a>
 						<div class="dropdown-menu">
 							<fieldset id="changuitas-barrio">
-							<button class="btn btn-link" id="btn-changuitas-barrios-todos">Todos</button> |
-							<button class="btn btn-link" id="btn-changuitas-barrios-ninguno">Ninguno</button>
-							<button class="btn btn-link">Cerrar</button>
+							<button class="btn btn-link givemefont" id="btn-changuitas-barrios-todos">Todos</button> |
+							<button class="btn btn-link givemefont" id="btn-changuitas-barrios-ninguno">Ninguno</button>
+							<button class="btn btn-link givemefont ">Cerrar</button>
 <?php
 foreach($barrios as $k => $v) {
 	$sel = "";
 	if(in_array($k, $barrio))
 		$sel = "checked = 'checked'";
 ?>
-								<label><input name="barrio[]" type="checkbox" value="<?php echo $k ?>" <?php echo $sel ?> /> <?php echo $v ?></label>
+								<label><input class="givemefont" name="barrio[]" type="checkbox" value="<?php echo $k ?>" <?php echo $sel ?> /> <?php echo $v ?></label>
 <?php
 }
 ?>
@@ -157,12 +157,12 @@ foreach($barrios as $k => $v) {
 				</div>
 				<div class="span3">
 					<label>Palabras clave <a class="ayuda" title="Pod&eacute;s escribir algunas palabras para afinar la b&uacute;squeda."><i class="icon-question-sign"></i></a></label>
-					<input type="text" name="palabras" id="changuitas-palabras" value="<?php echo $buscar ?>" class="span3 auto-palabras" />
+					<input type="text" class="givemefont" name="palabras" id="changuitas-palabras" value="<?php echo $buscar ?>" class="span3 auto-palabras" />
 				</div>
 				<div class="span3 center">
 					<label>&nbsp;</label>
 					<button class="btn btn-info givemefont" id="btn-buscar-changuitas">Buscar</button>
-					<button class="btn btn-link givemefont" id="btn-changuitas-todas">Ver todas las changuitas</button>
+					<button class="btn btn-link givemefont" style="color: black;" id="btn-changuitas-todas">Ver todas las changuitas</button>
 				</div>
 			</div>
 			</form>

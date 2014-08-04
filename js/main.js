@@ -942,6 +942,11 @@ $('#principal').on('change', '#localidad', function() {
  }
  });
  */
+ 
+ 
+$('#principal').on('click', '#video-launcher', function(e) {
+        $('#video-como-funciona').modal('show');
+});
 $('#principal').on('click', '#notificacionesTodas', function(e) {
     e.preventDefault();
     $(' .notificacionesCheck').attr('checked', 'checked');

@@ -46,7 +46,7 @@ while ($fila = $res->fetch_assoc())
 // 	}
 // }
 ?>
-<div class="tabulated-content">
+<div class="tabulated-content" style="margin-bottom: 2.5% !important">
     <div class="home-caption">
         <span class="highlight">Conectate</span> con alguien que te pueda <span class="highlight">ayudar</span> en tus tareas m&aacute;s simples o complicadas <span class="highlight">GRATIS!</span>.. 
     </div>
@@ -54,7 +54,7 @@ while ($fila = $res->fetch_assoc())
         <button class="btn btn-info btn-large btn-publicar givemefont" >Public&aacute; una changuita</button>
     </div>
 </div>
-<div class="tabulated-content" style="margin-top: 6%;">
+<div class="tabulated-content" style="margin-top: 4%;">
     <div class="como-funciona-caption">&iquest;C&oacute;mo funciona?</div>
     <div>
 		<div class="arrow-container">
@@ -73,10 +73,11 @@ while ($fila = $res->fetch_assoc())
         </div>
     </div>
 </div>
-<div class="tabulated-content" style="float:left;">
+<div class="tabulated-content" style="float:left; margin-top: -1.5% !important;margin-bottom: 2.5% !important">
 	  <div class="busqueda-container"> 
-	  <a href="#/changuitas" rel="address:/changuitas" address="true"><button class="btn btn-link givemefont" style="font-size:28px;" id="btn-ver-todas">VER TODAS LAS CHANGUITAS</button></a>
-	</div>
+	  <a href="#/changuitas" rel="address:/changuitas" address="true"><button class="btn btn-link givemefont" style="font-size:25px;" id="btn-ver-todas">VER TODAS LAS CHANGUITAS</button></a>
+	  <a id="video-launcher"><button class="btn btn-link givemefont" style="margin-left: 50px; font-size:25px; color:black;" >VER VIDEO</button></a>
+	  </div>
 </div>
 <script>
     $(document).ready(function() {

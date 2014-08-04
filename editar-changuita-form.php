@@ -161,6 +161,6 @@ foreach($plan as $k => $v) {
 </div>
 <p><strong>Importante</strong>: si elegiste un plan pago y todav&iacute;a no pagaste la publicaci&oacute;n de esta changuita o si cambi&aacute;s de plan, al hacer click en el bot&oacute;n <em>Aceptar</em> te vamos a mostrar las opciones de pago. Si no complet&aacute;s el proceso de pago, la changuita se publicar&aacute; igual con el nuevo plan y el monto a pagar se te computar&aacute; como deuda.</p>
 <div class="form-actions">
-	<button class="btn btn-success btn-large" id="boton-submit">Aceptar</button>
+	<button class="btn btn-success btn-large givemefont" id="boton-submit">Aceptar</button>
 	<span class="help-inline text-error" id="validar"></span>
 </div>

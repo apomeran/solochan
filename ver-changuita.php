@@ -64,23 +64,23 @@ if($fila["estado"] == 0) {
 		$postulados = "Ya se postul&oacute; <strong>1</strong> usuario.";
 	else
 		$postulados = "Ya se postularon <strong>$nPostulantes</strong> usuarios.";
-	$botPost = "<button class='btn btn-block btn-success btn-large btn-postular' data-changuita='".$fila["id"]."'>Postularme<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button>";
+	$botPost = "<button class='btn btn-block btn-success btn-large btn-postular givemefont' data-changuita='".$fila["id"]."'>Postularme<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button>";
 	if(isset($_SESSION[SesionId])) {
 		if($propia == 1 && $vencida == 0) {
 			if($nPostulantes > 0)
-				$botPost = "<button class='btn btn-warning btn-elegir' data-changuita-id='".$fila["id"]."'>Ver todos los postulantes</button>";
+				$botPost = "<button class='btn btn-warning btn-elegir givemefont' data-changuita-id='".$fila["id"]."'>Ver todos los postulantes</button>";
 			else
-				$botPost = "<button class='btn btn-warning btn-elegir disabled' disabled>Ver todos los postulantes</button>";
-			$botPost .= "<br/><a class='btn btn-block btn-primary btn-editar' href='#/editar-changuita|".$fila["id"]."' rel='address:/editar-changuita|".$fila["id"]."'>Editar changuita</a>";
+				$botPost = "<button class='btn btn-warning btn-elegir disabled givemefont' disabled>Ver todos los postulantes</button>";
+			$botPost .= "<br/><a class='btn btn-block btn-primary btn-editar givemefont' href='#/editar-changuita|".$fila["id"]."' rel='address:/editar-changuita|".$fila["id"]."'>Editar changuita</a>";
 		}
 		else if($vencida == 0) {
 			$sql = "select id from postulaciones where changuita = $id and usuario = ".$_SESSION[SesionId];
 			$res = $bd->query($sql);
 			if($res->num_rows == 1)
-				$botPost = "<button class='btn btn-block btn-warning btn-large disabled' disabled>Ya est&aacute;s postulado</button><p class='center'><button class='btn-link btn-anular-postulacion' data-changuita-id='".$fila["id"]."'>Anular postulaci&oacute;n<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button></p>";
+				$botPost = "<button class='btn btn-block btn-warning btn-large disabled givemefont' disabled>Ya est&aacute;s postulado</button><p class='center'><button class='btn-link btn-anular-postulacion' data-changuita-id='".$fila["id"]."'>Anular postulaci&oacute;n<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button></p>";
 		}
 		else {
-			$botPost = "<div class='alert alert-error'><h4>Changuita vencida</h4></div>";
+			$botPost = "<div class='alert alert-error givemefont'><h4>Changuita vencida</h4></div>";
 			$postulados = "";
 		}
 	}
@@ -197,7 +197,7 @@ $nPr = $resPr->num_rows;
 // denunciar
 $denunciarCh = "";
 if($fila["estado"] == 0 && $propia == 0)
-	$denunciarCh = "<p class='denunciar-ch '><button class='btn-link btn-denunciar-changuita' data-changuita-id='".$fila["id"]."'>Denunciar changuita</button> <a class='ayuda' title='Si te parece que la changuita ofrecida es inadecuada, ofensiva, discriminatoria y/o consider&aacute;s que deber&iacute;a ser eliminada, pod&eacute;s denunciarla. Nuestro equipo la evaluar&aacute; y tomar&aacute; las medidas que correspondan.'><i class='icon-question-sign'></i></a></p>";
+	$denunciarCh = "<p class='denunciar-ch '><button class='btn-link btn-denunciar-changuita givemefont' data-changuita-id='".$fila["id"]."'>Denunciar changuita</button> <a class='ayuda' title='Si te parece que la changuita ofrecida es inadecuada, ofensiva, discriminatoria y/o consider&aacute;s que deber&iacute;a ser eliminada, pod&eacute;s denunciarla. Nuestro equipo la evaluar&aacute; y tomar&aacute; las medidas que correspondan.'><i class='icon-question-sign'></i></a></p>";
 if($statusPago > -1) {
 	$classPago = "alert-";
 	$txtPago = "";
@@ -345,7 +345,7 @@ else if($fila["estado"] == 0 && !isset($_SESSION[SesionId]) && $vencida == 0) {
 		</p>
 		
 		<?php if($propia == 1){
-			$datos_propios = "<p class='center'>Tu changuita fue publicada el ".$f->convertirMuestra($fila["fecha"], "fecha")."<br /> (hace ".$f->convertirMuestra($fila["fecha"], "hace").")</p>";
+			$datos_propios = "<p class='center a-box-shadow-container'>Tu changuita fue publicada el ".$f->convertirMuestra($fila["fecha"], "fecha")."<br /> (hace ".$f->convertirMuestra($fila["fecha"], "hace").")</p>";
 		//	$datos_propios .= "<div class='datos-usuario'><h4 class='center'>Datos del usuario</h4></div>";
 			echo $datos_propios;
 		}else{

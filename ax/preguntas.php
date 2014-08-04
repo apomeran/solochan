@@ -47,7 +47,7 @@ else {
 			$respuesta = $fila["respuesta"]."<br/><span>".$f->convertirMuestra($fila["respuesta_fecha"], "fecha")."</span>";
 		else if($fila["estado"] == 0 && $fila["vencida"] == 0)
 			$respuesta = "<em>Todav&iacute;a no hay respuesta</em>";
-		$data["html"] .= "<tr class='$classFila'><td>".$fila["pregunta"]."<br/><span><strong>".$fila["nombre"]." ".substr($fila["apellido"], 0, 1).".</strong> (".$f->convertirMuestra($fila["pregunta_fecha"], "fecha").")</span></td><td>$respuesta</td><td><h6>".$fila["categoria"]." &gt; ".$fila["subcategoria"]."</h6><p class='ch'>".$fila["titulo"]."</p></td><td class='botones'><button class='btn btn-block btn-$classBot btn-vista-ver' data-changuita-id='".$fila["changuita"]."'>$txtBot</button></td></tr>";
+		$data["html"] .= "<tr class='$classFila'><td>".$fila["pregunta"]."<br/><span><strong>".$fila["nombre"]." ".substr($fila["apellido"], 0, 1).".</strong> (".$f->convertirMuestra($fila["pregunta_fecha"], "fecha").")</span></td><td>$respuesta</td><td><h6>".$fila["categoria"]." &gt; ".$fila["subcategoria"]."</h6><p class='ch'>".$fila["titulo"]."</p></td><td class='botones'><button class='btn btn-block btn-$classBot btn-vista-ver givemefont' data-changuita-id='".$fila["changuita"]."'>$txtBot</button></td></tr>";
 	}
 }
 $data["html"] .= "</tbody></table>";

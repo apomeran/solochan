@@ -204,8 +204,8 @@ foreach($limit as $k => $v) {
         <div id="modal-data-pagar"></div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-pagar-ok">Aceptar</button>
-        <button type="button" class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+        <button type="button" class="btn btn-success btn-pagar-ok givemefont">Aceptar</button>
+        <button type="button" class="btn btn-warning givemefont" data-dismiss="modal" aria-hidden="true">Cerrar</button>
     </div>
 </div>
 <?php

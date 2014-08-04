@@ -46,7 +46,7 @@ if($buscar != "") {
 	if(count($filtroPalabras) > 0)
 		$filtros[] = "(".implode(" or ", $filtroPalabras).")";
 }
-$data["html"] = "<div class='resultados-tit'><h4 class='inicio-destacadas' style='padding: 5px 0px 5px 4px'>Resultados de la b&uacute;squeda</h4>";
+$data["html"] = "<div class='resultados-tit'><h4 class='givemefont' style='padding: 5px 0px 5px 4px'>Resultados de la b&uacute;squeda</h4>";
 $opOrden = array("Destacadas", "M&aacute;s reciente", "M&aacute;s antigua", "Mayor precio", "Menor precio");
 $orden = 0;
 if(isset($_POST["orden"]))
@@ -82,7 +82,7 @@ $res = $bd->query($sql);
 if($res->num_rows == 0)
 	$data["html"] .= "<p class='no'>No hay resultados. Prob&aacute; con otra b&uacute;squeda.</p>";
 else {
-	$data["html"] .= "<div class='resultados-filtro'>Ordenar por <select name='orden' id='orden'>";
+	$data["html"] .= "<div class='resultados-filtro givemefont'>Ordenar por <select class='givemefont' name='orden' id='orden'>";
 	foreach($opOrden as $k => $v) {
 		$sel = "";
 		if($k == $orden)
@@ -101,7 +101,7 @@ else {
 	$res = $bd->query($sql);
 	while($fila = $res->fetch_assoc()) {
 		$chClass = "";
-		$botPostular = "<button class='btn btn-primary btn-postular'>Postularme</button>";
+		$botPostular = "<button class='btn btn-primary btn-postular givemefont'>Postularme</button>";
 		if(isset($_SESSION[SesionId])) {
 			if($_SESSION[SesionId] == $fila["usuario"]) {
 				$botPostular = "";

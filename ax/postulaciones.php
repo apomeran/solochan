@@ -59,7 +59,7 @@ else {
 		$ayuda = "";
 		if($estadoDesc != "")
 			$ayuda = "<a class='ayuda' title='$estadoDesc'><i class='icon-question-sign'></i></a>";
-		$data["html"] .= "<tr class='$classFila'><td>".$f->convertirMuestra($fila["fecha"], "fecha")."</td><td>$estado $ayuda</td><td><h6>".$fila["categoria"]." &gt; ".$fila["subcategoria"]."</h6><p class='ch'>".$fila["titulo"]."</p></td><td class='botones'><button class='btn btn-block btn-success btn-vista-ver' data-changuita-id='".$fila["changuita"]."'>Ver changuita</button>$botAnular</td></tr>";
+		$data["html"] .= "<tr class='$classFila'><td>".$f->convertirMuestra($fila["fecha"], "fecha")."</td><td>$estado $ayuda</td><td><h6>".$fila["categoria"]." &gt; ".$fila["subcategoria"]."</h6><p class='ch'>".$fila["titulo"]."</p></td><td class='botones'><button class='btn btn-block btn-success btn-vista-ver givemefont' data-changuita-id='".$fila["changuita"]."'>Ver changuita</button>$botAnular</td></tr>";
 	}
 }
 $data["html"] .= "</tbody></table>";

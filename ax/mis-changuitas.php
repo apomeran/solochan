@@ -47,14 +47,14 @@ else {
         $botElegir = "";
         $botFin = "";
         $botBorrar = "";
-        $botVer = "<button class='btn btn-block btn-success btn-vista-ver' data-changuita-id='" . $fila["id"] . "'>Ver changuita</button>";
+        $botVer = "<button class='btn btn-block btn-success btn-vista-ver givemefont' data-changuita-id='" . $fila["id"] . "'>Ver changuita</button>";
         switch ($fila["estado"]) {
             case 0:
                 $estado = "Pendiente";
                 $estadoDesc = "Todav&iacute;a no eligiste ning&uacute;n postulante para que haga la changuita.";
                 if ($nPostulantes > 0)
-                    $botElegir = "<button class='btn btn-block btn-warning btn-elegir' data-changuita-id='" . $fila["id"] . "'>Ver todos los postulantes<div class='cargando hide'><img src='img/cargando.gif' alt='cargando'/></div></button>";
-                $botBorrar = "<button class='btn btn-block btn-danger btn-borrar-ch' data-changuita-id='" . $fila["id"] . "'>Borrar changuita<div class='cargando hide'><img src='img/cargando.gif' alt='cargando'/></div></button>";
+                    $botElegir = "<button class='btn btn-block btn-warning btn-elegir givemefont' data-changuita-id='" . $fila["id"] . "'>Ver todos los postulantes<div class='cargando hide'><img src='img/cargando.gif' alt='cargando'/></div></button>";
+                $botBorrar = "<button class='btn btn-block btn-danger btn-borrar-ch givemefont' data-changuita-id='" . $fila["id"] . "'>Borrar changuita<div class='cargando hide'><img src='img/cargando.gif' alt='cargando'/></div></button>";
                 if ($fila["vencida"] == "1") {
                     $botBorrar = "";
                     $botElegir = "";
@@ -65,7 +65,7 @@ else {
             case 1:
                 $estado = "Changuita en curso";
                 $classFila = "info";
-                $botFin = "<button class='btn btn-block btn-primary btn-finalizar-y-calificar' data-changuita-id='" . $fila["id"] . "'>Finalizar changuita y calificar al usuario<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button>";
+                $botFin = "<button class='btn btn-block btn-primary btn-finalizar-y-calificar givemefont' data-changuita-id='" . $fila["id"] . "'>Finalizar changuita y calificar al usuario<div class='cargando hide'><img src='img/cargando2.gif' alt='cargando'/></div></button>";
                 break;
             case 2:
             case 3:

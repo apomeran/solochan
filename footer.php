@@ -90,6 +90,24 @@
     </div>
 </div>
 
+<div id="video-como-funciona" class="modal hide fade" tabindex="-1">
+    <div class="modal-header">
+        <h3 style="color: #32B96E !important">SoloChanguitas</h3>
+    </div>
+    <div class="modal-body">
+        <video width="480" height="380" controls>
+		  <source src="movie.mp4" type="video/mp4">
+		  <source src="movie.ogg" type="video/ogg">
+		  <object data="movie.mp4" width="320" height="240">
+			<embed src="movie.swf" width="320" height="240">
+		  </object> 
+		</video>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-link" data-dismiss="modal">Cerrar</button>
+    </div>
+</div>
+
 <div id="denunciar" class="modal hide fade" data-focus-on="textarea:first" tabindex="-1">
     <div class="modal-header">
         <h3>Denunciar</h3>
@@ -102,7 +120,7 @@
         <button class="btn btn-warning btn-denunciar-ok" data-dismiss="modal">DENUNCIAR</button> &nbsp; &nbsp; <button class="btn btn-link" data-dismiss="modal">Cancelar</button>
     </div>
 </div>
-<div id="calificar" class="modal hide fade" tabindex="-1">
+<div id="calificar" class="modal hide fade" tabindex="-1" style="margin-top: -4.5% !important;">
     <div class="modal-header">
         <h3>Calificar</h3>
     </div>

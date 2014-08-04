@@ -38,7 +38,7 @@ else {
 				"titulo"		=>$fila["titulo"],
 				"changuita"		=>$fila["id"],
 				"classFila"		=>"error",
-				"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver' data-changuita-id='".$fila["id"]."'>Ver changuita</button><button class='btn btn-block btn-warning btn-calificar' data-changuita-id='".$fila["id"]."'>Calificar</button>"
+				"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver givemefont' data-changuita-id='".$fila["id"]."'>Ver changuita</button><button class='btn btn-block btn-warning btn-calificar givemefont' data-changuita-id='".$fila["id"]."'>Calificar</button>"
 			);
 		}
 		else {
@@ -65,7 +65,7 @@ else {
 						"titulo"		=>$fila["titulo"],
 						"changuita"		=>$fila["id"],
 						"classFila"		=>"warning",
-						"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver' data-changuita-id='".$fila["id"]."'>Ver changuita</button>"
+						"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver givemefont' data-changuita-id='".$fila["id"]."'>Ver changuita</button>"
 					);
 				}
 				else {
@@ -81,7 +81,7 @@ else {
 						"titulo"		=>$fila["titulo"],
 						"changuita"		=>$fila["id"],
 						"classFila"		=>"info",
-						"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver' data-changuita-id='".$fila["id"]."'>Ver changuita</button>"
+						"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver givemefont' data-changuita-id='".$fila["id"]."'>Ver changuita</button>"
 					);
 				}
 			}
@@ -97,7 +97,7 @@ else {
 					"titulo"		=>$fila["titulo"],
 					"changuita"		=>$fila["id"],
 					"classFila"		=>"error",
-					"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver' data-changuita-id='".$fila["id"]."'>Ver changuita</button><button class='btn btn-block btn-warning btn-calificar' data-changuita-id='".$fila["id"]."'>Calificar</button>"
+					"bot"			=>"<button class='btn btn-block btn-success btn-vista-ver givemefont' data-changuita-id='".$fila["id"]."'>Ver changuita</button><button class='btn btn-block btn-warning btn-calificar givemefont' data-changuita-id='".$fila["id"]."'>Calificar</button>"
 				);
 			}
 		}
