@@ -414,6 +414,7 @@ var liLoginN = 0;
 
 function LIok(n) {
     if (n > 1) {
+		 $('#panel-login-register').modal('hide');
         return;
     }
     $('#cargando').modal('show');
@@ -431,6 +432,7 @@ function LIok(n) {
 
                     $('#cargando').modal('hide');
                     if (data.estado === 'ok') {
+						 $('#panel-login-register').modal('hide');
 						 $('#userPanel').empty();
                          $('#userPanel').load('panel-logged.php', function(){
 							location.reload();
