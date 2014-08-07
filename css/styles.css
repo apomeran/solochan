@@ -432,7 +432,7 @@ h3 small {
 .logo {
     position: absolute;
     left: 15%;
-    top: 0.5%;
+    top: -0.5%;
 }
 span.indicador {
     float:right;
