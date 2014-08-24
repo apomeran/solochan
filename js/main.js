@@ -660,6 +660,12 @@ window.fbAsyncInit = function() {
 $('#columna').on('click', '.login-fb-btn', function() {
     FBlogin();
 });
+$('#principal').on('click', '.login-fb-btn', function() {
+	FBlogin();
+});	
+$('#principal').on('click', '#login-fb-btn', function() {
+	LIlogin();
+});	
 $('#columna').on('click', '#login-li-btn', function() {
     LIlogin();
 });

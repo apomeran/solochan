@@ -95,13 +95,7 @@
         <h3 style="color: #32B96E !important">SoloChanguitas</h3>
     </div>
     <div class="modal-body">
-        <video width="480" height="380" controls>
-		  <source src="movie.mp4" type="video/mp4">
-		  <source src="movie.ogg" type="video/ogg">
-		  <object data="movie.mp4" width="320" height="240">
-			<embed src="movie.swf" width="320" height="240">
-		  </object> 
-		</video>
+        <iframe width="520" height="315" src="//www.youtube.com/embed/6zHW45vtkC0" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="modal-footer">
         <button class="btn btn-link" data-dismiss="modal">Cerrar</button>

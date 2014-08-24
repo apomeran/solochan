@@ -22,6 +22,7 @@ $(function() {
 	$("#subcat_cat_search").autocomplete({
 			source: "search-categorias.php",
 			open: function(event, ui) {
+				
 				$(this).autocomplete("widget").css({
 					"width": 450
 				});
@@ -32,7 +33,10 @@ $(function() {
 					"font-size": "1.1em"
 				});
 			},
-			minLength: 2,
+			 response: function( event, ui ) {	
+				$("#spine").hide("slow");
+			},
+			minLength: 1,
 			select: function(event, ui) {
 				var compound = ui.item.value;
 				var subcat_id =
@@ -45,7 +49,11 @@ $(function() {
 				$("#subcat_cat_search").val(ui.item.label);
 				return false;
 			},
+			search: function( event, ui ) {				
+				$("#spine").show("slow");
+			},
 			change: function(event, ui) {
+
 				if (ui.item == null) {
 					$("#subcat_cat_search").css('border-color', 'red');
 				} else {
@@ -69,6 +77,7 @@ $(function() {
 	<div class="" style="" id="the-question">
 		<div>
 			<input id="subcat_cat_search" type="text" style="margin-left: 25%; width: 50% !important; margin-top:25px; text-align:center; font-weight: bold;  height:18%;" name="changuita" value="" placeholder="Escribilo ac&aacute;"/>
+			<img id="spine" style="display:none;margin-left: 10px;margin-top: 20px;" src="img/cargando2.gif"/>
 			<br>
 			<div style="text-align:center">Si no lo encontr&aacutes,<a title="Ver categorias y subcategorias"  style="font-size: 1.1em" onclick="fade_in_cat_subcat()">
 				   buscalo en nuestras opciones

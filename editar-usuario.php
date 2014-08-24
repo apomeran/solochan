@@ -141,9 +141,9 @@ if(isset($_SESSION[SesionExterno]) && $_SESSION[SesionExterno] == 1) {
 		<div  style="font-size: 20px;">Podes registrarte con tus redes sociales en un solo click!</div>
 		<br>
 		<p class="move-me-left" style="font-size: 36px;"><b>Conectate con tu red social favorita  </b><p>
-		 <div class="login">
+		 <div class="login" >
 			<div>
-				<div class="login-social bw"><button class="btn btn-link login-fb-btn"><img width="70%" src="img/social/fb2.png" alt="Iniciar sesi&oacute;n con Facebook"/></button></div>
+				<div class="login-social bw" id="make-me-login-please"><button class="btn btn-link login-fb-btn"><img width="70%" src="img/social/fb2.png" alt="Iniciar sesi&oacute;n con Facebook"/></button></div>
 				<div class="login-social bw"><button class="btn btn-link" id="login-li-btn"><img width="70%" src="img/social/li2.png" alt="Iniciar sesi&oacute;n con LinkedIn"/></button></div>
 			</div>
 		 </div>

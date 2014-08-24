@@ -1,7 +1,7 @@
 <div class="givemefont tabulated-content a-box-shadow-container" style="padding: 15px 15px 15px 15px">
 
 <h3>Preguntas frecuentes</h3>
-<h4>&iquest;Qu&eacute; es Solochanguitas?</h4>
+<h4>&iquest;Qu&eacute; es SoloChanguitas?</h4>
 <p>SoloChanguitas es una red de servicios que contacta a quienes necesitan contratar personas para trabajos de corta duraci&oacute;n con aquellos que cuentan con las capacidades y el tiempo para realizarlos a trav&eacute;s de un formato m&aacute;s pr&aacute;ctico que el boca en boca.</p>
 <h4>&iquest;Qu&eacute; tipo de trabajos se realizan a trav&eacute;s de SoloChanguitas?</h4>
 <p>Todo tipo de trabajos de corta duraci&oacute;n:<br/>

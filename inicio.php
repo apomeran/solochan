@@ -75,7 +75,7 @@ while ($fila = $res->fetch_assoc())
 </div>
 <div class="tabulated-content" style="float:left; margin-top: -1.5% !important;margin-bottom: 2.5% !important">
 	  <div class="busqueda-container"> 
-	  <a href="#/changuitas" rel="address:/changuitas" address="true"><button class="btn btn-link givemefont" style="font-size:25px;" id="btn-ver-todas">VER TODAS LAS CHANGUITAS</button></a>
+	  <a href="#/changuitas" rel="address:/changuitas" address="true"><button class="btn btn-link givemefont" style="font-size:19px;" id="btn-ver-todas">&iquest;QUERES TRABAJAR? MIRA TODAS LAS CHANGUITAS PUBLICADAS</button></a>
 	  <a id="video-launcher"><button class="btn btn-link givemefont" style="margin-left: 50px; font-size:25px; color:black;" >VER VIDEO</button></a>
 	  </div>
 </div>
