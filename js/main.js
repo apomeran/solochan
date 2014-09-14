@@ -835,11 +835,14 @@ $('#principal').on('click', '#btn-contrasena-nueva', function(e) {
 });
 $('#btn-modal-login').click(function() {
     $('#columna-login').css('border-color', '#FF496F');
-    $('#login-usuario').focus();
+	    // $('#login-usuario').focus();
+    $('#panel-login-register').modal('show');
+
 });
 $('#btn-modal-login-2').click(function() {
     $('#columna-login').css('border-color', '#FF496F');
-    $('#login-usuario').focus();
+	$('#panel-login-register').modal('show');
+    // $('#login-usuario').focus();
 });
 $('#columna-login').click(function() {
     $('#columna-login').css('border-color', '#E3E3E3');
@@ -1234,7 +1237,7 @@ $('#principal').on('click', '#editar-changuita #boton-submit-nueva', function(e)
                     //$('#procesando').modal('hide');
                     if (data2.estado === 'ok') {          //ALAN CHANGE . CHANGUITA PUBLISHED. REGISTERED!
                         $.address.path('/changuita|' + data.id);
-                         $('#userPanel').empty();
+                        $('#userPanel').empty();
 						$('#userPanel').load('panel-logged.php', function(){
 
 						});
